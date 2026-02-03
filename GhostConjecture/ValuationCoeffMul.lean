@@ -1,21 +1,16 @@
-import GhostConjecture.FormalPowerSeries
-import Mathlib.Data.Real.Basic
+import GhostConjecture.Valuation
+import GhostConjecture.FormalPowerSeriesCoeff
 
 namespace GhostConjecture
 
-open scoped BigOperators
+variable {K : Type*} [Field K]
 
 /-- Valuation lower bound on convolution coefficients. -/
-lemma vp_coeff_mul_lower_bound {K : Type*} [Semiring K]
-    (v : K → WithTop ℝ) (F G : K⟦t⟧) (n : ℕ) :
-    v ((PowerSeries.coeff (R := K) n) (F * G)) ≥
-      Finset.inf' (Finset.range (n + 1))
-        (by
-          refine ⟨0, ?_⟩
-          simp)
-        (fun i =>
-          v ((PowerSeries.coeff (R := K) i) F) +
-            v ((PowerSeries.coeff (R := K) (n - i)) G)) := by
+lemma vp_coeff_mul_lower_bound (v : NonarchimedeanValuation K) (F G : K⟦t⟧) (n : ℕ) :
+    v.v (PowerSeries.coeff n (F * G)) ≥
+      (Finset.range (n + 1)).inf'
+        (Finset.nonempty_range_add_one)
+        (fun i => v.v (PowerSeries.coeff i F) + v.v (PowerSeries.coeff (n - i) G)) := by
   sorry
 
 end GhostConjecture

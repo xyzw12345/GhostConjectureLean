@@ -1,13 +1,13 @@
-import Mathlib.Data.Real.Basic
-import Mathlib.RingTheory.PowerSeries.Basic
+import GhostConjecture.Valuation
+import GhostConjecture.FormalPowerSeries
 
 namespace GhostConjecture
 
-/-- Newton points of a power series with respect to a valuation `v`. -/
-def newtonPoints {K : Type*} [Field K] (v : K → WithTop ℝ) (F : PowerSeries K) :
+/--
+Newton points of a formal power series over a non-archimedean valued field.
+-/
+def NewtonPoints {K : Type*} [Field K] (v : NonarchimedeanValuation K) (F : K⟦t⟧) :
     Set (ℕ × WithTop ℝ) :=
-  {p |
-    ∃ n : ℕ,
-      PowerSeries.coeff (R := K) n F ≠ 0 ∧ p = (n, v (PowerSeries.coeff (R := K) n F))}
+  {p | ∃ n : ℕ, p = (n, v.v (PowerSeries.coeff F n)) ∧ PowerSeries.coeff F n ≠ 0}
 
 end GhostConjecture

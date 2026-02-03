@@ -6,6 +6,8 @@
   \label{def:nonarch_valuation}
   
   \uses{}
+  \lean{GhostConjecture.NonarchimedeanValuation}
+  \leanok
   A \emph{non-archimedean valuation} on a field $K$ is a map
   \[
     v : K \to \mathbb{R}\cup\{\infty\}
@@ -25,6 +27,8 @@
   \uses{def:nonarch_valuation}
   \lean{GhostConjecture.vpQp}
   \leanok
+  
+  
   Fix a prime $p$. On $K=\mathbb{Q}_p$, we write $v_p$ for the standard $p$-adic valuation,
   normalized by $v_p(p)=1$ and $v_p(0)=\infty$.
 \end{definition}
@@ -33,6 +37,8 @@
   \label{def:fps_ring}
   
   \uses{}
+  \lean{GhostConjecture.FormalPowerSeriesRing}
+  \leanok
   For a commutative ring $R$, let $R\llbracket t\rrbracket$ denote the ring of formal power series
   \[
     F(t)=\sum_{n\ge 0} a_n t^n,\qquad a_n\in R,
@@ -49,6 +55,8 @@
   \uses{def:fps_ring}
   \lean{GhostConjecture.coeff_mul}
   \leanok
+  
+  
   If $F(t)=\sum_{n\ge 0} f_n t^n$ and $G(t)=\sum_{n\ge 0} g_n t^n$ in $K\llbracket t\rrbracket$, then
   the coefficient of $t^n$ in $FG$ is
   \[
@@ -68,6 +76,8 @@
   \uses{def:nonarch_valuation, lem:coeff_mul}
   \lean{GhostConjecture.vp_coeff_mul_lower_bound}
   \leanok
+  
+  
   Let $(K,v)$ be a non-archimedean valued field and $F,G\in K\llbracket t\rrbracket$.
   Then for all $n\ge 0$,
   \[
@@ -94,6 +104,8 @@
   \uses{}
   \lean{GhostConjecture.minkowskiSum}
   \leanok
+  
+  
   For subsets $A,B\subset \mathbb{R}^2$, define their \emph{Minkowski sum} by
   \[
     A+B := \{a+b \mid a\in A,\ b\in B\}.
@@ -104,8 +116,10 @@
   \label{def:lower_convex_hull}
   
   \uses{}
-  \lean{GhostConjecture.lowerConvexHull}
+  \lean{GhostConjecture.LowerConvexHull}
   \leanok
+  
+  
   Let $S\subset \mathbb{R}^2$.
   The \emph{lower convex hull} $\operatorname{LCH}(S)$ is the intersection of all closed convex sets
   $C\subset\mathbb{R}^2$ such that:
@@ -121,8 +135,10 @@
   \label{lem:lch_minkowski_basic}
   
   \uses{def:minkowski_sum, def:lower_convex_hull}
-  \lean{GhostConjecture.lch_minkowski_basic}
+  \lean{GhostConjecture.minkowskiSum_basic_properties}
   \leanok
+  
+  
   Let $A,B\subset\mathbb{R}^2$.
   \begin{enumerate}
     \item If $A\subset A'$ and $B\subset B'$, then $A+B\subset A'+B'$.
@@ -148,8 +164,10 @@
   \label{def:newton_points}
   
   \uses{def:nonarch_valuation, def:fps_ring}
-  \lean{GhostConjecture.newtonPoints}
+  \lean{GhostConjecture.NewtonPoints}
   \leanok
+  
+  
   Let $(K,v)$ be a non-archimedean valued field and $F(t)=\sum_{n\ge 0} f_n t^n\in K\llbracket t\rrbracket$.
   Define the set of \emph{Newton points} of $F$ by
   \[
@@ -162,8 +180,10 @@
   \label{def:newton_polygon}
   
   \uses{def:newton_points, def:lower_convex_hull}
-  \lean{GhostConjecture.NewtonPolygon.newtonPolygon}
+  \lean{GhostConjecture.NewtonPolygon}
   \leanok
+  
+  
   Let $(K,v)$ be a non-archimedean valued field and $F\in K\llbracket t\rrbracket$.
   The \emph{Newton polygon} of $F$, denoted $\mathrm{NP}(F)$, is the lower convex hull
   \[
@@ -175,6 +195,8 @@
   \label{lem:newton_polygon_zero}
   
   \uses{def:newton_polygon, def:newton_points}
+  \lean{GhostConjecture.newton_polygon_zero}
+  \leanok
   If $F=0$ in $K\llbracket t\rrbracket$, then $\mathcal{P}(F)=\varnothing$ and hence $\mathrm{NP}(F)=\operatorname{LCH}(\varnothing)$.
   In particular, $\mathrm{NP}(0)$ is the minimal closed convex vertically downward closed subset of $\mathbb{R}^2$
   (often taken to be $\varnothing$, depending on the chosen convention for $\operatorname{LCH}(\varnothing)$).
@@ -193,6 +215,8 @@
   \label{lem:newton_polygon_tpow}
   
   \uses{def:newton_polygon, def:newton_points}
+  \lean{GhostConjecture.newtonPolygon_tpow}
+  \leanok
   Let $F\in K\llbracket t\rrbracket$ and $k\in\mathbb{Z}_{\ge 0}$.
   Then
   \[
@@ -212,6 +236,8 @@
   \label{lem:newton_polygon_smul}
   
   \uses{def:nonarch_valuation, def:newton_polygon}
+  \lean{GhostConjecture.newtonPolygon_smul}
+  \leanok
   Let $c\in K$ and $F\in K\llbracket t\rrbracket$.
   If $c\neq 0$ then
   \[
@@ -230,6 +256,8 @@
   \label{lem:newton_polygon_monotone}
   
   \uses{def:newton_polygon, def:newton_points}
+  \lean{GhostConjecture.newtonPolygon_monotone}
+  \leanok
   Let $F(t)=\sum f_n t^n$ and $G(t)=\sum g_n t^n$ in $K\llbracket t\rrbracket$.
   Suppose that for all $n$ with $f_n\neq 0$ and $g_n\neq 0$ we have $v(g_n)\ge v(f_n)$.
   Then $\mathrm{NP}(G)\subseteq \mathrm{NP}(F)$.
@@ -251,8 +279,10 @@
   \label{def:support_function_lower}
   
   \uses{}
-  \lean{GhostConjecture.supportFunctionalLower}
+  \lean{GhostConjecture.supportFunctionLower}
   \leanok
+  
+  
   For $C\subset\mathbb{R}^2$ and $\lambda\in\mathbb{R}$ define
   \[
     h_C(\lambda) := \inf_{(x,y)\in C}\ (y+\lambda x)\ \in\ \mathbb{R}\cup\{-\infty,\infty\}.
@@ -265,8 +295,10 @@
   \label{lem:support_minkowski}
   
   \uses{def:support_function_lower, def:minkowski_sum}
-  \lean{GhostConjecture.supportFunctionalLower_minkowskiSum}
+  \lean{GhostConjecture.supportFunctionLower_minkowskiSum}
   \leanok
+  
+  
   For $A,B\subset\mathbb{R}^2$ and $\lambda\in\mathbb{R}$,
   \[
     h_{A+B}(\lambda)=h_A(\lambda)+h_B(\lambda),
@@ -289,8 +321,10 @@
   \label{def:tropical_weight}
   
   \uses{def:nonarch_valuation, def:fps_ring}
-  \lean{GhostConjecture.NewtonPolygon.tropicalWeight}
+  \lean{GhostConjecture.tropicalWeight}
   \leanok
+  
+  
   Let $(K,v)$ be non-archimedean and $F(t)=\sum_{n\ge 0} f_n t^n\in K\llbracket t\rrbracket$.
   For $\lambda\in\mathbb{R}$ define the \emph{tropical weight}
   \[
@@ -302,6 +336,8 @@
   \label{lem:support_newton_polygon}
   
   \uses{def:newton_polygon, def:support_function_lower, def:tropical_weight}
+  \lean{GhostConjecture.supportFunctionLower_newtonPolygon}
+  \leanok
   For $F\in K\llbracket t\rrbracket$ and $\lambda\in\mathbb{R}$,
   \[
     h_{\mathrm{NP}(F)}(\lambda)\ =\ w_F(\lambda).
@@ -328,6 +364,8 @@
   \label{lem:tropical_weight_mul}
   
   \uses{def:tropical_weight, lem:vp_coeff_mul_lower_bound}
+  \lean{GhostConjecture.tropicalWeight_mul}
+  \leanok
   Let $(K,v)$ be a non-archimedean valued field and $F,G\in K\llbracket t\rrbracket$.
   Then for all $\lambda\in\mathbb{R}$,
   \[
@@ -381,6 +419,8 @@
   \label{thm:newton_polygon_mul}
   
   \uses{def:newton_polygon, def:minkowski_sum, lem:support_newton_polygon, lem:tropical_weight_mul, lem:support_minkowski}
+  \lean{GhostConjecture.NewtonPolygon_mul}
+  \leanok
   Let $(K,v)$ be a non-archimedean valued field and let $F,G\in K\llbracket t\rrbracket$.
   Then, as subsets of $\mathbb{R}^2$,
   \[
