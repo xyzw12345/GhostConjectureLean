@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ghost conjecture</title>
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+ <div class="titlepage">
+<h1>ghost conjecture</h1>
+<p class="authors">
+<span class="author">xl</span>
+</p>
+</div><h1 id="a0000000002">0.1 Preliminaries</h1>
+<h2 id="a0000000003">0.1.1 Non-archimedean valued fields and formal power series</h2>
+<div class="definition_thmwrapper theorem-style-definition" id="def:nonarch_valuation">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">1</span>
+    <span class="definition_thmtitle">Non-archimedean valuation</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:nonarch_valuation">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> A <em>non-archimedean valuation</em> on a field \(K\) is a map </p>
+<div class="displaymath" id="a0000000004">
+  \[  v : K \to \mathbb {R}\cup \{ \infty \}   \]
+</div>
+<p> such that for all \(x,y\in K\): </p>
+<ul class="itemize">
+  <li><p>\(v(0)=\infty \) and \(v(1)=0\); </p>
+</li>
+  <li><p>\(v(xy)=v(x)+v(y)\); </p>
+</li>
+  <li><p>\(v(x+y)\ge \min \{ v(x),v(y)\} \) (ultrametric inequality). </p>
+</li>
+</ul>
+<p> We call \((K,v)\) a <em>non-archimedean valued field</em>. </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:vp_Qp">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">2</span>
+    <span class="definition_thmtitle">\(p\)-adic valuation on \(\mathbb {Q}_p\)</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:vp_Qp">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> Fix a prime \(p\). On \(K=\mathbb {Q}_p\), we write \(v_p\) for the standard \(p\)-adic valuation, normalized by \(v_p(p)=1\) and \(v_p(0)=\infty \). </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:fps_ring">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">3</span>
+    <span class="definition_thmtitle">Formal power series ring</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:fps_ring">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> For a commutative ring \(R\), let \(R\@undefined t\@undefined \) denote the ring of formal power series </p>
+<div class="displaymath" id="a0000000005">
+  \[  F(t)=\sum _{n\ge 0} a_n t^n,\qquad a_n\in R,  \]
+</div>
+<p> with the usual Cauchy product: </p>
+<div class="displaymath" id="a0000000006">
+  \[  (FG)(t)=\sum _{n\ge 0}\Big(\sum _{i=0}^n a_i b_{n-i}\Big)t^n.  \]
+</div>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:coeff_mul">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">4</span>
+    <span class="lemma_thmtitle">Coefficient formula for products</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:coeff_mul">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000007"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:fps_ring">Definition 3</a></li>
+          
+          <li><a href="index.html#def:fps_ring">Definition 3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> If \(F(t)=\sum _{n\ge 0} f_n t^n\) and \(G(t)=\sum _{n\ge 0} g_n t^n\) in \(K\@undefined t\@undefined \), then the coefficient of \(t^n\) in \(FG\) is </p>
+<div class="displaymath" id="a0000000008">
+  \[  (FG)_n = \sum _{i=0}^n f_i g_{n-i}.  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000007">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> This is the definition of Cauchy product in \(K\@undefined t\@undefined \). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:vp_coeff_mul_lower_bound">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5</span>
+    <span class="lemma_thmtitle">Valuation lower bound on convolution coefficients</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:vp_coeff_mul_lower_bound">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000009"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#lem:coeff_mul">Lemma 4</a></li>
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#lem:coeff_mul">Lemma 4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \((K,v)\) be a non-archimedean valued field and \(F,G\in K\@undefined t\@undefined \). Then for all \(n\ge 0\), </p>
+<div class="displaymath" id="a0000000010">
+  \[  v\big((FG)_n\big)\  \ge \  \min _{0\le i\le n}\big(v(f_i)+v(g_{n-i})\big).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000009">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> By ??lem:coeff_mul, \((FG)_n=\sum _{i=0}^n f_i g_{n-i}\). Apply the ultrametric inequality iteratively: </p>
+<div class="displaymath" id="a0000000011">
+  \[  v\Big(\sum _{i=0}^n f_i g_{n-i}\Big)\  \ge \  \min _i v(f_i g_{n-i}) \  =\  \min _i \big(v(f_i)+v(g_{n-i})\big).  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000012">0.1.2 Convex-geometric preliminaries</h2>
+<div class="definition_thmwrapper theorem-style-definition" id="def:minkowski_sum">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">6</span>
+    <span class="definition_thmtitle">Minkowski sum</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:minkowski_sum">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> For subsets \(A,B\subset \mathbb {R}^2\), define their <em>Minkowski sum</em> by </p>
+<div class="displaymath" id="a0000000013">
+  \[  A+B := \{ a+b \mid a\in A,\  b\in B\} .  \]
+</div>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:lower_convex_hull">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">7</span>
+    <span class="definition_thmtitle">Lower convex hull</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:lower_convex_hull">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> Let \(S\subset \mathbb {R}^2\). The <em>lower convex hull</em> \(\operatorname {LCH}(S)\) is the intersection of all closed convex sets \(C\subset \mathbb {R}^2\) such that: </p>
+<ul class="itemize">
+  <li><p>\(S\subset C\); </p>
+</li>
+  <li><p>\(C\) is <em>downward closed in the vertical direction</em>, i.e. if \((x,y)\in C\) and \(y'\ge y\) then \((x,y')\in C\). </p>
+</li>
+</ul>
+<p> Equivalently, \(\operatorname {LCH}(S)\) is the closed convex hull of \(S\) together with all vertical rays \(\{ (x,y')\mid y'\ge y\} \) above points \((x,y)\in S\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:lch_minkowski_basic">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">8</span>
+    <span class="lemma_thmtitle">Basic properties of Minkowski sums and lower hulls</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:lch_minkowski_basic">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000014"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+          <li><a href="index.html#def:lower_convex_hull">Definition 7</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+          <li><a href="index.html#def:lower_convex_hull">Definition 7</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \(A,B\subset \mathbb {R}^2\). </p>
+<ol class="enumerate">
+  <li><p>If \(A\subset A'\) and \(B\subset B'\), then \(A+B\subset A'+B'\). </p>
+</li>
+  <li><p>If \(C,D\) are closed and convex, then \(C+D\) is closed and convex. </p>
+</li>
+  <li><p>If \(C,D\) are vertically downward closed, then \(C+D\) is vertically downward closed. </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000014">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> (1) is immediate from the definition of \(+\). (2) and (3) are standard: convexity and closedness follow from continuity of addition on \(\mathbb {R}^2\) and convexity of preimages; downward closure is preserved because increasing the \(y\)-coordinate in either summand increases the \(y\)-coordinate of the sum. </p>
+
+  </div>
+</div>
+<h1 id="a0000000015">0.2 The Newton Polygon</h1>
+<h2 id="a0000000016">0.2.1 Definition via lower convex hull</h2>
+<div class="definition_thmwrapper theorem-style-definition" id="def:newton_points">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">9</span>
+    <span class="definition_thmtitle">Newton points of a power series</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:newton_points">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#def:fps_ring">Definition 3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> Let \((K,v)\) be a non-archimedean valued field and \(F(t)=\sum _{n\ge 0} f_n t^n\in K\@undefined t\@undefined \). Define the set of <em>Newton points</em> of \(F\) by </p>
+<div class="displaymath" id="a0000000017">
+  \[  \mathcal{P}(F) := \{ (n, v(f_n)) \in \mathbb {R}^2 \mid n\in \mathbb {Z}_{\ge 0},\  f_n\neq 0\} .  \]
+</div>
+<p> (Coefficients \(f_n=0\) are omitted, since \(v(0)=\infty \).) </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:newton_polygon">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">10</span>
+    <span class="definition_thmtitle">Newton polygon</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:newton_polygon">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:lower_convex_hull">Definition 7</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> Let \((K,v)\) be a non-archimedean valued field and \(F\in K\@undefined t\@undefined \). The <em>Newton polygon</em> of \(F\), denoted \(\mathrm{NP}(F)\), is the lower convex hull </p>
+<div class="displaymath" id="a0000000018">
+  \[  \mathrm{NP}(F) := \operatorname {LCH}\big(\mathcal{P}(F)\big)\  \subset \  \mathbb {R}^2.  \]
+</div>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:newton_polygon_zero">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">11</span>
+    <span class="lemma_thmtitle">Newton polygon of the zero series</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:newton_polygon_zero">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000019"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> If \(F=0\) in \(K\@undefined t\@undefined \), then \(\mathcal{P}(F)=\varnothing \) and hence \(\mathrm{NP}(F)=\operatorname {LCH}(\varnothing )\). In particular, \(\mathrm{NP}(0)\) is the minimal closed convex vertically downward closed subset of \(\mathbb {R}^2\) (often taken to be \(\varnothing \), depending on the chosen convention for \(\operatorname {LCH}(\varnothing )\)). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000019">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> Immediate from the definition: all coefficients vanish so there are no Newton points. The second statement is just unpacking \(\operatorname {LCH}\). </p>
+
+  </div>
+</div>
+<h2 id="a0000000020">0.2.2 Basic formal properties</h2>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:newton_polygon_tpow">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">12</span>
+    <span class="lemma_thmtitle">Horizontal shift by multiplication by \(t^k\)</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:newton_polygon_tpow">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000021"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \(F\in K\@undefined t\@undefined \) and \(k\in \mathbb {Z}_{\ge 0}\). Then </p>
+<div class="displaymath" id="a0000000022">
+  \[  \mathrm{NP}(t^k F)=\mathrm{NP}(F) + \{ (k,0)\} .  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000021">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> The coefficients of \(t^kF\) satisfy \((t^kF)_n=f_{n-k}\) for \(n\ge k\) and \(0\) otherwise. Hence \(\mathcal{P}(t^kF)=\mathcal{P}(F)+\{ (k,0)\} \) at the level of point sets. Taking \(\operatorname {LCH}\) and using that translation commutes with convex hull and vertical closure yields the claim. </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:newton_polygon_smul">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">13</span>
+    <span class="lemma_thmtitle">Vertical shift by multiplication by a scalar</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:newton_polygon_smul">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000023"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \(c\in K\) and \(F\in K\@undefined t\@undefined \). If \(c\neq 0\) then </p>
+<div class="displaymath" id="a0000000024">
+  \[  \mathrm{NP}(cF)=\mathrm{NP}(F)+\{ (0,v(c))\} .  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000023">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> For each \(n\), \((cF)_n=c f_n\) so \(v((cF)_n)=v(c)+v(f_n)\) whenever \(f_n\neq 0\). Thus \(\mathcal{P}(cF)=\mathcal{P}(F)+\{ (0,v(c))\} \), and again \(\operatorname {LCH}\) is compatible with translation. </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:newton_polygon_monotone">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">14</span>
+    <span class="lemma_thmtitle">Monotonicity under coefficientwise valuation bounds</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:newton_polygon_monotone">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000025"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:lower_convex_hull">Definition 7</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \(F(t)=\sum f_n t^n\) and \(G(t)=\sum g_n t^n\) in \(K\@undefined t\@undefined \). Suppose that for all \(n\) with \(f_n\neq 0\) and \(g_n\neq 0\) we have \(v(g_n)\ge v(f_n)\). Then \(\mathrm{NP}(G)\subseteq \mathrm{NP}(F)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000025">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> The hypothesis means every Newton point \((n,v(g_n))\) lies on or above \((n,v(f_n))\) at the same \(x\)-coordinate. Since \(\mathrm{NP}(F)\) is vertically downward closed and contains \(\mathcal{P}(F)\), it contains \(\mathcal{P}(G)\). Minimality of \(\operatorname {LCH}\) gives \(\mathrm{NP}(G)=\operatorname {LCH}(\mathcal{P}(G))\subseteq \operatorname {LCH}(\mathcal{P}(F))=\mathrm{NP}(F)\). </p>
+
+  </div>
+</div>
+<h1 id="a0000000026">0.3 The Product Formula</h1>
+<h2 id="a0000000027">0.3.1 Support functions and “tropical norms”</h2>
+<div class="definition_thmwrapper theorem-style-definition" id="def:support_function_lower">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">15</span>
+    <span class="definition_thmtitle">Support functional for lower convex sets</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:support_function_lower">#</a>
+    
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> For \(C\subset \mathbb {R}^2\) and \(\lambda \in \mathbb {R}\) define </p>
+<div class="displaymath" id="a0000000028">
+  \[  h_C(\lambda ) := \inf _{(x,y)\in C}\  (y+\lambda x)\  \in \  \mathbb {R}\cup \{ -\infty ,\infty \} .  \]
+</div>
+<p> When \(C\) is closed, convex, and vertically downward closed, the family \(\{ h_C(\lambda )\} _{\lambda \in \mathbb {R}}\) encodes the lower boundary of \(C\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:support_minkowski">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">16</span>
+    <span class="lemma_thmtitle">Support function of a Minkowski sum</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:support_minkowski">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000029"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:support_function_lower">Definition 15</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+          <li><a href="index.html#def:support_function_lower">Definition 15</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> For \(A,B\subset \mathbb {R}^2\) and \(\lambda \in \mathbb {R}\), </p>
+<div class="displaymath" id="a0000000030">
+  \[  h_{A+B}(\lambda )=h_A(\lambda )+h_B(\lambda ),  \]
+</div>
+<p> with the usual conventions for extended real addition. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000029">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> By definition, </p>
+<div class="displaymath" id="a0000000031">
+  \[  h_{A+B}(\lambda )=\inf _{a\in A,\  b\in B}\big((a_y+b_y)+\lambda (a_x+b_x)\big) =\inf _{a\in A,\  b\in B}\big((a_y+\lambda a_x)+(b_y+\lambda b_x)\big) =h_A(\lambda )+h_B(\lambda ).  \]
+</div>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:tropical_weight">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">17</span>
+    <span class="definition_thmtitle">Tropical weight of a power series</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#def:tropical_weight">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:nonarch_valuation">Definition 1</a></li>
+          
+          <li><a href="index.html#def:fps_ring">Definition 3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  
+<p> Let \((K,v)\) be non-archimedean and \(F(t)=\sum _{n\ge 0} f_n t^n\in K\@undefined t\@undefined \). For \(\lambda \in \mathbb {R}\) define the <em>tropical weight</em> </p>
+<div class="displaymath" id="a0000000032">
+  \[  w_F(\lambda ) := \inf _{n\ge 0}\  \big(v(f_n)+\lambda n\big)\  \in \  \mathbb {R}\cup \{ -\infty ,\infty \} .  \]
+</div>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:support_newton_polygon">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">18</span>
+    <span class="lemma_thmtitle">Support function of the Newton polygon</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:support_newton_polygon">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000033"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:support_function_lower">Definition 15</a></li>
+          
+          <li><a href="index.html#def:tropical_weight">Definition 17</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:newton_points">Definition 9</a></li>
+          
+          <li><a href="index.html#def:lower_convex_hull">Definition 7</a></li>
+          
+          <li><a href="index.html#def:support_function_lower">Definition 15</a></li>
+          
+          <li><a href="index.html#def:tropical_weight">Definition 17</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> For \(F\in K\@undefined t\@undefined \) and \(\lambda \in \mathbb {R}\), </p>
+<div class="displaymath" id="a0000000034">
+  \[  h_{\mathrm{NP}(F)}(\lambda )\  =\  w_F(\lambda ).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000033">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> By definition, \(\mathrm{NP}(F)\) is the smallest closed convex vertically downward closed set containing \(\mathcal{P}(F)\). The functional \((x,y)\mapsto y+\lambda x\) is affine and hence attains its infimum over a closed convex hull at extreme points; vertical downward closure does not change the infimum because increasing \(y\) increases \(y+\lambda x\). Therefore, </p>
+<div class="displaymath" id="a0000000035">
+  \[  h_{\mathrm{NP}(F)}(\lambda )=\inf _{(n,v(f_n))\in \mathcal{P}(F)}\big(v(f_n)+\lambda n\big) =\inf _{n\ge 0}\big(v(f_n)+\lambda n\big)=w_F(\lambda ).  \]
+</div>
+<p> (Here coefficients \(f_n=0\) contribute \(v(f_n)=\infty \) and do not affect the infimum.) </p>
+
+  </div>
+</div>
+<h2 id="a0000000036">0.3.2 Key technical lemma: multiplicativity of tropical weights</h2>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:tropical_weight_mul">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">19</span>
+    <span class="lemma_thmtitle">Tropical weight is multiplicative</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#lem:tropical_weight_mul">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000037"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:tropical_weight">Definition 17</a></li>
+          
+          <li><a href="index.html#lem:vp_coeff_mul_lower_bound">Lemma 5</a></li>
+          
+          <li><a href="index.html#def:tropical_weight">Definition 17</a></li>
+          
+          <li><a href="index.html#lem:vp_coeff_mul_lower_bound">Lemma 5</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<p> Let \((K,v)\) be a non-archimedean valued field and \(F,G\in K\@undefined t\@undefined \). Then for all \(\lambda \in \mathbb {R}\), </p>
+<div class="displaymath" id="a0000000038">
+  \[  w_{FG}(\lambda )\  =\  w_F(\lambda )\  +\  w_G(\lambda ).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000037">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> We split into two inequalities. </p>
+<p><em>(1) \(\ge \) inequality.</em> For each \(n\), </p>
+<div class="displaymath" id="a0000000039">
+  \[  v((FG)_n)\  \ge \  \min _{i}\big(v(f_i)+v(g_{n-i})\big)  \]
+</div>
+<p> by ??lem:vp_coeff_mul_lower_bound. Add \(\lambda n\) and use \(n=i+(n-i)\): </p>
+<div class="displaymath" id="a0000000040">
+  \[  v((FG)_n)+\lambda n\  \ge \  \min _i \big((v(f_i)+\lambda i)+(v(g_{n-i})+\lambda (n-i))\big) \  \ge \  w_F(\lambda )+w_G(\lambda ).  \]
+</div>
+<p> Taking \(\inf _n\) gives \(w_{FG}(\lambda )\ge w_F(\lambda )+w_G(\lambda )\). </p>
+<p><em>(2) \(\le \) inequality.</em> This is the only subtle step for formalization: cancellation in \((FG)_n=\sum _i f_i g_{n-i}\) can raise valuations. To obtain equality at the level of the <em>infimum over all \(n\)</em>, one uses a Gauss-type non-archimedean seminorm: set \(\| \sum a_n t^n\| _\lambda := \sup _n \exp (-(v(a_n)+\lambda n))\) (equivalently, \(w_F(\lambda )=-\log \| F\| _\lambda \)). In standard non-archimedean analysis, this seminorm is multiplicative on \(K\@undefined t\@undefined \) (or on the relevant subring where it is finite), so \(\| FG\| _\lambda =\| F\| _\lambda \| G\| _\lambda \), hence \(w_{FG}(\lambda )=w_F(\lambda )+w_G(\lambda )\). </p>
+<p><em>Lean planning note (mathematical content).</em> One can formalize multiplicativity in either of two equivalent ways: </p>
+<ul class="itemize">
+  <li><p>(Norm route) Introduce the seminorm \(\| \cdot \| _\lambda \) as a “Gauss norm at weight \(\lambda \)” and prove \(\| FG\| _\lambda =\| F\| _\lambda \| G\| _\lambda \) using the ultrametric inequality and the fact that \(\sup \) is compatible with Cauchy products in the non-archimedean setting. </p>
+</li>
+  <li><p>(Convex-analytic route) Work with the min-plus convolution </p>
+<div class="displaymath" id="a0000000041">
+  \[  (u\star v)(n)=\inf _{i+j=n}(u(i)+v(j)),\qquad u(n):=v(f_n),\  v(n):=v(g_n),  \]
+</div>
+<p> observe \(v((FG)_n)\ge (u\star v)(n)\), and show that passing to the lower convex envelope (Legendre–Fenchel biconjugate) turns this inequality into an equality of support functions, yielding the desired \(\le \). </p>
+</li>
+</ul>
+<p> Either route gives the required \(\le \) inequality for \(w\). </p>
+
+  </div>
+</div>
+<h2 id="a0000000042">0.3.3 Main theorem: Newton polygon of a product is a Minkowski sum</h2>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:newton_polygon_mul">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">20</span>
+    <span class="theorem_thmtitle">Newton polygon of a product</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#thm:newton_polygon_mul">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000043"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#def:minkowski_sum">Definition 6</a></li>
+          
+          <li><a href="index.html#lem:support_newton_polygon">Lemma 18</a></li>
+          
+          <li><a href="index.html#lem:tropical_weight_mul">Lemma 19</a></li>
+          
+          <li><a href="index.html#lem:support_minkowski">Lemma 16</a></li>
+          
+          <li><a href="index.html#def:support_function_lower">Definition 15</a></li>
+          
+          <li><a href="index.html#lem:support_newton_polygon">Lemma 18</a></li>
+          
+          <li><a href="index.html#lem:tropical_weight_mul">Lemma 19</a></li>
+          
+          <li><a href="index.html#lem:support_minkowski">Lemma 16</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  
+<p> Let \((K,v)\) be a non-archimedean valued field and let \(F,G\in K\@undefined t\@undefined \). Then, as subsets of \(\mathbb {R}^2\), </p>
+<div class="displaymath" id="a0000000044">
+  \[  \mathrm{NP}(FG)\  =\  \mathrm{NP}(F)\  +\  \mathrm{NP}(G).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000043">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> Fix \(\lambda \in \mathbb {R}\). Using ??lem:support_newton_polygon and ??lem:tropical_weight_mul, </p>
+<div class="displaymath" id="a0000000045">
+  \[  h_{\mathrm{NP}(FG)}(\lambda )=w_{FG}(\lambda )=w_F(\lambda )+w_G(\lambda ) =h_{\mathrm{NP}(F)}(\lambda )+h_{\mathrm{NP}(G)}(\lambda ).  \]
+</div>
+<p> By ??lem:support_minkowski, the right-hand side equals \(h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda )\). Thus </p>
+<div class="displaymath" id="a0000000046">
+  \[  h_{\mathrm{NP}(FG)}(\lambda )=h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda )\qquad \forall \lambda \in \mathbb {R}.  \]
+</div>
+<p> Finally, in the class of closed convex vertically downward closed subsets of \(\mathbb {R}^2\), equality of all support functionals \(\lambda \mapsto \inf (y+\lambda x)\) implies equality of sets. Hence \(\mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G)\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:newton_polygon_mul_Qp">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">21</span>
+    <span class="theorem_thmtitle">Product formula over \(\mathbb {Q}_p\)</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="index.html#thm:newton_polygon_mul_Qp">#</a>
+    
+    <a class="icon proof" href="index.html#a0000000047"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="index.html#def:vp_Qp">Definition 2</a></li>
+          
+          <li><a href="index.html#def:fps_ring">Definition 3</a></li>
+          
+          <li><a href="index.html#def:newton_polygon">Definition 10</a></li>
+          
+          <li><a href="index.html#thm:newton_polygon_mul">Theorem 20</a></li>
+          
+          <li><a href="index.html#def:vp_Qp">Definition 2</a></li>
+          
+          <li><a href="index.html#thm:newton_polygon_mul">Theorem 20</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  
+<p> <b class="bfseries">Proposition.</b> Let \(F(t) = \sum _{n \geq 0} f_n t^n\) and \(G(t) = \sum _{n \geq 0} g_n t^n\) be two power series in \(\mathbb {Q}_p\@undefined t\@undefined \). Then the Newton polygon of \(F(t)G(t)\) is the Minkowski sum of the Newton polygons of \(F(t)\) and \(G(t)\): </p>
+<div class="displaymath" id="a0000000048">
+  \[  \mathrm{NP}(F(t)G(t))\  =\  \mathrm{NP}(F(t))\  +\  \mathrm{NP}(G(t)).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000047">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p> Apply ??thm:newton_polygon_mul to \((K,v)=(\mathbb {Q}_p,v_p)\). </p>
+
+  </div>
+</div>
+<h2 id="proof:sketch_newton_polygon_mul">0.3.4 Proof sketch for the product theorem (implementation-level roadmap)</h2>
+<div class="proof_wrapper" id="a0000000049">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof sketch (formalization roadmap)
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  
+<p> We outline the steps a proof assistant will follow. </p>
+<p><b class="bfseries">Step 1 (Reduce polygon equality to support functions).</b> Work in the category of closed convex vertically downward closed subsets of \(\mathbb {R}^2\). Prove a “uniqueness” lemma: if \(C,D\) are such sets and \(h_C(\lambda )=h_D(\lambda )\) for all \(\lambda \in \mathbb {R}\), then \(C=D\). (This is a standard separation argument using supporting half-spaces \(\{ (x,y)\mid y+\lambda x\ge h_C(\lambda )\} \).) </p>
+<p><b class="bfseries">Step 2 (Compute support function of \(\mathrm{NP}(F)\)).</b> Show ??lem:support_newton_polygon: </p>
+<div class="displaymath" id="a0000000050">
+  \[  h_{\mathrm{NP}(F)}(\lambda )=\inf _n (v(f_n)+\lambda n)=w_F(\lambda ).  \]
+</div>
+<p> This uses that \(\mathrm{NP}(F)=\operatorname {LCH}(\mathcal{P}(F))\) is the smallest closed convex downward set containing the discrete set of points \(\{ (n,v(f_n))\} \), and that affine functionals take infima on hulls at generating points. </p>
+<p><b class="bfseries">Step 3 (Minkowski sums add support functions).</b> Prove ??lem:support_minkowski: </p>
+<div class="displaymath" id="a0000000051">
+  \[  h_{A+B}(\lambda )=h_A(\lambda )+h_B(\lambda ).  \]
+</div>
+<p> This is an \(\inf \)-distributivity calculation. </p>
+<p><b class="bfseries">Step 4 (Key algebra/analysis: multiplicativity of \(w_F(\lambda )\)).</b> Prove ??lem:tropical_weight_mul: </p>
+<div class="displaymath" id="a0000000052">
+  \[  w_{FG}(\lambda )=w_F(\lambda )+w_G(\lambda ).  \]
+</div>
+<p> Split into: </p>
+<ul class="itemize">
+  <li><p><em>Lower bound:</em> from ??lem:vp_coeff_mul_lower_bound obtain \(v((FG)_n)+\lambda n\ge w_F(\lambda )+w_G(\lambda )\) for each \(n\), hence after taking \(\inf _n\): \(w_{FG}(\lambda )\ge w_F(\lambda )+w_G(\lambda )\). </p>
+</li>
+  <li><p><em>Upper bound:</em> introduce the Gauss-type seminorm \(\| F\| _\lambda := \sup _n \exp (-(v(f_n)+\lambda n))\), so \(w_F(\lambda )=-\log \| F\| _\lambda \). Prove multiplicativity \(\| FG\| _\lambda =\| F\| _\lambda \| G\| _\lambda \). This gives equality of \(w\). </p>
+</li>
+</ul>
+<p><b class="bfseries">Step 5 (Assemble the support-function identity).</b> For each \(\lambda \), </p>
+<div class="displaymath" id="a0000000053">
+  \[  h_{\mathrm{NP}(FG)}(\lambda )=w_{FG}(\lambda )=w_F(\lambda )+w_G(\lambda ) =h_{\mathrm{NP}(F)}(\lambda )+h_{\mathrm{NP}(G)}(\lambda ) =h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda ).  \]
+</div>
+<p><b class="bfseries">Step 6 (Conclude polygon equality).</b> Apply Step 1 to deduce \(\mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G)\). </p>
+<p><b class="bfseries">Step 7 (Specialize to \(\mathbb {Q}_p\)).</b> Use ??def:vp_Qp to obtain the stated proposition over \(\mathbb {Q}_p\@undefined t\@undefined \). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>
