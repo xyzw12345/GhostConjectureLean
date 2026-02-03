@@ -1,0 +1,23 @@
+# Lean build artifacts
+.lake/
+*.olean
+*.ilean
+*.c
+*.o
+
+# Blueprint build artifacts
+blueprint/print/
+blueprint/web/
+blueprint/src/web.paux
+blueprint/src/web.bbl
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# OS files
+.DS_Store
