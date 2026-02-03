@@ -403,63 +403,63 @@
   Apply \Cref{thm:newton_polygon_mul} to $(K,v)=(\mathbb{Q}_p,v_p)$.
 \end{proof}
 
-\subsection{Proof sketch for the product theorem (implementation-level roadmap)}
+% \subsection{Proof sketch for the product theorem (implementation-level roadmap)}
 
-\begin{proof}[Proof sketch (formalization roadmap)]
-  \label{proof:sketch_newton_polygon_mul}
+% \begin{proof}[Proof sketch (formalization roadmap)]
+%   \label{proof:sketch_newton_polygon_mul}
   
-  \uses{def:newton_polygon, def:newton_points, def:lower_convex_hull, def:minkowski_sum,
-        def:support_function_lower, def:tropical_weight,
-        lem:vp_coeff_mul_lower_bound, lem:support_newton_polygon, lem:support_minkowski, lem:tropical_weight_mul}
-  We outline the steps a proof assistant will follow.
+%   \uses{def:newton_polygon, def:newton_points, def:lower_convex_hull, def:minkowski_sum,
+%         def:support_function_lower, def:tropical_weight,
+%         lem:vp_coeff_mul_lower_bound, lem:support_newton_polygon, lem:support_minkowski, lem:tropical_weight_mul}
+%   We outline the steps a proof assistant will follow.
 
-  \textbf{Step 1 (Reduce polygon equality to support functions).}
-  Work in the category of closed convex vertically downward closed subsets of $\mathbb{R}^2$.
-  Prove a “uniqueness” lemma: if $C,D$ are such sets and $h_C(\lambda)=h_D(\lambda)$ for all $\lambda\in\mathbb{R}$,
-  then $C=D$. (This is a standard separation argument using supporting half-spaces
-  $\{(x,y)\mid y+\lambda x\ge h_C(\lambda)\}$.)
+%   \textbf{Step 1 (Reduce polygon equality to support functions).}
+%   Work in the category of closed convex vertically downward closed subsets of $\mathbb{R}^2$.
+%   Prove a “uniqueness” lemma: if $C,D$ are such sets and $h_C(\lambda)=h_D(\lambda)$ for all $\lambda\in\mathbb{R}$,
+%   then $C=D$. (This is a standard separation argument using supporting half-spaces
+%   $\{(x,y)\mid y+\lambda x\ge h_C(\lambda)\}$.)
 
-  \textbf{Step 2 (Compute support function of $\mathrm{NP}(F)$).}
-  Show \Cref{lem:support_newton_polygon}:
-  \[
-    h_{\mathrm{NP}(F)}(\lambda)=\inf_n (v(f_n)+\lambda n)=w_F(\lambda).
-  \]
-  This uses that $\mathrm{NP}(F)=\operatorname{LCH}(\mathcal{P}(F))$ is the smallest closed convex downward set containing
-  the discrete set of points $\{(n,v(f_n))\}$, and that affine functionals take infima on hulls at generating points.
+%   \textbf{Step 2 (Compute support function of $\mathrm{NP}(F)$).}
+%   Show \Cref{lem:support_newton_polygon}:
+%   \[
+%     h_{\mathrm{NP}(F)}(\lambda)=\inf_n (v(f_n)+\lambda n)=w_F(\lambda).
+%   \]
+%   This uses that $\mathrm{NP}(F)=\operatorname{LCH}(\mathcal{P}(F))$ is the smallest closed convex downward set containing
+%   the discrete set of points $\{(n,v(f_n))\}$, and that affine functionals take infima on hulls at generating points.
 
-  \textbf{Step 3 (Minkowski sums add support functions).}
-  Prove \Cref{lem:support_minkowski}:
-  \[
-    h_{A+B}(\lambda)=h_A(\lambda)+h_B(\lambda).
-  \]
-  This is an $\inf$-distributivity calculation.
+%   \textbf{Step 3 (Minkowski sums add support functions).}
+%   Prove \Cref{lem:support_minkowski}:
+%   \[
+%     h_{A+B}(\lambda)=h_A(\lambda)+h_B(\lambda).
+%   \]
+%   This is an $\inf$-distributivity calculation.
 
-  \textbf{Step 4 (Key algebra/analysis: multiplicativity of $w_F(\lambda)$).}
-  Prove \Cref{lem:tropical_weight_mul}:
-  \[
-    w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda).
-  \]
-  Split into:
-  \begin{itemize}
-    \item \emph{Lower bound:} from \Cref{lem:vp_coeff_mul_lower_bound} obtain
-      $v((FG)_n)+\lambda n\ge w_F(\lambda)+w_G(\lambda)$ for each $n$, hence after taking $\inf_n$:
-      $w_{FG}(\lambda)\ge w_F(\lambda)+w_G(\lambda)$.
-    \item \emph{Upper bound:} introduce the Gauss-type seminorm $\|F\|_\lambda := \sup_n \exp(-(v(f_n)+\lambda n))$,
-      so $w_F(\lambda)=-\log\|F\|_\lambda$. Prove multiplicativity $\|FG\|_\lambda=\|F\|_\lambda\|G\|_\lambda$.
-      This gives equality of $w$.
-  \end{itemize}
+%   \textbf{Step 4 (Key algebra/analysis: multiplicativity of $w_F(\lambda)$).}
+%   Prove \Cref{lem:tropical_weight_mul}:
+%   \[
+%     w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda).
+%   \]
+%   Split into:
+%   \begin{itemize}
+%     \item \emph{Lower bound:} from \Cref{lem:vp_coeff_mul_lower_bound} obtain
+%       $v((FG)_n)+\lambda n\ge w_F(\lambda)+w_G(\lambda)$ for each $n$, hence after taking $\inf_n$:
+%       $w_{FG}(\lambda)\ge w_F(\lambda)+w_G(\lambda)$.
+%     \item \emph{Upper bound:} introduce the Gauss-type seminorm $\|F\|_\lambda := \sup_n \exp(-(v(f_n)+\lambda n))$,
+%       so $w_F(\lambda)=-\log\|F\|_\lambda$. Prove multiplicativity $\|FG\|_\lambda=\|F\|_\lambda\|G\|_\lambda$.
+%       This gives equality of $w$.
+%   \end{itemize}
 
-  \textbf{Step 5 (Assemble the support-function identity).}
-  For each $\lambda$,
-  \[
-    h_{\mathrm{NP}(FG)}(\lambda)=w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda)
-    =h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda)
-    =h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda).
-  \]
+%   \textbf{Step 5 (Assemble the support-function identity).}
+%   For each $\lambda$,
+%   \[
+%     h_{\mathrm{NP}(FG)}(\lambda)=w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda)
+%     =h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda)
+%     =h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda).
+%   \]
 
-  \textbf{Step 6 (Conclude polygon equality).}
-  Apply Step 1 to deduce $\mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G)$.
+%   \textbf{Step 6 (Conclude polygon equality).}
+%   Apply Step 1 to deduce $\mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G)$.
 
-  \textbf{Step 7 (Specialize to $\mathbb{Q}_p$).}
-  Use \Cref{def:vp_Qp} to obtain the stated proposition over $\mathbb{Q}_p\llbracket t\rrbracket$.
-\end{proof}
+%   \textbf{Step 7 (Specialize to $\mathbb{Q}_p$).}
+%   Use \Cref{def:vp_Qp} to obtain the stated proposition over $\mathbb{Q}_p\llbracket t\rrbracket$.
+% \end{proof}
