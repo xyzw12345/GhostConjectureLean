@@ -67,6 +67,7 @@
 \begin{proof}
  
   \uses{def:fps_ring}
+  \leanok
   This is the definition of Cauchy product in $K\llbracket t\rrbracket$.
 \end{proof}
 
@@ -239,6 +240,7 @@
 \begin{proof}
  
   \uses{def:newton_polygon, def:newton_points}
+  \leanok
   Immediate from the definition: all coefficients vanish so there are no Newton points.
   The second statement is just unpacking $\operatorname{LCH}$.
 \end{proof}
@@ -261,6 +263,7 @@
 \begin{proof}
  
   \uses{def:newton_polygon, def:newton_points, def:minkowski_sum}
+  \leanok
   The coefficients of $t^kF$ satisfy $(t^kF)_n=f_{n-k}$ for $n\ge k$ and $0$ otherwise.
   Hence $\mathcal{P}(t^kF)=\mathcal{P}(F)+\{(k,0)\}$ at the level of point sets.
   Taking $\operatorname{LCH}$ and using that translation commutes with convex hull and vertical closure yields the claim.
@@ -282,6 +285,7 @@
 \begin{proof}
  
   \uses{def:nonarch_valuation, def:newton_points, def:newton_polygon, def:minkowski_sum}
+  \leanok
   For each $n$, $(cF)_n=c f_n$ so $v((cF)_n)=v(c)+v(f_n)$ whenever $f_n\neq 0$.
   Thus $\mathcal{P}(cF)=\mathcal{P}(F)+\{(0,v(c))\}$, and again $\operatorname{LCH}$ is compatible with translation.
 \end{proof}
@@ -300,6 +304,7 @@
 \begin{proof}
  
   \uses{def:newton_points, def:newton_polygon, def:lower_convex_hull}
+  \leanok
   The hypothesis means every Newton point $(n,v(g_n))$ lies on or above $(n,v(f_n))$ at the same $x$-coordinate.
   Since $\mathrm{NP}(F)$ is vertically downward closed and contains $\mathcal{P}(F)$, it contains $\mathcal{P}(G)$.
   Minimality of $\operatorname{LCH}$ gives $\mathrm{NP}(G)=\operatorname{LCH}(\mathcal{P}(G))\subseteq \operatorname{LCH}(\mathcal{P}(F))=\mathrm{NP}(F)$.
@@ -343,6 +348,7 @@
 \begin{proof}
  
   \uses{def:support_function_lower, def:minkowski_sum}
+  \leanok
   By definition,
   \[
     h_{A+B}(\lambda)=\inf_{a\in A,\ b\in B}\big((a_y+b_y)+\lambda(a_x+b_x)\big)
@@ -549,6 +555,8 @@
   \label{thm:newton_polygon_mul_Qp}
   
   \uses{def:vp_Qp, def:fps_ring, def:newton_polygon, thm:newton_polygon_mul}
+  \lean{GhostConjecture.NewtonPolygon_mul_Qp}
+  \leanok
   \textbf{Proposition.}
   Let $F(t) = \sum_{n \geq 0} f_n t^n$ and $G(t) = \sum_{n \geq 0} g_n t^n$ be two power series in $\mathbb{Q}_p\llbracket t\rrbracket$.
   Then the Newton polygon of $F(t)G(t)$ is the Minkowski sum of the Newton polygons of $F(t)$ and $G(t)$:
@@ -560,6 +568,7 @@
 \begin{proof}
  
   \uses{def:vp_Qp, thm:newton_polygon_mul}
+  \leanok
   Apply \Cref{thm:newton_polygon_mul} to $(K,v)=(\mathbb{Q}_p,v_p)$.
 \end{proof}
 
