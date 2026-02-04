@@ -150,10 +150,44 @@
 \begin{proof}
  
   \uses{def:minkowski_sum, def:lower_convex_hull}
-  (1) is immediate from the definition of $+$.
-  (2) and (3) are standard: convexity and closedness follow from continuity of addition on $\mathbb{R}^2$ and
-  convexity of preimages; downward closure is preserved because increasing the $y$-coordinate in either summand
-  increases the $y$-coordinate of the sum.
+  We prove the three assertions in turn.
+
+  \emph{(1) Monotonicity under inclusion.}
+  Assume $A\subset A'$ and $B\subset B'$, and let $x\in A+B$.
+  By definition of Minkowski sum, there exist $a\in A$ and $b\in B$ such that $x=a+b$.
+  The inclusion hypotheses imply $a\in A'$ and $b\in B'$, hence $x=a+b\in A'+B'$.
+  Since $x$ was arbitrary, we conclude $A+B\subset A'+B'$.
+
+  \emph{(2) Closedness and convexity of sums.}
+  Let $C,D\subset\mathbb{R}^2$ be closed and convex.
+  Convexity is straightforward: if $x_i=c_i+d_i\in C+D$ for $i=1,2$ and $t\in[0,1]$, then
+  \[
+    t x_1+(1-t)x_2 = \big(t c_1+(1-t)c_2\big) + \big(t d_1+(1-t)d_2\big)\in C+D,
+  \]
+  since $C$ and $D$ are convex.
+
+  For closedness, one uses a standard fact from finite-dimensional convex geometry:
+  the image of a closed convex set under a linear map is closed.
+  Indeed, consider the linear addition map
+  \[
+    \alpha : \mathbb{R}^2\times\mathbb{R}^2 \to \mathbb{R}^2,\qquad \alpha(c,d)=c+d.
+  \]
+  The product $C\times D$ is closed and convex in $\mathbb{R}^4$, and $\alpha(C\times D)=C+D$.
+  Since $\alpha$ is linear and we are in finite dimension, $\alpha(C\times D)$ is closed.
+  (Equivalently, one may appeal to the supporting-hyperplane characterization of closed convex sets:
+  $C+D$ is the intersection of the closed half-spaces determined by the support functionals of $C$ and $D$,
+  hence is closed.)
+
+  \emph{(3) Preservation of vertical downward closure.}
+  Assume $C$ and $D$ are vertically downward closed in the sense of \Cref{def:lower_convex_hull}:
+  if $(x,y)\in C$ and $y'\ge y$, then $(x,y')\in C$ (and similarly for $D$).
+  Let $p=(x,y)\in C+D$, so $p=c+d$ with $c=(x_1,y_1)\in C$ and $d=(x_2,y_2)\in D$ and $x=x_1+x_2$, $y=y_1+y_2$.
+  For any $y'\ge y$, set $c':=(x_1,\,y_1+(y'-y))$.
+  Then $c'\in C$ by vertical closure, and
+  \[
+    c' + d = (x_1+x_2,\,y_1+(y'-y)+y_2) = (x,\,y').
+  \]
+  Hence $(x,y')\in C+D$, proving that $C+D$ is vertically downward closed.
 \end{proof}
 
 \section{The Newton Polygon}
@@ -376,41 +410,62 @@
 \begin{proof}
  
   \uses{def:tropical_weight, lem:vp_coeff_mul_lower_bound}
-  We split into two inequalities.
-
-  \emph{(1) $\ge$ inequality.}
-  For each $n$,
+  Fix $\lambda\in\mathbb{R}$, and write
   \[
-    v((FG)_n)\ \ge\ \min_{i}\big(v(f_i)+v(g_{n-i})\big)
+    w_F := w_F(\lambda)=\inf_{i\ge 0}\big(v(f_i)+\lambda i\big),\qquad
+    w_G := w_G(\lambda)=\inf_{j\ge 0}\big(v(g_j)+\lambda j\big).
   \]
-  by \Cref{lem:vp_coeff_mul_lower_bound}. Add $\lambda n$ and use $n=i+(n-i)$:
+  We prove the two inequalities $w_{FG}(\lambda)\ge w_F+w_G$ and $w_{FG}(\lambda)\le w_F+w_G$.
+
+  \emph{(1) The inequality $w_{FG}(\lambda)\ge w_F+w_G$.}
+  For every $n\ge 0$, \Cref{lem:vp_coeff_mul_lower_bound} gives
   \[
-    v((FG)_n)+\lambda n\ \ge\ \min_i \big((v(f_i)+\lambda i)+(v(g_{n-i})+\lambda(n-i))\big)
-    \ \ge\ w_F(\lambda)+w_G(\lambda).
+    v((FG)_n)\ \ge\ \min_{0\le i\le n}\big(v(f_i)+v(g_{n-i})\big).
   \]
-  Taking $\inf_n$ gives $w_{FG}(\lambda)\ge w_F(\lambda)+w_G(\lambda)$.
+  Adding $\lambda n$ and using $n=i+(n-i)$ yields
+  \[
+    v((FG)_n)+\lambda n\ \ge\
+    \min_{0\le i\le n}\Big(\big(v(f_i)+\lambda i\big)+\big(v(g_{n-i})+\lambda(n-i)\big)\Big)
+    \ \ge\ w_F+w_G,
+  \]
+  since $w_F$ and $w_G$ are infima of the corresponding families.
+  Taking the infimum over $n$ gives $w_{FG}(\lambda)\ge w_F+w_G$.
 
-  \emph{(2) $\le$ inequality.}
-  This is the only subtle step for formalization: cancellation in $(FG)_n=\sum_i f_i g_{n-i}$ can raise valuations.
-  To obtain equality at the level of the \emph{infimum over all $n$}, one uses a Gauss-type non-archimedean seminorm:
-  set $\|\sum a_n t^n\|_\lambda := \sup_n \exp(-(v(a_n)+\lambda n))$ (equivalently, $w_F(\lambda)=-\log \|F\|_\lambda$).
-  In standard non-archimedean analysis, this seminorm is multiplicative on $K\llbracket t\rrbracket$ (or on the relevant
-  subring where it is finite), so $\|FG\|_\lambda=\|F\|_\lambda\|G\|_\lambda$, hence $w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda)$.
+  \emph{(2) The inequality $w_{FG}(\lambda)\le w_F+w_G$.}
+  It is convenient to package the expression $w_\bullet(\lambda)$ as a \emph{weighted valuation} on $K\llbracket t\rrbracket$:
+  for a series $H(t)=\sum_{n\ge 0} h_n t^n$, set
+  \[
+    v_\lambda(H)\ :=\ \inf_{n\ge 0}\big(v(h_n)+\lambda n\big)\ \in\ \mathbb{R}\cup\{-\infty,\infty\}.
+  \]
+  By definition, $v_\lambda(F)=w_F$, $v_\lambda(G)=w_G$, and $v_\lambda(FG)=w_{FG}(\lambda)$.
 
-  \emph{Lean planning note (mathematical content).}
-  One can formalize multiplicativity in either of two equivalent ways:
-  \begin{itemize}
-    \item (Norm route) Introduce the seminorm $\|\cdot\|_\lambda$ as a “Gauss norm at weight $\lambda$” and prove
-      $\|FG\|_\lambda=\|F\|_\lambda\|G\|_\lambda$ using the ultrametric inequality and the fact that $\sup$ is compatible
-      with Cauchy products in the non-archimedean setting.
-    \item (Convex-analytic route) Work with the min-plus convolution
-      \[
-        (u\star v)(n)=\inf_{i+j=n}(u(i)+v(j)),\qquad u(n):=v(f_n),\ v(n):=v(g_n),
-      \]
-      observe $v((FG)_n)\ge (u\star v)(n)$, and show that passing to the lower convex envelope
-      (Legendre--Fenchel biconjugate) turns this inequality into an equality of support functions, yielding the desired $\le$.
-  \end{itemize}
-  Either route gives the required $\le$ inequality for $w$.
+  The key point is that $v_\lambda$ is \emph{multiplicative}:
+  \[
+    v_\lambda(FG)=v_\lambda(F)+v_\lambda(G).
+  \]
+  While \Cref{lem:vp_coeff_mul_lower_bound} already gives the inequality $v_\lambda(FG)\ge v_\lambda(F)+v_\lambda(G)$,
+  we still need to show that no cancellation can raise the \emph{infimum over all coefficients} beyond $v_\lambda(F)+v_\lambda(G)$.
+
+  A standard way to rule out cancellation is to pass to the associated graded ring of the filtration defined by $v_\lambda$.
+  Concretely, let
+  \[
+    \mathcal{F}_{\ge r}:=\{H\in K\llbracket t\rrbracket \mid v_\lambda(H)\ge r\}.
+  \]
+  Then $\{\mathcal{F}_{\ge r}\}_r$ is a multiplicative filtration:
+  if $H_1\in\mathcal{F}_{\ge r}$ and $H_2\in\mathcal{F}_{\ge s}$ then $H_1H_2\in\mathcal{F}_{\ge r+s}$,
+  and if $H_1,H_2\in\mathcal{F}_{\ge r}$ then $H_1+H_2\in\mathcal{F}_{\ge r}$ (ultrametric inequality).
+  Write $\operatorname{in}(H)$ for the \emph{initial form} of $H$, i.e.\ the image of $H$ in the graded piece
+  $\mathcal{F}_{\ge v_\lambda(H)}/\mathcal{F}_{> v_\lambda(H)}$.
+  By construction, $\operatorname{in}(H)\neq 0$ whenever $H\neq 0$.
+
+  The multiplicativity of the filtration implies $\operatorname{in}(FG)=\operatorname{in}(F)\operatorname{in}(G)$.
+  Since $K$ is a field and $v$ is a valuation, the associated graded ring is a domain, so the product
+  of two nonzero initial forms is nonzero.
+  Therefore $\operatorname{in}(FG)\neq 0$, which exactly means that the valuation of $FG$ is \emph{equal to the sum}:
+  \[
+    v_\lambda(FG)=v_\lambda(F)+v_\lambda(G).
+  \]
+  Translating back to tropical weights gives $w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda)$, as desired.
 \end{proof}
 
 \subsection{Main theorem: Newton polygon of a product is a Minkowski sum}
@@ -431,20 +486,63 @@
 \begin{proof}
  
   \uses{def:support_function_lower, lem:support_newton_polygon, lem:tropical_weight_mul, lem:support_minkowski}
+  We prove equality of sets by proving equality of their support functionals for all slopes $\lambda$ and then using
+  the standard fact that closed convex vertically downward closed sets are uniquely determined by these support functionals.
+
+  \textbf{Step 1: compute the support functional of $\mathrm{NP}(FG)$.}
   Fix $\lambda\in\mathbb{R}$.
-  Using \Cref{lem:support_newton_polygon} and \Cref{lem:tropical_weight_mul},
+  By \Cref{lem:support_newton_polygon},
   \[
-    h_{\mathrm{NP}(FG)}(\lambda)=w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda)
-    =h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda).
+    h_{\mathrm{NP}(FG)}(\lambda)=w_{FG}(\lambda).
   \]
-  By \Cref{lem:support_minkowski}, the right-hand side equals $h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda)$.
-  Thus
+  By the multiplicativity of tropical weights \Cref{lem:tropical_weight_mul},
   \[
-    h_{\mathrm{NP}(FG)}(\lambda)=h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda)\qquad \forall \lambda\in\mathbb{R}.
+    w_{FG}(\lambda)=w_F(\lambda)+w_G(\lambda).
   \]
-  Finally, in the class of closed convex vertically downward closed subsets of $\mathbb{R}^2$,
-  equality of all support functionals $\lambda\mapsto \inf(y+\lambda x)$ implies equality of sets.
-  Hence $\mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G)$.
+  Applying \Cref{lem:support_newton_polygon} again (now to $F$ and to $G$) gives
+  \[
+    w_F(\lambda)+w_G(\lambda)=h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda).
+  \]
+  Putting these equalities together, we have
+  \[
+    h_{\mathrm{NP}(FG)}(\lambda)=h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda).
+  \]
+
+  \textbf{Step 2: compare with the support functional of the Minkowski sum.}
+  By \Cref{lem:support_minkowski}, support functionals add under Minkowski sum:
+  \[
+    h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda)=h_{\mathrm{NP}(F)}(\lambda)+h_{\mathrm{NP}(G)}(\lambda).
+  \]
+  Combining with Step~1 yields
+  \[
+    h_{\mathrm{NP}(FG)}(\lambda)=h_{\mathrm{NP}(F)+\mathrm{NP}(G)}(\lambda)\qquad \forall\,\lambda\in\mathbb{R}.
+  \]
+
+  \textbf{Step 3: conclude equality of sets from equality of support functionals.}
+  Let $C$ be a closed convex vertically downward closed subset of $\mathbb{R}^2$.
+  By definition of $h_C(\lambda)=\inf_{(x,y)\in C}(y+\lambda x)$, every point $(x,y)\in C$ satisfies the inequality
+  \[
+    y+\lambda x\ \ge\ h_C(\lambda)\qquad \forall\,\lambda\in\mathbb{R}.
+  \]
+  Hence
+  \[
+    C\ \subset\ \bigcap_{\lambda\in\mathbb{R}}\{(x,y)\in\mathbb{R}^2 \mid y+\lambda x\ge h_C(\lambda)\}.
+  \]
+  Conversely, if a point $p\notin C$, then by the separation theorem for closed convex sets in $\mathbb{R}^2$
+  there exists an affine functional of the form $(x,y)\mapsto y+\lambda x$ whose sublevel set strictly separates $p$ from $C$.
+  Equivalently, there exists $\lambda\in\mathbb{R}$ such that $p$ violates the inequality
+  $y+\lambda x\ge h_C(\lambda)$.
+  This shows that
+  \[
+    C\ =\ \bigcap_{\lambda\in\mathbb{R}}\{(x,y)\in\mathbb{R}^2 \mid y+\lambda x\ge h_C(\lambda)\}.
+  \]
+
+  Applying this characterization to $C=\mathrm{NP}(FG)$ and $C=\mathrm{NP}(F)+\mathrm{NP}(G)$ and using that their
+  support functionals agree for all $\lambda$ (Step~2) yields
+  \[
+    \mathrm{NP}(FG)=\mathrm{NP}(F)+\mathrm{NP}(G),
+  \]
+  which is the desired identity of subsets of $\mathbb{R}^2$.
 \end{proof}
 
 \begin{theorem}[Product formula over $\mathbb{Q}_p$]
