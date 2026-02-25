@@ -20,10 +20,40 @@
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=magenta, citecolor=blue]{hyperref}
 \usepackage[nameinlink, capitalise]{cleveref}
 \usepackage{xcolor}
+\usepackage{multirow}
 \usepackage{tikz-cd}
 \usepackage{stmaryrd}
 
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+
+\usepackage{fullpage,multirow, amsmath,amsfonts,stmaryrd, mathrsfs,hhline}
+\usepackage{mathdots}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary[patterns]
+\usetikzlibrary{matrix,decorations.pathreplacing,calc}
+\usepackage{hyperref}
+
+\usepackage[all]{xy}
+
+\tikzset{ 1
+table/.style={
+  matrix of math nodes,
+  row sep=-\pgflinewidth,
+  column sep=-\pgflinewidth,
+  nodes={rectangle,text width=3em,align=center},
+  text depth=1.25ex,
+  text height=2.5ex,
+  nodes in empty cells,
+  left delimiter=[,
+  right delimiter={]},
+  ampersand replacement=\&
+}
+}
+\pgfkeys{tikz/mymatrixenv/.style={decoration=brace,every left delimiter/.style={xshift=3pt},every right delimiter/.style={xshift=-3pt}}}
+\pgfkeys{tikz/mymatrix/.style={matrix of math nodes,left delimiter=[,right delimiter={]},inner sep=2pt,column sep=1em,row sep=0.5em,nodes={inner sep=0pt}}}
+\pgfkeys{tikz/mymatrixbrace/.style={decorate,thick}}
+
 
 \input{macros/common}
 \input{macros/print}
@@ -33,5 +63,11 @@
 
 \begin{document}
 \maketitle
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1.}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+
 \input{content}
 \end{document}

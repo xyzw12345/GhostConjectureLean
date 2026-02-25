@@ -1,0 +1,1245 @@
+\section{Local ghost conjecture: formulation}
+
+\begin{notation}
+    \label{N:GlobalData_a_p_Delta_omega}
+    \begin{enumerate}
+        \item Fix a prime $p$ and an integer $a$ with $1\le a\le p-4$.
+        \item Let $\Delta \cong ({\mathbb{Z}}/p{\mathbb{Z}})^\times$ be the torsion subgroup of
+    ${\mathbb{Z}}_p^\times$, and let $\omega:\Delta\rightarrow {\mathbb{Z}}_p^\times$ be the
+    Teichm\"{u}ller character.
+        \item For an element $\alpha \in {\mathbb{Z}}_p^\times$, we often use $\bar \alpha \in \Delta $ to denote its reduction modulo $p$.
+        \item In particular, the Greek letters $\alpha, \beta, \gamma, \delta$ are reserved for elements in ${\mathbb{Z}}_p$, and $\bar \alpha, \bar \beta, \bar \gamma, \bar \delta$ denote elements in ${\mathbb{F}}_p$.
+    \end{enumerate}
+\end{notation}
+
+\begin{notation}
+    For an integer $x$, we write $\{x\}\in\{0,1,\dots,p-2\}$ for its standard representative modulo $(p-1)$.
+\end{notation}
+
+\begin{definition}
+    \label{D:relevant_varepsilon}
+    \uses{N:GlobalData_a_p_Delta_omega}
+    With the global data of Notation~\ref{N:GlobalData_a_p_Delta_omega}, a \emph{relevant character} of $\Delta^2$ is a character
+    \[
+    \varepsilon=\varepsilon_1\times \varepsilon_2
+    \qquad\text{with}\qquad
+    \varepsilon_1=\omega^{-s_\varepsilon},\ \varepsilon_2=\omega^{a+s_\varepsilon}
+    \]
+    for some integer $s_\varepsilon$, which we always take in the standard range $0\le s_\varepsilon\le p-2$.
+\end{definition}
+
+\begin{definition}
+    Define the integer $k_\varepsilon\in\{2,3,\dots,p\}$ by the congruence
+    \[
+    k_\varepsilon \equiv a+2s_\varepsilon+2 \pmod{p-1}.
+    \]
+\end{definition}
+
+\begin{definition}
+    \label{D:dimension_of_SIw}
+    Let $\varepsilon=\omega^{-s_\varepsilon}\times\omega^{a+s_\varepsilon}$ be a relevant character \ref{D:dimension_of_SIw} and let $k\ge2$.
+    We \emph{define} the (Iwahori) dimension function by
+    \begin{equation}
+    \label{E:dimension_of_SIw}
+    d_{k}^{\mathrm{Iw}}\big(\varepsilon\cdot (1\times \omega^{2-k})\big) = \Big\lfloor \frac{k-2-s_\varepsilon}{p-1}\Big\rfloor + \Big\lfloor \frac{k-2-\{a+s_\varepsilon\}}{p-1}\Big\rfloor +2.
+    \end{equation}
+    We may write this differently as
+    \begin{itemize}
+    \item When $a+s_\varepsilon<p-1$,
+    $$
+    d_{k}^{\mathrm{Iw}}\big(\varepsilon\cdot (1\times \omega^{2-k})\big) = 2\Big\lfloor \frac{k-2-s_\varepsilon}{p-1}\Big\rfloor +1+ \begin{cases}
+    1 & \textrm{ if } \{k-2-s_\varepsilon\} \geq a\\ 0 & \textrm{ otherwise.}
+    \end{cases}
+    $$
+    \item When $a+s_\varepsilon\geq p-1$,
+    $$
+    d_{k}^{\mathrm{Iw}}\big(\varepsilon\cdot (1\times \omega^{2-k})\big) = 2\Big\lfloor \frac{k-2-\{a+s_\varepsilon\}}{p-1}\Big\rfloor +1+ \begin{cases}
+    1 & \textrm{ if } \{k-2-\{a+s_\varepsilon\}\} \geq p-1-a\\ 0 & \textrm{ otherwise.}
+    \end{cases}
+    $$
+    \end{itemize}
+    As a special case of either case, we have
+    \[
+    d_{k+p-1}^{\mathrm{Iw}}\big(\varepsilon\cdot (1\times \omega^{2-k})\big) - d_{k}^{\mathrm{Iw}}\big(\varepsilon\cdot (1\times \omega^{2-k})\big) = 2.
+    \]
+    Asymptotically, we see that $$d_k^{\mathrm{Iw}}\big(\varepsilon\cdot(1 \times \omega^{2-k})\big) = \frac{2k}{p-1} + O(1).$$
+\end{definition}
+
+\begin{notation}
+    \label{N:kbullet}
+    For $\varepsilon$ relevant, we set
+    $$
+    \delta_\varepsilon = \Big\lfloor \frac{s_\varepsilon + \{a+s_\varepsilon\}}{p-1}\Big \rfloor = \begin{cases}
+    0 & \textrm{ if }s_\varepsilon + \{a+s_\varepsilon\} < p-1,\\
+    1 & \textrm{ if }s_\varepsilon + \{a+s_\varepsilon\} \geq p-1.
+    \end{cases}
+    $$
+    We shall often consider the case when $k \equiv k_\varepsilon =2+ \{a+2s_\varepsilon \} \bmod{(p-1)}$ (in which case $\varepsilon\cdot (1\times \omega^{2-k}) = \tilde \varepsilon_1$). In this case, we set $$k = k_\varepsilon + k_\bullet(p-1) \quad \textrm{for }k_\bullet \in {\mathbb{Z}}.$$
+\end{notation}
+
+\begin{notation}
+    \label{N:t_epsilon}
+    \uses{N:kbullet}
+    Using the notation ~\ref{N:kbullet} above, we introduce two integers $t_1=t_1^{(\varepsilon)}$ and $t_2  =t_2^{(\varepsilon)}$ as follows:
+    \begin{itemize}
+    \item when $a+s_\varepsilon<p-1$, $t_1 = s_\varepsilon+\delta_\varepsilon$ and $t_2 = a+s_\varepsilon + \delta_\varepsilon+2$;
+    \item when $a+s_\varepsilon \geq p-1$, $t_1 =  \{a+s_\varepsilon\} + \delta_\varepsilon+1$ and $t_2 = s_\varepsilon +\delta_\varepsilon+ 1$.
+    \end{itemize}
+\end{notation}
+
+\begin{definition}
+    \label{D:dimension_of_Sunr}
+    We have
+    \begin{eqnarray}
+    \label{E:dkunr}
+    d_{k}^{\mathrm{ur}}(\varepsilon_1) &=&
+    \Big\lfloor \frac{k_\bullet - t_1}{p+1}\Big\rfloor + \Big\lfloor \frac{k_\bullet - t_2}{p+1}\Big\rfloor + 2
+    \\ \nonumber &=& 2\Big\lfloor \frac{k_\bullet - t_1}{p+1}\Big\rfloor + 1 +\begin{cases}
+    1 & \textrm{ when }k_\bullet - (p+1) \lfloor \frac{k_\bullet-t_1}{p+1}\rfloor  \geq t_2
+    \\
+    0 & \textrm{ otherwise.}
+    \end{cases}
+    \end{eqnarray}
+    In particular,  $d_{k}^{\mathrm{ur}}(\varepsilon_1)$ is non-decreasing in the class $k \equiv k_\varepsilon \bmod{(p-1)}$, and we have
+    $$d_{k+p^2-1}^{\mathrm{ur}}(\varepsilon_1) - d_{k}^{\mathrm{ur}}(\varepsilon_1) = 2.$$
+    Asymptotically, $d_{k}^{\mathrm{ur}}(\varepsilon_1) = \frac{2k}{p^2-1}+O(1)$.
+\end{definition}
+
+\begin{notation}
+    Let $d_{k}^{\textrm{new}}(\varepsilon_1) = d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)- 2 d_{k}^{\mathrm{ur}}(\tilde \varepsilon_1)$
+        Asymptotically, $d_{k}^{\mathrm{ur}}(\varepsilon_1) = \frac{2k}{p^2-1}+O(1)$ and  $d_k^{\mathrm{new}}(\varepsilon_1) = \frac{2k}{p+1}+O(1)$.
+\end{notation}
+
+\begin{remark}
+    \label{R:delta}
+    An equality frequently used later is
+    \[
+    (p-1)\delta_{\varepsilon}+\{a+2s_{\varepsilon}\}=s_{\varepsilon}+\{a+s_{\varepsilon}\}.
+    \]
+\end{remark}
+
+\begin{corollary}
+    \label{C:dIw_is_even}
+    When $k = k_\varepsilon + k_\bullet (p-1)$, we have
+    $$
+    d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) = 2k_\bullet +2 -2 \delta_\varepsilon.
+    $$
+    In particular,
+    the dimensions $d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)$ and $d_{k}^{\mathrm{new}}(\varepsilon_1)$ are even integers, and asymptotically, $$d_k^{\mathrm{Iw}}(\tilde \varepsilon_1) = \frac{2k}{p-1}+O(1).$$
+\end{corollary}
+
+\begin{proof}
+    \uses{E:dimension_of_SIw}
+    When $k \equiv k_\varepsilon \bmod{(p-1)}$, we have
+    $$\{k-2\} = \{k_\varepsilon-2\} = \{a+2s_\varepsilon\} \equiv s_\varepsilon + \{a+s_\varepsilon\} \bmod{(p-1)}.$$
+    So by \eqref{E:dimension_of_SIw},
+    \begin{itemize}
+    \item when $s_\varepsilon+\{a+s_\varepsilon\}<p-1$, we have $\{k-2\} = s_\varepsilon+\{a+s_\varepsilon\} \geq \max\big( s_\varepsilon, \{a+s_\varepsilon\}\big)$, in which case $d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) = 2 \cdot \big\lfloor \frac{k-2}{p-1}\big\rfloor +2 =2k_\bullet +2$,
+    \item when $s_\varepsilon+\{a+s_\varepsilon\} \geq p-1$, we have $\{k-2\} = s_\varepsilon+\{a+s_\varepsilon\} - p-1< \min\big( s_\varepsilon, \{a+s_\varepsilon\} \big)$, in which case $d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) = 2 \cdot \big\lfloor \frac{k-2}{p-1}\big\rfloor =2 k_\bullet $.
+    \end{itemize}
+    In either case, $d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)$ is an even integer; so $d_{k}^{\textrm{new}}(\varepsilon_1) = d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)- 2 d_{k}^{\mathrm{ur}}(\tilde \varepsilon_1)$ is also an even integer.
+    The asymptotic of $d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)$ is clear.
+\end{proof}
+
+\begin{definition}
+    \label{D:ghost_series}
+    \uses{E:gi_varepsilon}
+    Define
+    $$
+    G^{(\varepsilon)}(w,t)= 1+\sum_{n=1}^\infty g_n^{(\varepsilon)}(w)t^n\in {\mathbb{Z}}_p[w]\llbracket t\rrbracket,
+    $$
+    where each coefficient $g_n^{(\varepsilon)}(w)$ is defined by the product
+    \begin{equation}\label{E:gi_varepsilon}
+    g_n^{(\varepsilon)}(w) = \prod_{\substack{k \geq 2\\ k \equiv k_\varepsilon \bmod{p-1}}} (w - w_k)^{m_n^{(\varepsilon)}(k)} \in {\mathbb{Z}}_p[w],
+    \end{equation}
+    with exponents $m_n^{(\varepsilon)}(k)$ given by the following purely combinatorial recipe
+    \[
+    m_n^{(\varepsilon)}(k) =
+    \begin{cases}
+    \min\big\{\, n - d_{k}^{\mathrm{ur}}( \varepsilon_1) \,,\, d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)- d_{k}^{\mathrm{ur}}(\varepsilon_1) - n \,\big\}
+    & \textrm{if } d_{k}^{\mathrm{ur}}(\varepsilon_1) < n < d_{k}^{\mathrm{Iw}}(\tilde\varepsilon_1) - d_{k}^{\mathrm{ur}}(\varepsilon_1),\\
+    0 & \textrm{otherwise.}
+    \end{cases}
+    \]
+    (In particular, for fixed $n$, only finitely many weights $k$ contribute nontrivially, so \eqref{E:gi_varepsilon} is a finite product.)
+    For a fixed $k$, the sequence $(m_n^{(\varepsilon)}(k))_{n \geq 1}$ is palindromic with the ``cascading pattern''
+    \begin{equation}\label{E:cascading_pattern}
+    \underbrace{0, \dots, 0}_{d_{k}^{{\mathrm{ur}}}(\varepsilon_1)}, 1, 2, 3, \dots, \tfrac12 d_{k}^{\mathrm{new}}(\varepsilon_1) -1, \tfrac12{d_{k}^{\mathrm{new}}(\varepsilon_1)}, \tfrac12{d_{k}^{\mathrm{new}}(\varepsilon_1)} -1,\dots,  3, 2, 1, 0, 0, \dots,
+    \end{equation}
+    where the maximum $\frac 12 d_{k}^{{\mathrm{new}}}(\varepsilon_1)$ appears at the $\frac 12 d_{k}^{{\mathrm{Iw}}}(\tilde\varepsilon_1)$th place.
+\end{definition}
+
+\begin{remark}
+    \label{E:increment_of_multiplicity}
+    \uses{E:cascading_pattern}
+    The pattern \eqref{E:cascading_pattern} implies that for any integer $k \geq 2$ with $k \equiv k_\varepsilon \bmod {(p-1)}$ and for $n\geq 1$ we have
+    \begin{equation}
+    m_{n+1}^{(\varepsilon)}(k) -m_{n}^{(\varepsilon)}(k) =
+    \begin{cases}
+    1 & \textrm{ if }  d_{k}^{\mathrm{ur}}(\varepsilon_1)  \leq n< \frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1),\\
+    -1 & \textrm{ if }\frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) \leq n < d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) - d_{k}^{\mathrm{ur}}(\varepsilon_1),\\
+    0 & \textrm{ otherwise,}
+    \end{cases}
+    \end{equation}
+    and for $n \geq 2$ we have
+    \begin{equation}\label{E:second_order_increment_of_multiplicity}
+    m_{n+1}^{(\varepsilon)}(k) -2m_n^{(\varepsilon)}(k) +m_{n-1}^{(\varepsilon)}(k) =
+    \begin{cases}
+    -2 & \textrm{ if }  n = \frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1),\\
+    1 & \textrm{ if }n =  d_{k}^{\mathrm{ur}}(\varepsilon_1) \textrm{ or } d_{k}^{\mathrm{ur}}(\varepsilon_1)+d_{k}^{{\mathrm{new}}}(\varepsilon_1),\\
+    0 & \textrm{ otherwise.}
+    \end{cases}
+    \end{equation}
+\end{remark}
+
+\begin{notation}
+    \label{N:tnvarepsilon}
+    For $n \in {\mathbb{Z}}$ and $\varepsilon$ a relevant character, we set
+    $\beta_{[n]}^{(\varepsilon)} = \begin{cases}
+    t_1^{(\varepsilon)} & \textrm{if }n \textrm{ is even}
+    \\
+    t_2^{(\varepsilon)}-
+    \tfrac{p+1}2 & \textrm{if }n \textrm{ is odd}
+    \end{cases}$.
+    Since this depends only on the parity of $n$, we often write $\beta_{\mathrm{even}}^{(\varepsilon)}$ and $\beta_{\mathrm{odd}}^{(\varepsilon)}$ for the values.
+\end{notation}
+
+\begin{notation}
+    \label{E:basis_of_Sdagger}
+    For the relevant character $\varepsilon = \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ with $s_\varepsilon \in \{0, \dots, p-2\}$ and for $k$ an integer, the following list is a basis, denoted by ${\mathbf{B}}^{ (\varepsilon)}$ (as it formally does not depend on $k$):
+    \begin{equation}
+    e_1^* z^{s_\varepsilon}, e_1^* z^{p-1+s_\varepsilon},e_1^* z^{2(p-1)+s_\varepsilon}, \dots;\; e_2^* z^{\{a+s_\epsilon\}}, e_2^* z^{p-1+\{a+s_\epsilon\}},e_2^* z^{2(p-1)+\{a+s_\epsilon\}}, \dots.
+    \end{equation}
+    \label{N:power_basis}
+    \begin{enumerate}
+    \item
+    The \emph{degree} of each basis element ${\mathbf{e}}= e_i^*z^j \in {\mathbf{B}}^{ (\varepsilon)}$ is the exponents on $z$, i.e., $\deg (e_i^*z^j) = j$.
+    We order the elements in ${\mathbf{B}}^{(\varepsilon)}$ as ${\mathbf{e}}_1^{(\varepsilon)}, {\mathbf{e}}_2^{(\varepsilon)}, \dots$ with increasing degrees. In particular each ${\mathbf{e}}_\ell^{(\varepsilon)}$ is some $e_i^*z^j$ and $i$ depends only on the parity of $\ell$.
+    Moreover, under our generic assumption $1\leq a \leq p-4$ (indeed $1\leq a \leq p-2$ is already enough), the degrees of elements of ${\mathbf{B}}^{ (\varepsilon)}$ are pairwise distinct.
+    \item
+    Write $ {\mathbf{B}}_{k}^{(\varepsilon)} $ for the subset of elements of ${\mathbf{B}}^{(\varepsilon)}$ with degree less than or equal to $k-2$. When fixing the $k$, elements in ${\mathbf{B}}_k^{(\varepsilon)}$ are often called \emph{classical} and elements in ${\mathbf{B}}^{(\varepsilon)} \backslash {\mathbf{B}}_k^{(\varepsilon)}$ are often called \emph{non-classical}.
+    \end{enumerate}
+\end{notation}
+
+\begin{lemmanotation}
+    \label{L:extremal_ks_part1}
+    \uses{N:kbullet}
+    We only consider those integers $k \equiv k_\varepsilon \bmod{(p-1)}$ and write $k=k_\varepsilon+(p-1)k_{\bullet}$. Fix $n\in {\mathbb{Z}}_{ \geq 0}$.
+    Recall the definition of $\delta_\varepsilon$ in Notation~\ref{N:kbullet}.
+    There is a unique integer $k_\bullet$ such that  $n=\frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)$; it is
+    $$k_\bullet = k_{{\mathrm{mid}}\bullet}^{(\varepsilon)}(n): = n+\delta_\varepsilon-1.$$
+    We put $k_{\mathrm{mid}}^{(\varepsilon)}(n) = k_\varepsilon + (p-1)k_{{\mathrm{mid}}\bullet}^{(\varepsilon)}(n)$.
+\end{lemmanotation}
+
+\begin{proof}
+    \uses{C:dIw_is_even}
+    This follows from the dimension formula in Corollary~\ref{C:dIw_is_even}: $d_{k}^{{\mathrm{Iw}}}(\tilde \varepsilon_1) = 2k_\bullet + 2-2\delta_\varepsilon$.
+\end{proof}
+
+\begin{lemmanotation}
+    \label{L:extremal_ks_part2}
+    \uses{D:dimension_of_Sunr, N:tnvarepsilon}
+    We only consider those integers $k \equiv k_\varepsilon \bmod{(p-1)}$ and write $k=k_\varepsilon+(p-1)k_{\bullet}$. Fix $n\in {\mathbb{Z}}_{ \geq 0}$.
+    Recall $t_1^{(\varepsilon)}$ and $t_2^{(\varepsilon)}$ from Proposition~\ref{D:dimension_of_Sunr}, and $\beta_{[n]}^{(\varepsilon)}$ from Notation~\ref{N:tnvarepsilon}.
+    If $k_\bullet \in {\mathbb{Z}}_{\geq 0}$ satisfies $n = d_{k}^{\mathrm{ur}}(\varepsilon_1)$, then
+    \begin{align*}
+    \textrm{when } n \textrm{ is even,}&\quad (p+1)\tfrac {n-2}2 + t_2^{(\varepsilon)} \leq  k_\bullet  < (p+1)\tfrac {n}2 + t_1^{(\varepsilon)},
+    \\
+    \textrm{when } n \textrm{ is odd,}&\quad (p+1)\tfrac {n-1}2 + t_1^{(\varepsilon)} \leq k_\bullet < (p+1)\tfrac {n-1}2 + t_2^{(\varepsilon)}.
+    \end{align*}
+    We denote the largest such $k_\bullet$ by  $$k_{{\max}\bullet}^{(\varepsilon)}(n)=\frac{p+1}2 n + \beta_{[n]}^{(\varepsilon)}-1,$$
+    and put $k_{\max}^{(\varepsilon)}(n) = k_\varepsilon + (p-1)k_{{\max}\bullet}^{(\varepsilon)}(n)$.
+\end{lemmanotation}
+
+\begin{proof}
+    \uses{D:dimension_of_Sunr}
+    This follows from inverting the dimension formula in Proposition~\ref{D:dimension_of_Sunr}. (There is no problem with the statement when $n=0$, as we asked for $k_\bullet \geq 0$.)
+\end{proof}
+
+\begin{lemmanotation}
+    \label{L:extremal_ks_part3}
+    \uses{D:dimension_of_Sunr, N:kbullet, N:tnvarepsilon}
+    We only consider those integers $k \equiv k_\varepsilon \bmod{(p-1)}$ and write $k=k_\varepsilon+(p-1)k_{\bullet}$. Fix $n\in {\mathbb{Z}}_{ \geq 0}$.
+    Recall the definition of $\delta_\varepsilon$ in Notation~\ref{N:kbullet}, $t_1^{(\varepsilon)}$ and $t_2^{(\varepsilon)}$ from Proposition~\ref{D:dimension_of_Sunr}, and $\beta_{[n]}^{(\varepsilon)}$ from Notation~\ref{N:tnvarepsilon}.
+    There is at most one $k_\bullet \in {\mathbb{Z}}_{\geq 0}$ such that  $n = d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)-d_{k}^{\mathrm{ur}}(\varepsilon_1)$.
+    Such $k_\bullet$ exists if and only if the interval
+    \begin{align}
+    \label{E:condition_on_kmin}
+    \big(\,(p+1)( \tfrac {n-2}2 + \delta_\varepsilon)  -t_1^{(\varepsilon)} , \, (p+1)( \tfrac n2 + \delta_\varepsilon)  -t_2^{(\varepsilon)}\, \big]& \textrm{ if }n \textrm{ is even, and}
+    \\
+    \nonumber \big(\,(p+1)( \tfrac {n-1}2 + \delta_\varepsilon)  -t_2^{(\varepsilon)} , \, (p+1)( \tfrac {n-1}2 + \delta_\varepsilon)  -t_1^{(\varepsilon)}\, \big] &\textrm{ if }n \textrm{ is odd}
+    \end{align}
+    contains a multiple of $p$, which would be $pk_\bullet$. We write $$\tilde k_{{\min}\bullet}^{(\varepsilon)}(n)= \frac{p+1}2(n-1+2\delta_\varepsilon) - \beta_{[n-1]}^{(\varepsilon)}+1$$ for the \emph{right end} of the above interval plus $1$; and set $k_{{\min}\bullet}^{(\varepsilon)}(n) = \lceil \tilde k_{{\min}\bullet}^{(\varepsilon)} (n)/ p\rceil$.
+    We put $k_{\min}^{(\varepsilon)}(n) = k_\varepsilon + (p-1)k_{{\min}\bullet}^{(\varepsilon)}(n)$ and set
+    $$\tilde k_{{\min}}^{(\varepsilon)}(n)  = pk_\varepsilon + (p-1)\tilde k_{{\min}\bullet}^{(\varepsilon)}(n).
+    $$
+    \emph{\underline{Warning:} despite the name, $k_{{\min}\bullet}^{(\varepsilon)}(n)$ is never  a $k_\bullet$ such that $n = d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1) - d_{k}^{\mathrm{ur}}(\varepsilon_1)$.}
+\end{lemmanotation}
+
+\begin{proof}
+    \uses{C:dIw_is_even}
+    By Corollary~\ref{C:dIw_is_even}, $d_{k}^{{\mathrm{Iw}}}(\tilde \varepsilon_1) = 2k_\bullet + 2-2\delta_\varepsilon$. So the equality $n = d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)-d_{k}^{\mathrm{ur}}(\varepsilon_1)$ is equivalent to
+    $$
+    d_{k}^{\mathrm{ur}}(\varepsilon_1)\ =  (2k_\bullet+2-2\delta_\varepsilon)-n.
+    $$
+    When $n$ is even, this means that
+    $$(p+1)\tfrac { (2k_\bullet+2-2\delta_\varepsilon)-n-2}2 + t_2 \leq k_\bullet  < (p+1)\tfrac {(2k_\bullet+2-2\delta_\varepsilon)-n}2 + t_1,
+    $$
+    or equivalently
+    $$ (p+1)( \tfrac {n-2}2 + \delta_\varepsilon) -t_1 < pk_\bullet  \leq (p+1)( \tfrac n2 + \delta_\varepsilon)  -t_2.
+    $$
+    The case when $n$ is odd follows from the same argument.
+\end{proof}
+
+\begin{remark}
+    \label{R:meaning_of_kmidminmax}
+    \uses{E:first_definition_of_extremal_ks, L:extremal_ks_part1, L:extremal_ks_part3}
+    From the definition of $k_{\mathrm{mid}\bullet}^{(\varepsilon)}(n)$, $k_{\mathrm{min}\bullet}^{(\varepsilon)}(n)$, and $k^{(\varepsilon)}_{\mathrm{max} \bullet}(n)$, we see that
+    \begin{itemize}
+    \item $\frac 12d_k^{\mathrm{Iw}}(\tilde \varepsilon_1) = n \Leftrightarrow k_\bullet = k_{\mathrm{mid}\bullet}^{(\varepsilon)}(n)$.
+    \item $d_k^{\mathrm{ur}}(\varepsilon_1) \leq  n \Leftrightarrow k_\bullet \leq k_{\mathrm{max}\bullet}^{(\varepsilon)}(n)$ and $d_k^{\mathrm{ur}}(\varepsilon_1) \geq   n \Leftrightarrow k_\bullet > k_{\mathrm{max}\bullet}^{(\varepsilon)}(n-1)$.
+    \item
+    $d_k^{\mathrm{Iw}}(\tilde \varepsilon_1) - d_k^{\mathrm{ur}}(\varepsilon_1) \leq  n \Leftrightarrow k_\bullet < k_{\mathrm{min}\bullet}^{(\varepsilon)}(n)$ and $d_k^{\mathrm{Iw}}(\tilde \varepsilon_1) -d_k^{\mathrm{ur}}(\varepsilon_1) \geq   n \Leftrightarrow k_\bullet \geq k_{\mathrm{min}\bullet}^{(\varepsilon)}(n-1)$.
+    \end{itemize}
+    In particular, we see that the numbers defined in Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3} coincide with those defined in (\ref{E:first_definition_of_extremal_ks}).
+\end{remark}
+
+\begin{proposition}
+    \label{P:increment_of_degrees_in_ghost_series}
+    Fix $\varepsilon$ a relevant character.  If $a+s_\varepsilon<p-1$, then we have
+    \begin{equation}
+    \label{E:increment_of_degree_a_plus_s_lt_p-1}
+    \deg g_{n+1}^{(\varepsilon)}(w) - \deg g_{n}^{(\varepsilon)}(w) - \lambda_{n+1}^{(\varepsilon)} =\begin{cases}
+    1 & \textrm{ if } n - 2s_\varepsilon \equiv 1, 3, \dots, 2a+1 \bmod {2p},
+    \\
+    -1 & \textrm{ if } n- 2s_{\varepsilon} \equiv 2, 4, \dots, 2a+2 \bmod{2p},
+    \\
+    0 & \textrm{ otherwise.}
+    \end{cases}
+    \end{equation}
+    If $a+s_\varepsilon\geq p-1$, then we have
+    \begin{equation}
+    \label{E:increment_of_degree_a_plus_s_ge_p-1}
+    \deg g_{n+1}^{(\varepsilon)}(w) - \deg g_{n}^{(\varepsilon)}(w) - \lambda_{n+1}^{(\varepsilon)} =\begin{cases}
+    1 & \textrm{ if } n - 2s_\varepsilon \equiv 2, 4, \dots, 2a+2 \bmod {2p},
+    \\
+    -1 & \textrm{ if } n- 2s_{\varepsilon} \equiv 3, 5, \dots, 2a+3 \bmod{2p},
+    \\
+    0 & \textrm{ otherwise.}
+    \end{cases}
+    \end{equation}
+    In either case, we have
+    \begin{equation}
+    \label{E:degree_approx_halo_bound}
+    \deg g_n^{(\varepsilon)}(w) - (\lambda_1^{(\varepsilon)}+\cdots + \lambda_n^{(\varepsilon)}) = \begin{cases}
+    0 & \textrm{ if }\deg {\mathbf{e}}_{n+1}-\deg{\mathbf{e}}_n = a,\\
+    0 \textrm{ or }1 & \textrm{ if }\deg {\mathbf{e}}_{n+1}-\deg{\mathbf{e}}_n = p-1-a.
+    \end{cases}
+    \end{equation}
+    Moreover, the differences $\deg g_{n+1}^{(\varepsilon)}(w) - \deg g_n^{(\varepsilon)}(w)$ are strictly increasing in $n$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:basis_of_Sdagger, E:degree_approx_halo_bound, E:gn_plus_1_-_gn, E:increment_of_degree_a_plus_s_ge_p-1, E:increment_of_degree_a_plus_s_lt_p-1, E:increment_of_multiplicity, E:kmax-kmid, L:extremal_ks_part1, L:extremal_ks_part2, L:extremal_ks_part3, R:meaning_of_kmidminmax}
+    In this proof, we shall suppress the $\varepsilon$ from the notation when no confusion arises.
+    Since $\deg g_n(w)$ is the sum of ghost multiplicities $m_n(k)$ for all $k \equiv k_\varepsilon \bmod{(p-1)}$, the formula \eqref{E:increment_of_multiplicity} for the increments of the ghost multiplicities implies that
+    \begin{equation}
+    \label{E:gn_plus_1_-_gn}
+    \deg g_{n+1} (w) - \deg g_n(w) = \hspace{-10pt}
+    \sum_{\substack{k \equiv k_\varepsilon \bmod{(p-1)}
+    \\
+    d_{k}^{\mathrm{ur}}\leq n < \frac 12 d_{k}^{\mathrm{Iw}}}}
+    \hspace{-10pt}1\qquad -  \hspace{-10pt} \sum_{\substack{k \equiv k_\varepsilon \bmod{(p-1)}
+    \\
+    \frac 12 d_{k}^{\mathrm{Iw}}\leq n < d_{k}^{{\mathrm{Iw}}} - d_{k}^{\mathrm{ur}}}}
+    \hspace{-15pt}1.
+    \end{equation}
+    Note that $d_{k}^{\mathrm{ur}}$, $d_{k}^{\mathrm{Iw}}$, and $ d_{k}^{{\mathrm{Iw}}} - d_{k}^{\mathrm{ur}}$ are increasing functions in $k$ within the congruence class (for the last one, as $k$ is increased by $p-1$, $d_{k}^{\mathrm{Iw}}$ is increased by $2$ and $d_{k}^{\mathrm{ur}}$ is increased by at most $1$).
+    The following picture illustrates the contribution to the degree increment $\deg g_{n+1}(w) -\deg g_n(w)$. The contribution of the blue interval from $k_{\min}$ to $k_{\mathrm{mid}}$ is negative and the contribution of the red interval from $k_{\mathrm{mid}}$ to $k_{\max}$ is positive. More precisely, we define these three integers as
+    \begin{align}\label{E:first_definition_of_extremal_ks}
+    k_{\min}&=k_{\min}(n):=\min\{k|~k\equiv k_\varepsilon \bmod (p-1) \text{~and~} d_k^{\mathrm{Iw}}-d_k^{\mathrm{ur}}>n \}\\
+    k_{{\mathrm{mid}}}&=k_{{\mathrm{mid}}}(n):=\min\{k|~k\equiv k_\varepsilon \bmod (p-1) \text{~and~} \frac 12 d_k^{\mathrm{Iw}}\leq n \}\nonumber\\
+    k_{\max}&=k_{\max}(n):=\min\{k|~k\equiv k_\varepsilon \bmod (p-1) \text{~and~} d_k^{\mathrm{ur}}\leq n \}\nonumber
+    \end{align}
+    \begin{center}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=5cm]
+    \definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+    \draw [color=cqcqcq,, xstep=1cm,ystep=1cm] (-0.5,-0.1) grid (7,0.6);
+    \draw[->,color=black] (0,0) -- (7,0);
+    \foreach \x in {1,2,3,4,5,6}
+    \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+    \draw[->,color=black] (0,0) -- (0,0.6);
+    \foreach \y in {0.2,0.4,0.6}
+    \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+    \clip(-0.5,-0.1) rectangle (7,0.6);
+    \draw [line width=1pt,dash pattern=on 2pt off 3pt] (6,0.25)-- (0,0.25);
+    \draw [line width=1pt,dash pattern=on 2pt off 3pt] (1.5,0.4375)-- (1.5,0);
+    \draw [line width=1pt,domain=0:7] plot(\x,{(-0--0.25*\x)/6});
+    \draw [line width=1pt,domain=0:7] plot(\x,{(-0--1.75*\x)/6});
+    \draw [line width=1pt,domain=0:7] plot(\x,{(-0--2*\x)/6});
+    \draw [line width=2pt,color=red] (6,0.25)-- (1.5,0.25);
+    \draw [line width=2pt,color=blue] (0.87,0.25)-- (1.5,0.25);
+    \draw [line width=1pt,dash pattern=on 2pt off 3pt] (6,0.25)-- (6,0);
+    \draw [line width=1pt,dash pattern=on 2pt off 3pt] (0.86,0.25)-- (0.86,0);
+    \begin{scriptsize}
+    \draw [fill=black] (0,0.25) circle (1pt);
+    \draw[color=black] (-0.2,0.26) node {$n$};
+    \draw [fill=black] (1.5,0) circle (1pt);
+    \draw[color=black] (1.5,-0.05) node {$k_{{\mathrm{mid}}}$};
+    \draw[color=black] (6,-0.05) node {$k_{\max}$};
+    \draw[color=black] (0.8,-0.05) node {$k_{\min}$};
+    \draw [fill=black] (1.5,0.0625) circle (1.5pt);
+    \draw [fill=black] (1.5,0.4375) circle (1.5pt);
+    \draw[color=black] (4.7,0.13) node {$d_{k}^{\mathrm{ur}}$};
+    \draw[color=black] (2.86,0.55) node {$d_{k}^{\mathrm{Iw}}-d_{k}^{\mathrm{ur}}$};
+    \draw[color=black] (1.13,0.55) node {$d_{k}^{\mathrm{Iw}}$};
+    \draw[color=blue] (1.2,0.21) node {$-1$};
+    \draw[color=red] (3.7,0.29) node {$+1$};
+    \end{scriptsize}
+    \end{tikzpicture}
+    Graph 2: contribution to increments of degrees.
+    \end{center}
+    It remains to express $k_{{\mathrm{mid}}\bullet}$, $k_{{\max}\bullet}$, and $k_{{\min}\bullet}$ in terms of $n$. This refined description is provided by Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3} and Remark~\ref{R:meaning_of_kmidminmax} above.
+    By \eqref{E:gn_plus_1_-_gn}, we write
+    $$
+    \deg g_{n+1}(w) - \deg g_n(w) = \big(k_{{\max}\bullet}(n) - k_{{\mathrm{mid}}\bullet}(n)\big) - \big(k_{{\mathrm{mid}}\bullet}(n) -  k_{{\min}\bullet}(n)+1 \big).$$
+    We shall compare $k_{{\max}\bullet}(n)-k_{{\mathrm{mid}}\bullet}(n)$ with $\deg {\mathbf{e}}_{n+1}$ and   $k_{{\mathrm{mid}}\bullet}(n)-k_{{\min}\bullet}(n)$ with $\lfloor \frac{\deg{\mathbf{e}}_{n+1}}{p} \rfloor$.
+    By Lemma-Notations~\ref{L:extremal_ks_part1} and \ref{L:extremal_ks_part2},  $k_{{\max}\bullet}(n)-k_{{\mathrm{mid}}\bullet}(n)=\frac{p-1}{2}\cdot n+\beta_{[n]}-\delta_{\varepsilon}$, we list the values of $k_{{\max}\bullet}(n)-k_{{\mathrm{mid}}\bullet}(n)$ and $\deg {\mathbf{e}}_{n+1}$ in the following table:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+     & &$k_{{\max} \bullet}(n)-k_{{\mathrm{mid}}\bullet}(n)$ & $\deg {\mathbf{e}}_{n+1}$
+    \\
+    \hline
+    $a+s_\varepsilon < p-1$ & $n=2n_0$ & $(p-1)n_0+s_\varepsilon$& $s_\varepsilon+(p-1)n_0$
+    \\
+    \cline{2-4}
+    & $n=2n_0+1$ &  $(p-1)n_0+a+s_\varepsilon+1$ & $a+s_\varepsilon+(p-1)n_0$
+    \\
+    \hline
+    $a+s_\varepsilon \geq p-1$ & $n=2n_0$ &$(p-1)n_0+\{a+s_\varepsilon\}+1$ & $\{a+s_\varepsilon\}+(p-1)n_0$
+    \\
+    \cline{2-4} & $n=2n_0+1$ & $(p-1)n_0+s_\varepsilon$ & $s_\varepsilon+(p-1)n_0$
+    \\
+    \hline
+    \end{tabular}
+    \end{center}
+    In other words, by the explicit description of power basis \eqref{E:basis_of_Sdagger},
+    \begin{equation}
+    \label{E:kmax-kmid}
+    k_{\max {\bullet}}(n) - k_{{\mathrm{mid}}\bullet}(n)  - \deg {\mathbf{e}}_{n+1} = \begin{cases}
+    0& \textrm{ if }{\mathbf{e}}_{n+1} = e_1^*z^{s_\varepsilon+ (p-1)\lfloor n/2\rfloor},
+    \\
+    1 & \textrm{ if }{\mathbf{e}}_{n+1} = e_2^*z^{\{a+s_\varepsilon\}+ (p-1)\lfloor n/2\rfloor}.
+    \end{cases}
+    \end{equation}
+    By Lemma-Notations~\ref{L:extremal_ks_part1} and \ref{L:extremal_ks_part3}, we have
+    $$
+    k_{{{\mathrm{mid}}}\bullet}(n)-k_{{\min} \bullet}(n)+1=n-\Big\lceil \frac{\frac{p+1}{2}(n-1)+\delta_\varepsilon-\beta_{[n-1]}+1}{p}\Big\rceil.$$
+    We list the values of $k_{{{\mathrm{mid}}}\bullet}(n)-k_{{\min}\bullet}(n)+1$ and $\lfloor\frac {\deg {\mathbf{e}}_{n+1}}p\rfloor$ in the following table:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+     & &$k_{{\mathrm{mid}}\bullet}(n)-k_{{\min} \bullet}(n)+1$ & $\lfloor\frac{\deg {\mathbf{e}}_{n+1}}p\rfloor$
+    \\
+    \hline
+    $a+s_\varepsilon < p-1$ & $n=2n_0$ &  $n_0-\lceil \frac{n_0-a-s_\varepsilon-1}{p}\rceil$ & $n_0-\lceil \frac{n_0-s_\varepsilon}p\rceil$
+    \\
+    \cline{2-4}
+    & $n=2n_0+1$ & $n_0+1-\lceil\frac{n_0-s_\varepsilon+1}{p}\rceil$ &$n_0-\lceil \frac{n_0-a-s_\varepsilon}p\rceil$
+    \\
+    \hline
+    $a+s_\varepsilon \geq p-1$ & $n=2n_0$ & $n_0-\lceil \frac{n_0-s_\varepsilon}{p} \rceil$  &  $n_0-\lceil \frac{n_0-\{a+s_\varepsilon\}}p\rceil$
+    \\
+    \cline{2-4} & $n=2n_0+1$ & $ n_0+1-\lceil \frac{n_0-\{a+s_\varepsilon\}}{p} \rceil$& $n_0-\lceil \frac{n_0-s_\varepsilon}p\rceil$
+    \\
+    \hline
+    \end{tabular}
+    \end{center}
+    Here we used the obvious formula $\lfloor \frac{(p-1)a+b}p\rfloor = a - \lceil \frac{a-b}p\rceil$.
+    The equalities \eqref{E:increment_of_degree_a_plus_s_lt_p-1} and \eqref{E:increment_of_degree_a_plus_s_ge_p-1} follow from this by a case-by-case argument. We only spell out the case when $a+s_\varepsilon<p-1$ (that is \eqref{E:increment_of_degree_a_plus_s_lt_p-1}) and the other case is similar.
+    When $a+s_\varepsilon<p-1$,
+    $$
+    k_{{\mathrm{mid}}\bullet}(n) - k_{{\min}\bullet}(n)+1 - \Big\lfloor \frac{\deg {\mathbf{e}}_{n+1}}p\Big \rfloor=
+    \begin{cases}
+    0 & \textrm{ if } n = 2n_0 \textrm{ and } n_0  -s_\varepsilon \equiv a+2, \dots, p \bmod p\\
+    & \textrm{ or } n = 2n_0+1 \textrm{ and } n_0 -s_\varepsilon \equiv 0, \dots, a \bmod p\\
+    1 & \textrm{ otherwise}
+    \end{cases}
+    $$
+    Combining this with \eqref{E:kmax-kmid}, we deduce that
+    $$
+    \deg g_{n+1}(w) - \deg g_n(w) - \lambda_{n+1} = \begin{cases}
+    1 & \textrm{ if } n - 2s_\varepsilon \equiv 1, 3, \dots, 2a+1 \bmod {2p},
+    \\
+    -1 & \textrm{ if } n- 2s_{\varepsilon} \equiv 2, 4, \dots, 2a+2 \bmod{2p}
+    \\
+    0 & \textrm{ otherwise.}
+    \end{cases}
+    $$
+    The statement \eqref{E:degree_approx_halo_bound} follows from \eqref{E:increment_of_degree_a_plus_s_lt_p-1} and \eqref{E:increment_of_degree_a_plus_s_ge_p-1} immediately, by observing that the difference being $1$ only appears in the case when $\deg {\mathbf{e}}_{n+1}-\deg {\mathbf{e}}_n = p-1-a$.
+    To see the last statement, we note that, as shown in the table above
+    $$\big( k_{{\max}\bullet}(n+1) - k_{{\mathrm{mid}}\bullet}(n+1)\big) - \big(  k_{{\max}\bullet}(n) - k_{{\mathrm{mid}}\bullet}(n)\big)$$ is always equal to either $a+1$ or $p-2-a$, which is $\geq 2$ under the genericity condition $1\leq a \leq p-4$. On the other hand, the next table shows that
+    $$
+    \Big|\big(k_{{{\mathrm{mid}}}\bullet}(n+1) - k_{{\min}\bullet}(n+1)\big) - \big(  k_{{{\mathrm{mid}}}\bullet}(n) - k_{{\min}\bullet}(n)\big)\Big| \leq 1.
+    $$
+    Combining these two, we deduce that the increments of degrees $\deg g_{n+1}(w)-\deg g_n(w)$ is always strictly increasing.
+\end{proof}
+
+\begin{notation}
+    \label{N:gnhatk}
+    For $k \equiv k_\varepsilon \bmod {(p-1)}$, we write
+    $$
+    g^{(\varepsilon)}_{n,\hat k}(w): = g_n^{(\varepsilon)}(w) \big/ (w-w_k)^{m_n^{(\varepsilon)}(k)}.
+    $$
+    In particular, $g^{(\varepsilon)}_{n,\hat k}(w_k)$ is the leading coefficient of the Taylor expansion of $g_n^{(\varepsilon)}(w)$ at $w=w_k$.
+    More generally, if ${\mathbf{k}}= \{k_1, \dots, k_r\}$ is a set of ghost zeros with each $k_i \equiv k_\varepsilon \bmod (p-1)$, we put
+    $$
+    g^{(\varepsilon)}_{n,\hat {{\mathbf{k}}}}(w): = g_n^{(\varepsilon)}(w) \big/ \prod_{i=1}^r(w-w_{k_i})^{m_n^{(\varepsilon)}(k_i)}.
+    $$
+\end{notation}
+
+\begin{lemma}
+    \label{E:vp_of_k1-k2}
+    We point out a formula that we will use frequently in this section and later:
+    \begin{equation}
+    v_p(w_{k_1} - w_{k_2}) = v_p\big(\exp(p(k_2-2)) \cdot (\exp(p(k_1-k_2))-1)\big) =  1+ v_p(k_1-k_2).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    To be proved by AI.
+\end{proof}
+
+\begin{lemma}
+    \label{L:ghost_compatible_with_theta}
+    Fix $k_0 \geq 2$ and a relevant character $\varepsilon= \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ of $\Delta^2$. Write $d: = d_{k_0}^{\mathrm{Iw}}(\varepsilon\cdot (1\times \omega^{2-k_0}))$.
+    (Compatibility with theta maps)
+    Put $\varepsilon' := \varepsilon \cdot (\omega^{k_0-1} \times \omega^{1-k_0})$ with $s_{\varepsilon'} = \{s_\varepsilon +1-k_0\}$. For every $\ell\geq 1$, we have
+    \begin{equation*}
+    v_p(g^{(\varepsilon)}_{d+\ell+1}(w_{k_0}))-v_p(g^{(\varepsilon)}_{d+\ell}(w_{k_0})) = v_p(g^{(\varepsilon')}_{\ell+1}(w_{2-{k_0}}))-v_p(g^{(\varepsilon')}_{\ell}(w_{2-{k_0}})) +{k_0}-1.
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    \uses{E:d-2k_varepsilon_prime, E:degree_term_theta, E:factorial_term_-_theta, E:factorial_term_plus_theta, E:increment_of_ghost_series_valuation_1, L:case-by-case_check_theta, L:extremal_ks_part1, L:extremal_ks_part3, L:ghost_compatible_with_AL, L:three_elementary_identities_part1, L:three_elementary_identities_part2, L:three_elementary_identities_part3, P:proof_of_ghost_compatible_with_AL}
+    \label{P:proof_of_ghost_compatible_with_theta}
+    The proof is similar to that of Lemma ~\ref{L:ghost_compatible_with_AL}, so we only sketch the proof and focus on the differences of the two proofs.
+    Applying formula \eqref{E:increment_of_ghost_series_valuation_1} to the case of $n=d+\ell$ with $\varepsilon$, and the case of $n=\ell$ with $\varepsilon'$ and rearranging terms in a way similar to \S\,\ref{P:proof_of_ghost_compatible_with_AL}, we deduce that
+    \begin{align}
+    \nonumber
+    \big( v_p(g^{(\varepsilon)}_{d+\ell+1}& (w_{k_0}))-v_p(g^{(\varepsilon)}_{d+\ell}(w_{k_0})) \big) - \big( v_p(g^{(\varepsilon')}_{\ell+1}(w_{2-{k_0}}))-v_p(g^{(\varepsilon')}_{\ell}(w_{2-{k_0}})) \big)
+    \\
+    \label{E:degree_term_theta}
+    =\ &\big( k^{(\varepsilon)}_{{\max}\bullet}(d+\ell) - k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(d+\ell) \big)- \big( k^{(\varepsilon')}_{{\max}\bullet}(\ell) - k^{(\varepsilon')}_{{{\mathrm{mid}}}\bullet}(\ell)\big)
+    \\
+    \label{E:factorial_term_plus_theta}
+    &+  \hspace{-15pt}\sum_{
+    k^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(d+\ell) < k_\bullet \leq k^{(\varepsilon)}_{{\max}\bullet}(d+\ell)}
+    \hspace{-15pt}v_p(k-k_0)\quad + \hspace{-15pt} \sum_{
+    k^{(\varepsilon')}_{{\min}\bullet}(\ell) \leq k_\bullet \leq k^{(\varepsilon')}_{{{\mathrm{mid}}}\bullet}(\ell)}
+    \hspace{-15pt}v_p(pk-p(2-k_0))\quad
+    \\
+    \label{E:factorial_term_-_theta}
+    &-  \hspace{-15pt} \sum_{
+    k^{(\varepsilon')}_{{{\mathrm{mid}}}\bullet}(\ell) < k_\bullet \leq k^{(\varepsilon')}_{{\max}\bullet}(\ell)}
+    \hspace{-15pt}v_p(k-(2-k_0))\quad - \hspace{-15pt}\sum_{
+    k^{(\varepsilon)}_{{\min}\bullet}(d+\ell) \leq k_\bullet \leq k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(d+\ell)}
+    \hspace{-15pt}v_p(pk-pk_0).
+    \end{align}
+    Then to prove the lemma, it suffices to show that \eqref{E:degree_term_theta} is equal to $k_0-1$, and the sum \eqref{E:factorial_term_plus_theta} cancels with the sum \eqref{E:factorial_term_-_theta}.
+    We prove the former statement. Indeed, by Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, we need to show that
+    $$
+    \big(\tfrac{p+1}2 (d+\ell) + \beta_{[d+\ell]}^{(\varepsilon)}-1\big) - (d+\ell + \delta_\varepsilon -1)  = (k_0-1) + \big(\tfrac{p+1}2 \ell + \beta_{[\ell]}^{(\varepsilon')}-1\big) - (\ell + \delta_{\varepsilon'} -1).
+    $$
+    This is equivalent to proving
+    \begin{equation}
+    k_0-1-\tfrac{p-1}2 d +\delta_\varepsilon - \delta_{\varepsilon'} = \beta_{[d+\ell]}^{(\varepsilon)} - \beta_{[\ell]}^{(\varepsilon')}.
+    \end{equation}
+    By \eqref{E:d-2k_varepsilon_prime}, we are left to show that
+    $$
+    \beta_{[d+\ell]}^{(\varepsilon)} - \beta_{[\ell]}^{(\varepsilon')} = \tfrac{p+1}2( \delta_\varepsilon -\delta_{\varepsilon'}) +\tfrac 12\big( \{k _\varepsilon -2\} - \{k_{\varepsilon '}-2\}\big).
+    $$
+    This boils down to a case-by-case check, which is provided by Lemma~\ref{L:case-by-case_check_theta} above.
+    Now we show that the sum \eqref{E:factorial_term_plus_theta} cancels with the sum \eqref{E:factorial_term_-_theta}.
+    Using Lemmas~\ref{L:three_elementary_identities_part1}--\ref{L:three_elementary_identities_part3}, we may compare the two sums term-by-term along the same underlying arithmetic progression, as explained below.
+    Using the identities of Lemmas~\ref{L:three_elementary_identities_part1}--\ref{L:three_elementary_identities_part3}, the first sum of \eqref{E:factorial_term_plus_theta} is the sum of the  valuations of the sequence (with step size $p-1$) from $ k^{(\varepsilon)}_{{\mathrm{mid}}}(d+\ell) - k_0+(p-1)$ to $k^{(\varepsilon)}_{\max}(d+\ell) - k_0 \stackrel{\text{Lemma~\ref{L:three_elementary_identities_part2}}}{=} \tilde k_{{\min}\bullet}^{(\varepsilon')}(\ell) -p(2-k_0) - (p-1)$, and the second sum of \eqref{E:factorial_term_plus_theta} then continues with the valuations (of only the $p$-multiples) in the sequence (with step size $p-1$) from $\tilde k_{{\min}\bullet}^{(\varepsilon')}(\ell) -p(2-k_0)$ to $pk_{{\mathrm{mid}}\bullet}^{(\varepsilon')}(\ell) - p(2-k_0)$.
+    In a similar way, the first sum of \eqref{E:factorial_term_-_theta} is the sum of the  valuations of the sequence (with step size $p-1$) from $ k^{(\varepsilon')}_{{\mathrm{mid}}}(\ell) - (2-k_0)+(p-1)$ to $k^{(\varepsilon')}_{\max}(\ell) - (2-k_0) \stackrel{\text{Lemma~\ref{L:three_elementary_identities_part3}}}{=} \tilde k_{{\min}\bullet}^{(\varepsilon)}(d+\ell) -pk_0-(p-1)$, and then the second sum of \eqref{E:factorial_term_-_theta} continues with the sum of valuations of (only $p$-multiples in) the sequence (of step size $p-1$) from $\tilde k_{{\min}\bullet}^{(\varepsilon)}(d+\ell) -pk_0$ to $pk_{{\mathrm{mid}}\bullet}^{(\varepsilon)}(d+\ell) - pk_0$.
+    So these the sums \eqref{E:factorial_term_plus_theta} and \eqref{E:factorial_term_-_theta} are exactly the sum of valuations of the same sequence from $k_{{\mathrm{mid}}}^{(\varepsilon)}(d+\ell) - k_0+p-1 \stackrel{\text{Lemma~\ref{L:three_elementary_identities_part1}}}{=} k_{{\mathrm{mid}}}^{(\varepsilon')}(\ell) - (2-k_0)+p-1$ to $pk_{{\mathrm{mid}}}^{(\varepsilon)}(d+\ell) - pk_0 \stackrel{\text{Lemma~\ref{L:three_elementary_identities_part1}}}{=} pk_{{\mathrm{mid}}}^{(\varepsilon')}(\ell) -p (2-k_0)$. Clearly they cancel each other.
+    To sum up, we have proved Lemma ~\eqref{L:ghost_compatible_with_theta} provided Lemma~\ref{L:case-by-case_check_theta}.
+\end{proof}
+
+\begin{lemma}
+    \label{L:ghost_compatible_with_AL}
+    Set $\varepsilon'' = \omega^{-s_{\varepsilon''}} \times \omega^{a+s_{\varepsilon''}}$ with $s_{\varepsilon''}: = \{{k_0}-  2-a-s_\varepsilon\}$ (allowing $k_0\equiv k_\varepsilon \bmod{(p-1)}$ in which case $\varepsilon''= \varepsilon$).
+    Then for every integer $\ell =1, \dots, d$, we will prove that
+    \begin{align*}
+    &\big(v_p(g^{(\varepsilon)}_{d+1-\ell, \hat k_0}(w_{k_0})) - v_p(g^{(\varepsilon)}_{d-\ell, \hat k_0}(w_{k_0})) \big) + \big(v_p(g^{(\varepsilon'')}_{\ell, \hat k_0}(w_{k_0})) - v_p(g^{(\varepsilon'')}_{\ell-1, \hat k_0}(w_{k_0})) \big)
+    \\
+    \nonumber
+    =\ & \begin{cases}
+    {k_0}-2 & \textrm{if }k_0\equiv k_\varepsilon \bmod{(p-1)} \textrm{ and }d_{k_0}^{\mathrm{ur}}+1\leq  \ell \leq d_{k_0}^{\mathrm{Iw}}-d_{k_0}^{\mathrm{ur}}\\
+    {k_0}-1 & \textrm{otherwise.}
+    \end{cases}
+    \end{align*}
+\end{lemma}
+
+\begin{proof}
+    \uses{E:d-2k_varepsilon_prime_prime, E:degree_term_AL, E:factorial_term_-_AL, E:factorial_term_plus_AL, E:ghost_compatible_with_AL_first_step, E:increment_of_ghost_series_valuation_1, L:case-by-case_check_AL, L:d-2k, L:extremal_ks_part1, L:extremal_ks_part3}
+    \label{P:proof_of_ghost_compatible_with_AL}
+    For $\ell = 1, \dots, d$, applying formula \eqref{E:increment_of_ghost_series_valuation_1} to the case of $n=d-\ell$ with $\varepsilon$, and the case of $n=\ell-1$ with $\varepsilon''$, we deduce
+    \begin{align}
+    \label{E:ghost_compatible_with_AL_first_step}
+    &\big(v_p(g_{d-\ell+1, \hat k_0}^{(\varepsilon)}(w_{k_0})) - v_p(g_{d-\ell, \hat k_0}^{(\varepsilon)}(w_{k_0}))\big) + \big(v_p(g_{\ell, \hat k_0}^{(\varepsilon'')}(w_{k_0})) - v_p(g_{\ell-1, \hat k_0}^{(\varepsilon'')}(w_{k_0}))\big) \\
+    \nonumber =& \hspace{-25pt} \sum_{\substack{k\neq k_0 \\ k^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(d-\ell) < k_\bullet \leq k^{(\varepsilon)}_{{\max}\bullet}(d-\ell)}} \hspace{-25pt}\big( v_p(k-k_0)+1 \big)\quad -  \hspace{-25pt} \sum_{\substack{k\neq k_0 \\ k^{(\varepsilon)}_{{\min}\bullet}(d-\ell) \leq  k_\bullet \leq k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(d-\ell)}} \hspace{-25pt}\big( v_p(k-k_0)+1 \big)\\
+    \nonumber &+ \hspace{-25pt} \sum_{\substack{k\neq k_0 \\ k^{(\varepsilon'')}_{{\mathrm{mid}}\bullet}(\ell-1) < k_\bullet \leq k^{(\varepsilon'')}_{{\max}\bullet}(\ell-1)}} \hspace{-25pt}\big( v_p(k-k_0)+1 \big)\quad -  \hspace{-25pt} \sum_{\substack{k\neq k_0 \\ k^{(\varepsilon'')}_{{\min}\bullet}(\ell-1) \leq k_\bullet \leq k^{(\varepsilon'')}_{{{\mathrm{mid}}}\bullet}(\ell-1)}} \hspace{-25pt}\big( v_p(k-k_0)+1 \big).
+    \end{align}
+    For the first and the third terms, we separate out the $1$'s in the sum; and for the second and the fourth terms, we include the $1$'s into the valuation as a multiple of $p$.
+    This way, (after rearranging the terms and possibly replacing $v_p(c)$ by $v_p(-c)$,) the sum above becomes the following sum.
+    \begin{align} \label{E:degree_term_AL}
+    &\big( k^{(\varepsilon)}_{{\max}\bullet}(d-\ell) - k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(d-\ell) \big)+ \big( k^{(\varepsilon'')}_{{\max}\bullet}(\ell-1) - k^{(\varepsilon'')}_{{{\mathrm{mid}}}\bullet}(\ell-1)\big) - \upsilon \\
+    \label{E:factorial_term_plus_AL}
+    +\ & \hspace{-15pt}\sum_{\substack{k \neq k_0\\ k^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(d-\ell) < k_\bullet \leq k^{(\varepsilon)}_{{\max}\bullet}(d-\ell)}} \hspace{-15pt}v_p(k-k_0)\quad + \hspace{-15pt} \sum_{\substack{k \neq k_0\\ k^{(\varepsilon'')}_{{{\mathrm{mid}}}\bullet}(\ell-1) < k_\bullet \leq k^{(\varepsilon'')}_{{\max}\bullet}(\ell-1)}} \hspace{-15pt}v_p(k_0-k)\quad  \\
+    \label{E:factorial_term_-_AL}
+    -\ & \hspace{-15pt} \sum_{\substack{k \neq k_0\\ k^{(\varepsilon)}_{{\min}\bullet}(d-\ell) \leq k_\bullet \leq k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(d-\ell)}} \hspace{-15pt}v_p(pk-pk_0)\quad - \hspace{-15pt}\sum_{\substack{k \neq k_0\\ k^{(\varepsilon'')}_{{\min}\bullet}(\ell-1) \leq  k_\bullet \leq k^{(\varepsilon'')}_{{{\mathrm{mid}}}\bullet}(\ell-1)}} \hspace{-15pt}v_p(pk_0-pk),
+    \end{align}
+    where term $\upsilon$ is zero unless $k_0 \equiv k_\varepsilon \bmod{(p-1)}$ and $d_{k_0}^{\mathrm{ur}}+1\leq  \ell\leq d_{k_0}^{\mathrm{Iw}}- d_{k_0}^{\mathrm{ur}}$,
+    in which case $\upsilon = 1$ because the extra $1$ in the sum of \eqref{E:ghost_compatible_with_AL_first_step} is one less due to the removal of the factor when $k = k_0$.
+    Then to prove the lemma, it suffices to show that \eqref{E:degree_term_AL} is equal to $k_0-1-\upsilon$, and the sum \eqref{E:factorial_term_plus_AL} cancels with the sum \eqref{E:factorial_term_-_AL}.
+    We prove the former statement.
+    Indeed, by Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, we need to show that
+    $$ \big(\tfrac{p+1}2 (d-\ell) + \beta_{[d-\ell]}^{(\varepsilon)}-1\big) - (d-\ell + \delta_\varepsilon -1)  + \big(\tfrac{p+1}2 (\ell-1) + \beta_{[\ell-1]}^{(\varepsilon'')}-1\big) - (\ell-1 + \delta_{\varepsilon''} -1)=k_0-1. $$
+    This is equivalent to proving
+    $$ k_0-1-\tfrac{p-1}2 (d-1) +\delta_\varepsilon + \delta_{\varepsilon''} = \beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')}. $$
+    By Lemma~\ref{L:d-2k}, this is further equivalent to proving
+    $$ \beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')} \ =\tfrac12\big(\{k_\varepsilon - 2\} + \{k_{\varepsilon''}-2\} \big)  + \tfrac{p+1}2 (\delta_\varepsilon + \delta_{\varepsilon''}) -\tfrac{p-3}2. $$
+    This boils down to a case-by-case check, which is carried out in Lemma~\ref{L:case-by-case_check_AL}.
+    \medskip
+    Now we show that the sum \eqref{E:factorial_term_plus_AL} cancels with the sum \eqref{E:factorial_term_-_AL}.
+    For this, we need to establish three identities.
+    \begin{enumerate}
+    \item $k_{\mathrm{mid}}^{(\varepsilon)} (d-\ell)+p-1 -k_0 =k_0- k_{{\mathrm{mid}}}^{(\varepsilon'')}(\ell-1)$,
+    \item $k_{\max}^{(\varepsilon)} (d-\ell) -k_0 = pk_0-\tilde  k_{\min}^{(\varepsilon'')}(\ell-1)$, and
+    \item $ \tilde k_{\min}^{(\varepsilon)} (d-\ell) -pk_0=k_0-   k_{\max}^{(\varepsilon'')}(\ell-1) $.
+    \end{enumerate}
+    Assume these identities for a moment.
+    Then the first sum in \eqref{E:factorial_term_plus_AL} is exactly the sum of the valuations of the numbers in the sequence (with step $p-1$) from $ k^{(\varepsilon)}_{\max}(d-\ell) - k_0$ (downwards) to $k^{(\varepsilon)}_{{\mathrm{mid}}}(d-\ell)+(p-1) - k_0 \stackrel{(1)}= k_0 - k_{{{\mathrm{mid}}}}^{(\varepsilon'')}(\ell-1)$, and then is continued with the second sum of \eqref{E:factorial_term_plus_AL} which is the sum of valuations of the numbers (with step size $p-1$) from $k_0 -(k_{{{\mathrm{mid}}}}^{(\varepsilon'')}(\ell-1)+p-1)$ to $k_0 - k_{\max}^{(\varepsilon'')}(\ell-1)$.
+    In this sum we remove the term if the number happens to be zero.
+    In comparison, in the expression \eqref{E:factorial_term_-_AL}, the second sum is the sum of valuations of only $p$-multiples in the sequence (with step size $p-1$) from $pk_0-\tilde  k_{\min}^{(\varepsilon'')}(\ell-1)$ to $pk_0 - pk^{(\varepsilon'')}_{{\mathrm{mid}}\bullet}(\ell-1)  \stackrel{(1)}=  pk^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(d-\ell) - pk_0 + p(p-1)$; whereas the first sum is the sum of the $p$-multiples in the continuing sequence (with step size $p-1$) from $ pk^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(d-\ell) - pk_0$ to $\tilde k^{(\varepsilon'')}_{\min}(d-\ell) - pk_0$.
+    Again we skip the valuation of zero in the sequence (if it appears).
+    So both the sums \eqref{E:factorial_term_plus_AL} and \eqref{E:factorial_term_-_AL} are exactly the sum of valuations of (the $p$-multiples in) the same sequence from $k^{(\varepsilon)}_{\max}(d-\ell) - k_0\stackrel{(2)}= pk_0-\tilde  k_{\min}^{(\varepsilon'')}(\ell-1)$ to $ k_0 - k^{(\varepsilon'')}_{\max}(\ell-1) \stackrel{(3)}=\tilde k^{(\varepsilon'')}_{\min}(d-\ell) - pk_0$.
+    Clearly they cancel each other.
+    \medskip
+    It remains to prove the equalities (1), (2), and (3).
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, Equality (1) is equivalent to
+    \begin{align*}
+    2+\{k_\varepsilon -&2\} + (p-1)(d-\ell +\delta_\varepsilon) -k_0 = k_0 - \big( 2+\{k_{\varepsilon ''}-2\} + (p-1)(\ell-1 + \delta_{\varepsilon''} -1)\big). \\
+    & \textrm{or equivalently, }(p-1)(d+\delta_\varepsilon + \delta_{\varepsilon''}-2) = 2k_0 -4 -\{k_\varepsilon-2\}+\{k_{\varepsilon''}-2\}.
+    \end{align*}
+    But this is exactly Lemma~\ref{L:d-2k}.
+    We prove (2).
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, this is equivalent to
+    \begin{align*}
+    2 +\{k_{\varepsilon} -2\} + &(p-1) \big(\tfrac{p+1}2 (d-\ell) +\beta_{[d-\ell]}^{(\varepsilon)}-1\big) - k_0 \\
+    & = pk_0 -  2p -p\{k_{\varepsilon''} -2\} - (p-1) \big(\tfrac{p+1}2 (\ell-2+2\delta_{\varepsilon''}) -\beta_{[\ell]}^{(\varepsilon'')}+1\big) .
+    \end{align*}
+    Rearranging, this is equivalent to
+    $$ (p+1) \big( \tfrac{p-1}2 (d-2+2\delta_{\varepsilon''})-k_0 + 2\big) + \{k_\varepsilon - 2\} +p\{k_{\varepsilon''}-2\} = (p-1)\big( \beta_{[\ell]}^{(\varepsilon'')}- \beta_{[d-\ell]}^{(\varepsilon)}\big). $$
+    Feeding in the formula \eqref{E:d-2k_varepsilon_prime_prime}, this is further equivalent to
+    $$ \tfrac{p-1}2\{k_{\varepsilon''} - 2\}-\tfrac{p-1}2\{k_\varepsilon-2\} + \tfrac{p^2-1}2(\delta_{\varepsilon''} - \delta_\varepsilon) =  (p-1)\big( \beta_{[\ell]}^{(\varepsilon'')}- \beta_{[d+\ell]}^{(\varepsilon)}\big). $$
+    We may cancel the factor $p-1$ on both sides, and then after that, we need to do a case-by-case study which is provided by Lemma~\ref{L:case-by-case_check_AL} above.
+    Finally, we note that (3) is the same as (2) when $\varepsilon$ and $\varepsilon''$ are swapped and $\ell$ is replaced by $d-\ell + 1$.
+    This then completes the proof, since the remaining case-by-case verifications are supplied by Lemma~\ref{L:case-by-case_check_AL} above.
+\end{proof}
+
+\begin{proposition}
+    \label{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}
+    (Compatibility with theta maps)
+    Fix $k_0 \geq 2$ and a relevant character $\varepsilon= \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ of $\Delta^2$. Write $d: = d_{k_0}^{\mathrm{Iw}}(\varepsilon\cdot (1\times \omega^{2-k_0}))$.
+    Put $\varepsilon' := \varepsilon \cdot (\omega^{k_0-1} \times \omega^{1-k_0})$ with $s_{\varepsilon'} = \{s_\varepsilon +1-k_0\}$. For every $\ell\geq 1$, the $(d+\ell)$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is $k_0-1$ plus the  $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon')}(w_{k_0}, -))$.
+    In particular, the $(d+\ell)$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is at least ${k_0}-1$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:ghost_compatible_with_theta, L:ghost_compatible_with_AL, L:ghost_compatible_with_theta}
+    [Proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}]
+    We first list the concrete statements on $g_n^{(\varepsilon)}(w)$ that we proved in order to deduce the Theorem:
+    \begin{itemize}
+    \item[(a)] Lemma~\ref{L:ghost_compatible_with_theta} gives the following equation:
+    \begin{equation}
+    \label{E:ghost_compatible_with_theta}
+    v_p(g^{(\varepsilon)}_{d+\ell+1}(w_{k_0}))-v_p(g^{(\varepsilon)}_{d+\ell}(w_{k_0})) = v_p(g^{(\varepsilon')}_{\ell+1}(w_{2-{k_0}}))-v_p(g^{(\varepsilon')}_{\ell}(w_{2-{k_0}})) +{k_0}-1.
+    \end{equation}
+    \item[(b)]
+    Set $\varepsilon'' = \omega^{-s_{\varepsilon''}} \times \omega^{a+s_{\varepsilon''}}$ with $s_{\varepsilon''}: = \{{k_0}-  2-a-s_\varepsilon\}$ (allowing $k_0\equiv k_\varepsilon \bmod{(p-1)}$ in which case $\varepsilon''= \varepsilon$).
+    Then for every integer $\ell =1, \dots, d$, we have proved in Lemma~\ref{L:ghost_compatible_with_AL} that
+    \begin{align}
+    \label{E:ghost_compatible_with_AL}
+    &\big(v_p(g^{(\varepsilon)}_{d+1-\ell, \hat k_0}(w_{k_0})) - v_p(g^{(\varepsilon)}_{d-\ell, \hat k_0}(w_{k_0})) \big) + \big(v_p(g^{(\varepsilon'')}_{\ell, \hat k_0}(w_{k_0})) - v_p(g^{(\varepsilon'')}_{\ell-1, \hat k_0}(w_{k_0})) \big)
+    \\
+    \nonumber
+    =\ & \begin{cases}
+    {k_0}-2 & \textrm{if }k_0\equiv k_\varepsilon \bmod{(p-1)} \textrm{ and }d_{k_0}^{\mathrm{ur}}+1\leq  \ell \leq d_{k_0}^{\mathrm{Iw}}-d_{k_0}^{\mathrm{ur}}\\
+    {k_0}-1 & \textrm{otherwise.}
+    \end{cases}
+    \end{align}
+    \end{itemize}
+    Replacing  $\ell$ by $\ell'$ in \eqref{E:ghost_compatible_with_theta} and summing the resulting equality for $\ell' =0, 1, \dots, \ell-1$ implies that for all $\ell \geq 1$,
+    $$
+    v_p(g^{(\varepsilon)}_{d+\ell}(w_{k_0}))-v_p(g^{(\varepsilon)}_{d}(w_{k_0})) = v_p(g^{(\varepsilon')}_{\ell}(w_{2-{k_0}}))  +\ell({k_0}-1) \geq (k_0-1)\ell.
+    $$
+    By the usual interpretation of successive differences of valuations of coefficients as slopes of the Newton polygon, this shows that for every $\ell\geq 1$, the $(d+\ell)$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is $k_0-1$ plus the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon')}(w_{k_0}, -))$, and in particular is at least $k_0-1$.
+\end{proof}
+
+\begin{proposition}
+    \label{P:ghost_compatible_with_theta_AL_and_p-stabilization_part2}
+    (Compatibility with Atkin--Lehner involutions)
+    Fix $k_0 \geq 2$ and a relevant character $\varepsilon= \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ of $\Delta^2$. Write $d: = d_{k_0}^{\mathrm{Iw}}(\varepsilon\cdot (1\times \omega^{2-k_0}))$.
+    Assume that ${k_0}\not \equiv k_\varepsilon \bmod{(p-1)}$.
+    Put $\varepsilon'' = \omega^{-s_{\varepsilon''}} \times \omega^{a+s_{\varepsilon''}}$ with $s_{\varepsilon''}: = \{{k_0}-  2-a-s_\varepsilon\}$.  Then for every $\ell \in \{1, \dots, d\}$, the sum of the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ and the $(d-\ell+1)$th slope of ${\operatorname{NP}}(G^{(\varepsilon'')}(w_{k_0}, -))$ is exactly ${k_0}-1$.
+    In particular, the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is at most $k_0-1$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:ghost_compatible_with_AL, P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}
+    [Proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part2}]
+    Recall Equation \eqref{E:ghost_compatible_with_AL} established in the proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}.
+    Similarly, taking appropriate sums of \eqref{E:ghost_compatible_with_AL} implies that for $\ell = 1, \dots, d$ (since ${k_0} \not\equiv k_\varepsilon \bmod{(p-1)}$),
+    $$
+    \big(v_p(g^{(\varepsilon)}_d(w_{k_0})) - v_p(g^{(\varepsilon)}_{d-\ell}(w_{k_0})) \big) + v_p(g_\ell^{(\varepsilon'')}(w_{k_0})) = (k_0-1) \ell.
+    $$
+    Interpreting these equalities via the standard slope/valuation dictionary for Newton polygons (i.e.\ slopes as successive increments of the lower convex hull determined by the valuations of the coefficients), we obtain that for each $\ell\in\{1,\dots,d\}$ the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ and the $(d-\ell+1)$th slope of ${\operatorname{NP}}(G^{(\varepsilon'')}(w_{k_0}, -))$ sum to ${k_0}-1$. In particular, each $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is at most $k_0-1$.
+\end{proof}
+
+\begin{proposition}
+    \label{P:ghost_compatible_with_theta_AL_and_p-stabilization_part3}
+    (Compatibility with $p$-stabilizations)
+    Fix $k_0 \geq 2$ and a relevant character $\varepsilon= \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ of $\Delta^2$. Write $d: = d_{k_0}^{\mathrm{Iw}}(\varepsilon\cdot (1\times \omega^{2-k_0}))$.
+    Assume that ${k_0}\equiv k_\varepsilon \bmod {(p-1)}$. Then for every $\ell \in \{1, \dots, d_{k_0}^{\mathrm{ur}}(\varepsilon_1)\}$, the sum of the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ and the $(d-\ell+1)$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is exactly ${k_0}-1$.
+    In particular, the $\ell$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ is at most ${k_0}-1$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:ghost_compatible_with_AL, P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}
+    [Proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part3}]
+    Recall Equation \eqref{E:ghost_compatible_with_AL} established in the proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}.
+    Similarly, taking appropriate sums of \eqref{E:ghost_compatible_with_AL} implies that for $\ell = 1, \dots, d_{k_0}^{\mathrm{ur}}$ (since ${k_0} \equiv k_\varepsilon \bmod{(p-1)}$),
+    $$
+    \big(v_p(g^{(\varepsilon)}_d(w_{k_0})) - v_p(g^{(\varepsilon)}_{d-\ell}(w_{k_0})) \big) + v_p(g_\ell^{(\varepsilon'')}(w_{k_0})) = (k_0-1) \ell.
+    $$
+    In the congruence case ${k_0}\equiv k_\varepsilon \bmod{(p-1)}$, we have $\varepsilon''=\varepsilon$ by the convention in Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}. Therefore the displayed equality becomes, for $\ell=1,\dots,d_{k_0}^{\mathrm{ur}}(\varepsilon_1)$,
+    $$
+    \big(v_p(g^{(\varepsilon)}_d(w_{k_0})) - v_p(g^{(\varepsilon)}_{d-\ell}(w_{k_0})) \big) + v_p(g_\ell^{(\varepsilon)}(w_{k_0})) = (k_0-1) \ell.
+    $$
+    Interpreting this identity in terms of slopes of the Newton polygon of $G^{(\varepsilon)}(w_{k_0},-)$ yields the stated symmetry: for each such $\ell$, the $\ell$th slope and the $(d-\ell+1)$th slope of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ sum to ${k_0}-1$. In particular, the $\ell$th slope is at most ${k_0}-1$.
+\end{proof}
+
+\begin{proposition}
+    \label{P:ghost_compatible_with_theta_AL_and_p-stabilization_part4}
+    (Ghost duality)
+    Fix $k_0 \geq 2$ and a relevant character $\varepsilon= \omega^{-s_\varepsilon} \times \omega^{a+s_\varepsilon}$ of $\Delta^2$. Assume that ${k_0} \equiv k_\varepsilon \bmod{(p-1)}$. Write $d_{k_0}^{\mathrm{ur}}$, $d_{k_0}^{\mathrm{Iw}}$, and $d_{k_0}^{{\mathrm{new}}}$ for $d_{k_0}^{\mathrm{ur}}(\varepsilon_1)$, $d_{k_0}^{\mathrm{Iw}}(\tilde \varepsilon_1)$, and $d_{k_0}^{{\mathrm{new}}}(\varepsilon_1)$, respectively.
+    Then for each $\ell = 0, \dots,\frac 12 d_{k_0}^{{\mathrm{new}}}-1$,
+    \begin{equation}
+    \label{E:ghost_duality}
+    v_p\big(g_{d_{k_0}^{\mathrm{Iw}}- d_{k_0}^{\mathrm{ur}}-\ell, \hat k_0}^{(\varepsilon)} (w_{k_0}) \big) - v_p\big(g_{ d_{k_0}^{\mathrm{ur}}+\ell, \hat k_0}^{(\varepsilon)} (w_{k_0}) \big) = ({k_0}-2) \cdot (\tfrac 12d_{k_0}^{{\mathrm{new}}} - \ell).
+    \end{equation}
+    In particular, the $(d_{k_0}^{\mathrm{ur}}+1)$th to the $(d_{k_0}^{\mathrm{Iw}}-d_{k_0}^{\mathrm{ur}})$th slopes of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0},-))$ are all equal to $\frac{{k_0}-2}2$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:ghost_compatible_with_AL, E:ghost_duality, P:ghost_compatible_with_theta_AL_and_p-stabilization_part1, P:ghost_compatible_with_theta_AL_and_p-stabilization_part3, P:gouvea_k-1_p_plus_1_conjecture}
+    [Proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part4}]
+    Recall Equation \eqref{E:ghost_compatible_with_AL} established in the proof of Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part1}.
+    Replacing $\ell$ by $\ell'$ in \eqref{E:ghost_compatible_with_AL}, the equality \eqref{E:ghost_duality} follows from summing the resulting equality for $\ell'$'s being $d_{k_0}^{{\mathrm{ur}}} + \ell+1, d_{k_0}^{{\mathrm{ur}}} +\ell+2, \dots, \frac12 d$.
+    Finally, to address \ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part3} and the last statement of \ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part4}, we need to show that the first $d_{k}^{\mathrm{ur}}$th slopes of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ are strictly less than $\frac{k_0-2}2$. In fact, we will prove these slopes are less than or equal to $\frac{k_0-3}{p+1}$ in Proposition~\ref{P:gouvea_k-1_p_plus_1_conjecture} below. Moreover, in the proof of Proposition~\ref{P:gouvea_k-1_p_plus_1_conjecture}, we obtain the inequality
+    $$
+    v_p(g^{(\varepsilon)}_{d_{k_0}^{\mathrm{ur}}}(w_{k_0})) - v_p(g^{(\varepsilon)}_{d_{k_0}^{\mathrm{ur}}-i}(w_{k_0})) \leq i \cdot \frac{k_0-3}{p+1}.
+    $$
+    for $i=1,\dots,d_{k_0}^{\mathrm{ur}}$. It follows that $(d_{k_0}^{\mathrm{ur}},v_p(g_{d_{k_0}^{\mathrm{ur}}}^{(\varepsilon)}(w_{k_0})))$ is a vertex of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}),-)$. Combining with (\ref{E:ghost_compatible_with_AL}), we see that $(d-d_{k_0}^{\mathrm{ur}},v_p(g_{d-d_{k_0}^{\mathrm{ur}}}^{(\varepsilon)}(w_{k_0})))$ is also a vertex of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}),-)$.
+\end{proof}
+
+\begin{lemma}
+    \label{L:increment_of_ghost_valuation}
+    \uses{L:extremal_ks_part1, L:extremal_ks_part3}
+    Fix $k_0 \in {\mathbb{Z}}$ and a relevant character $\varepsilon$.
+    We keep the convention that $k = 2+\{k_\varepsilon-2\} + (p-1)k_\bullet$. Recall $k_{\mathrm{mid}}^{(\varepsilon)}(n)$, $k_{\max}^{(\varepsilon)}(n)$, and  $k_{\min}^{(\varepsilon)}(n)$ from Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}.
+    For $n \geq 0$, we have
+    \begin{equation}
+    \label{E:increment_of_ghost_series_valuation_1}
+    v_p(g_{n+1, \hat k_0}^{(\varepsilon)}(w_{k_0})) - v_p(g_{n, \hat k_0}^{(\varepsilon)}(w_{k_0})) =  \hspace{-25pt}
+    \sum_{\substack{
+    k \neq k_0
+    \\
+    k^{(\varepsilon)}_{{\mathrm{mid}}\bullet}(n) < k_\bullet \leq k^{(\varepsilon)}_{{\max}\bullet}(n)}}
+    \hspace{-25pt}\big( v_p(k-k_0)+1 \big)\ -  \hspace{-25pt} \sum_{\substack{
+    k \neq k_0\\
+    k^{(\varepsilon)}_{{\min}\bullet}(n) \leq k_\bullet \leq k^{(\varepsilon)}_{{{\mathrm{mid}}}\bullet}(n)}}
+    \hspace{-25pt}\big( v_p(k-k_0)+1 \big).
+    \end{equation}
+    For $n \geq 1$, we have
+    \begin{align}
+    \label{E:increment_of_ghost_series_valuation_2}
+    & v_p(g_{n+1, \hat k_0}^{(\varepsilon)}(w_{k_0})) -2v_p(g_{n, \hat k_0}^{(\varepsilon)}(w_{k_0}))  + v_p(g_{n-1, \hat k_0}^{(\varepsilon)}(w_{k_0}))
+    \\
+    \nonumber
+    =\hspace{-30pt}
+    \sum_{\substack{
+    k \neq k_0\\
+    k^{(\varepsilon)}_{{\max}\bullet}(n-1) < k_\bullet \leq k^{(\varepsilon)}_{{\max}\bullet}(n)}}
+    \hspace{-30pt}\big(& v_p(k-k_0)+1 \big)
+    +\hspace{-30pt}
+    \sum_{\substack{
+    k \neq k_0\\
+    k^{(\varepsilon)}_{{\min}\bullet}(n-1) \leq k_\bullet < k^{(\varepsilon)}_{{\min}\bullet}(n)}}
+    \hspace{-30pt}\big( v_p(k-k_0)+1 \big)
+    -
+    2 \big( v_p(k_{\mathrm{mid}}^{(\varepsilon)}(n) - k_0) + 1\big),
+    \end{align}
+    where the last term is undefined when $k_{{\mathrm{mid}}}^{(\varepsilon)}(n)= k_0$, in which case we interpret it as zero.
+\end{lemma}
+
+\begin{proof}
+    \uses{E:increment_of_ghost_series_valuation_1, E:increment_of_ghost_series_valuation_2, E:increment_of_multiplicity, E:second_order_increment_of_multiplicity, E:vp_of_k1-k2, L:extremal_ks_part1, L:extremal_ks_part3}
+    We first prove \eqref{E:increment_of_ghost_series_valuation_1}.
+    By definition, we have
+    \begin{align*}
+    v_p(g_{n+1, \hat k_0}^{(\varepsilon)}(w_{k_0})) - v_p(g_{n, \hat k_0}^{(\varepsilon)}(w_{k_0})) =
+    \sum_{\substack{k \neq k_0\\k \equiv k_\varepsilon \bmod{(p-1)}}} v_p(w_k-w_{k_0}) \cdot (m_{n+1}^{(\varepsilon)}(k) - m_{n}^{(\varepsilon)}(k))
+    \\=  \hspace{-20pt}
+    \sum_{\substack{
+    k \neq k_0
+    \\k \equiv k_\varepsilon \bmod{(p-1)}
+    \\
+    d_{k}^{\mathrm{ur}}(\varepsilon_1) \leq n < \frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)}}
+    \hspace{-20pt}\big( v_p(k-k_0)+1 \big)\ -  \hspace{-30pt} \sum_{\substack{
+    k \neq k_0
+    \\k \equiv k_\varepsilon \bmod{(p-1)}
+    \\
+    \frac 12 d_{k}^{\mathrm{Iw}}(\tilde \varepsilon_1)  \leq n < d_{k}^{{\mathrm{Iw}}}(\tilde \varepsilon_1) - d_{k}^{\mathrm{ur}}(\varepsilon_1)  }}
+    \hspace{-30pt}\big( v_p(k-k_0)+1 \big).
+    \end{align*}
+    The second equality uses the expression for \eqref{E:increment_of_multiplicity} to compute $m_{n+1}^{(\varepsilon)}(k) - m_{n}^{(\varepsilon)}(k)$ and the equality $v_p(w_k-w_{k_0}) =v_p(k-k_0)+1$ from \eqref{E:vp_of_k1-k2}.
+    Combining this with Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, we deduce \eqref{E:increment_of_ghost_series_valuation_1}.
+    Using a similar argument and citing \eqref{E:second_order_increment_of_multiplicity} in place of \eqref{E:increment_of_multiplicity}, we deduce \eqref{E:increment_of_ghost_series_valuation_2}.
+\end{proof}
+
+\begin{notation}
+    \label{E:sum_of_consecutive_valuations}
+    For a positive integer $m$, let ${\operatorname{Dig}}(m)$ denote the sum of all digits in the $p$-based expression of $m$. Then the sums of valuations of consecutive integers in $(m_1, m_2]$ with $m_2 > m_1>0$ is
+    \begin{equation}
+    \sum_{m_1< i \leq m_2} v_p(i) = \frac{(m_2-{\operatorname{Dig}}(m_2) )-(m_1 -{\operatorname{Dig}}(m_1))} {p-1}.
+    \end{equation}
+\end{notation}
+
+\begin{lemma}
+    \label{L:d-2k}
+    We have the following equalities
+    \begin{eqnarray}
+    \label{E:d-2k_varepsilon_prime_prime}
+    (p-1)(d + \delta_\varepsilon + \delta_{\varepsilon''}-2) &=& 2(k_0 -2)  - \{k_\varepsilon -2\} - \{k_{\varepsilon''} - 2\}.
+    \\
+    \label{E:d-2k_varepsilon_prime}
+    (p-1)(d + \delta_\varepsilon - \delta_{\varepsilon'}) &=& 2(k_0-1) - \{k_\varepsilon - 2\} + \{k_{\varepsilon'}-2\}.
+    \end{eqnarray}
+    Here we recall
+    $$
+    \delta_? = \Big\lfloor \frac{s_? + \{a+s_?\}}{p-1}\Big \rfloor = \begin{cases}
+    0 & \textrm{ if }s_? + \{a+s_?\} < p-1,\\
+    1 & \textrm{ if }s_? + \{a+s_?\} \geq p-1.
+    \end{cases}
+    $$
+    for $?=\varepsilon$, $\varepsilon'$ or $\varepsilon''$.
+\end{lemma}
+
+\begin{proof}
+    \uses{E:d-2k_varepsilon_prime, E:d-2k_varepsilon_prime_prime, R:delta}
+    By the dimension formula of $d = d_{k_0}^{{\mathrm{Iw}}}(\varepsilon \cdot(1\times \omega^{2-k_0}))$, we have
+    \begin{align*}
+    d\, &=2+ \frac{k_0-2-s_\varepsilon-\{k_0-2-s_\varepsilon\}}{p-1} + \frac{k_0-2-\{a+s_\varepsilon\}-\{k_0-2-a-s_\varepsilon\}}{p-1}
+    \\
+    & = 2 + \frac{2(k_0-2) - s_\varepsilon - \{a+s_\varepsilon\} -s_{\varepsilon''} -  \{a+s_{\varepsilon''}\}}{p-1}
+    \\
+    & = 2-\delta_\varepsilon -\delta_{\varepsilon''}+ \frac{2(k_0-2) - \{k_\varepsilon -2\} - \{k_{\varepsilon''} - 2\}}{p-1},
+    \end{align*}
+    where the last equality makes use of the equality (see Remark \ref{R:delta})
+    \begin{equation}
+    \label{E:k-delta}
+    \{k_\varepsilon - 2\} = s_\varepsilon + \{a+s_\varepsilon\} - (p-1)\delta_\varepsilon
+    \end{equation}
+    and the similar equality with $\varepsilon''$ in place of $\varepsilon$. This proves \eqref{E:d-2k_varepsilon_prime_prime}.
+    We may alternatively use the equality $\{c\} + \{-1-c\} = p-2$ for any integer $c$ to rewrite the first row above as
+    \begin{align*}
+    d\, &= \frac{k_0-1-s_\varepsilon+\{s_\varepsilon+1-k_0\}}{p-1} + \frac{k_0-1-\{a+s_\varepsilon\}+\{a+s_\varepsilon+1-k_0\}}{p-1}
+    \\
+    & = - \delta_{\varepsilon} + \delta_{\varepsilon'} + \frac{2(k_0-1) -\{k_\varepsilon -2\} +\{k_{\varepsilon'} - 2\}}{p-1}.
+    \end{align*}
+    This proves \eqref{E:d-2k_varepsilon_prime}.
+\end{proof}
+
+\begin{lemma}
+    \label{L:case-by-case_check_AL}
+    We have the following two identities for every $\ell$ \begin{eqnarray*} \beta_{[d+\ell]}^{(\varepsilon)}-\beta_{[\ell]}^{(\varepsilon'')} &=&\tfrac12\big(\{k_\varepsilon-2\}-\{k_{\varepsilon''}-2\}\big) + \tfrac{p+1}2( \delta_\varepsilon-\delta_{\varepsilon''} ), \quad\textrm{and} \\ \beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')}&=& \tfrac12\big(\{k_\varepsilon - 2\} + \{k_{\varepsilon''}-2\} \big)  + \tfrac{p+1}2 (\delta_\varepsilon + \delta_{\varepsilon''}) - \tfrac{p-3}2. \end{eqnarray*}
+\end{lemma}
+
+\begin{proof}
+    \uses{D:dimension_of_SIw, E:beta_plus_beta_and_beta_-_beta, E:beta_plus_beta_and_beta_-_beta-continued, N:tnvarepsilon}
+    In view of the equality $\{k_\varepsilon -2 \} + (p-1)\delta_\varepsilon = s_\varepsilon +\{a+s_\varepsilon\}$ and the similar equality for $\varepsilon''$, we need to show that \begin{eqnarray} \label{E:beta_plus_beta_and_beta_-_beta} \beta_{[d+\ell]}^{(\varepsilon)}-\beta_{[\ell]}^{(\varepsilon'')} & =&\tfrac12\big(s_\varepsilon + \{a+s_\varepsilon\}\big) -\tfrac 12\big(s_{\varepsilon''} + \{a+s_{\varepsilon''}\}\big) +  \delta_\varepsilon-\delta_{\varepsilon''}, \quad\textrm{and} \\ \label{E:beta_plus_beta_and_beta_-_beta-continued} \beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')} &=&\tfrac12\big(s_\varepsilon+ \{a+s_\varepsilon \} \big) + \tfrac12\big(s_{\varepsilon''} + \{a+s_{\varepsilon''}\}\big) + \delta_\varepsilon + \delta_{\varepsilon''} -\tfrac{p-3}2. \end{eqnarray}
+    Recall that $s_{\varepsilon''} = \{k_0-2-a-s_\varepsilon \}$.
+    When $a+s_\varepsilon < p-1$, we list our calculation  in the following table.
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Condition & $s_\varepsilon\leq  \{k_0-2\} < a+s_\varepsilon$ &$\{k_0-2\}< s_\varepsilon $ or $\{k_0-2\} \geq a+s_\varepsilon$ \\
+    \hline
+    $d$ &  odd & even \\
+    \hline
+    $a+ s_{\varepsilon''}$ &  $\geq p-1$ & $< p-1$ \\
+    \hline
+    $\beta^{(\varepsilon)}_{\mathrm{even}}$ & $s_\varepsilon + \delta_\varepsilon$& $s_\varepsilon + \delta_\varepsilon$ \\
+    \hline
+    $\beta^{(\varepsilon)}_{\mathrm{odd}}$ & $a+s_\varepsilon + \delta_\varepsilon - \frac{p-3}2$ & $a+s_\varepsilon + \delta_\varepsilon - \frac{p-3}2$  \\
+    \hline
+    $\beta^{(\varepsilon'')}_{\mathrm{even}}$ & $\{a+s_{\varepsilon''}\}  + \delta_{\varepsilon''}+1$& $s_{\varepsilon''} + \delta_{\varepsilon''}$ \\
+    \hline
+    $\beta^{(\varepsilon'')}_{\mathrm{odd}}$ & $s_{\varepsilon''} + \delta_{\varepsilon''} -\frac{p-1}2$&$a+s_{\varepsilon''} + \delta_{\varepsilon''} - \frac{p-3}2$ \\
+    \hline
+    $\beta_{[d+\ell]}^{(\varepsilon)} - \beta_{[\ell]}^{(\varepsilon'')}$ & $s_\varepsilon -s_{\varepsilon''} +  \delta_\varepsilon - \delta_{\varepsilon''} +\frac{p-1}2$ & $s_\varepsilon - s_{\varepsilon''} + \delta_{\varepsilon } - \delta_{\varepsilon''}$ \\
+    \hline
+    $\beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')}$  & $a+  s_\varepsilon + s_{\varepsilon''} + \delta_\varepsilon + \delta_{\varepsilon ''} +2-p$ & $a+  s_\varepsilon + s_{\varepsilon''} + \delta_\varepsilon + \delta_{\varepsilon ''} -\frac{p-3}2$ \\
+    \hline
+    \end{tabular}
+    \end{center}
+    Note that the expressions in the last two rows are valid regardless of the parity of $\ell$.
+    We explain how to get the results in the above table and use them to prove (\ref{E:beta_plus_beta_and_beta_-_beta}) and (\ref{E:beta_plus_beta_and_beta_-_beta-continued}).
+    We divide the discussion into two cases.
+    When $s_\varepsilon\leq  \{k_0-2\} < a+s_\varepsilon$, it follows from Proposition~\ref{D:dimension_of_SIw} that $d: = d_{k_0}^{\mathrm{Iw}}(\varepsilon\cdot (1\times \omega^{2-k_0}))$ is odd.
+    We also have $a+s_{\varepsilon''}\geq p-1$ in this case.
+    We use Notation~\ref{N:tnvarepsilon} to compute the last six numbers in the table.
+    The penultimate line computes the left hand side of (\ref{E:beta_plus_beta_and_beta_-_beta}), while the right hand side of (\ref{E:beta_plus_beta_and_beta_-_beta}) equals to $\frac 12(s_\varepsilon+a+s_\varepsilon)-\frac 12(s_{\varepsilon''}+a+s_{\varepsilon''}-(p-1))+\delta_\varepsilon-\delta_{\varepsilon''}$, and (\ref{E:beta_plus_beta_and_beta_-_beta}) is proved in this case.
+    We use the last line in the table to prove (\ref{E:beta_plus_beta_and_beta_-_beta-continued}) by a similar computation.
+    The other case when $\{k_0-2\}< s_\varepsilon $ or $\{k_0-2\} \geq a+s_\varepsilon$ can be proved in the same way.
+    Similarly, when $a + s_\varepsilon \geq p-1$, we have the following table.
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Condition & $\{a+s_\varepsilon\}\leq  \{k_0-2\} < s_\varepsilon$ &$\{k_0-2\}< \{a+s_\varepsilon\} $ or $\{k_0-2\} \geq s_\varepsilon$ \\
+    \hline
+    $d$ &  odd & even \\
+    \hline
+    $a+ s_{\varepsilon''}$  & $< p-1$&  $\geq p-1$ \\
+    \hline
+    $\beta^{(\varepsilon)}_{\mathrm{even}}$ & $\{a+s_\varepsilon\} + \delta_\varepsilon+1$& $\{a+s_\varepsilon\} + \delta_\varepsilon+1$ \\
+    \hline
+    $\beta^{(\varepsilon)}_{\mathrm{odd}}$ & $s_\varepsilon + \delta_\varepsilon - \frac{p-1}2$ & $s_\varepsilon + \delta_\varepsilon - \frac{p-1}2$ \\
+    \hline
+    $\beta^{(\varepsilon'')}_{\mathrm{even}}$ & $s_{\varepsilon''} + \delta_{\varepsilon''}$ & $\{a+s_{\varepsilon''}\}  + \delta_{\varepsilon''}+1$ \\
+    \hline
+    $\beta^{(\varepsilon'')}_{\mathrm{odd}}$&$a+s_{\varepsilon''} + \delta_{\varepsilon''} - \frac{p-3}2$ & $s_{\varepsilon''} + \delta_{\varepsilon''} -\frac{p-1}2$ \\
+    \hline
+    $\beta_{[d+\ell]}^{(\varepsilon)} - \beta_{[\ell]}^{(\varepsilon'')}$ & $s_\varepsilon -s_{\varepsilon''} +  \delta_\varepsilon - \delta_{\varepsilon''} -\frac{p-1}2$ & $s_\varepsilon - s_{\varepsilon''} + \delta_{\varepsilon } - \delta_{\varepsilon''}$ \\
+    \hline
+    $\beta_{[d-\ell]}^{(\varepsilon)} + \beta_{[\ell-1]}^{(\varepsilon'')}$  & $a+  s_\varepsilon + s_{\varepsilon''} + \delta_\varepsilon + \delta_{\varepsilon ''} +2-p$ & $a+  s_\varepsilon + s_{\varepsilon''} + \delta_\varepsilon + \delta_{\varepsilon ''} -\frac{3p-5}2$ \\
+    \hline
+    \end{tabular}
+    \end{center}
+    As above, the expressions in the last two rows are valid regardless of the parity of $\ell$.
+    Again the two equalities (\ref{E:beta_plus_beta_and_beta_-_beta}) and (\ref{E:beta_plus_beta_and_beta_-_beta-continued}) can be proved via a case-by-case computation.
+\end{proof}
+
+\begin{lemma}
+    \label{L:three_elementary_identities_part1}
+    We have the identity
+    $$k_{\mathrm{mid}}^{(\varepsilon)} (d+\ell) -k_0 = k_{{\mathrm{mid}}}^{(\varepsilon')}(\ell) - (2-k_0).$$
+\end{lemma}
+
+\begin{proof}
+    \uses{L:d-2k, L:extremal_ks_part1, L:extremal_ks_part3}
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, the identity is equivalent to
+    \begin{align*}
+    2+\{k_\varepsilon -&2\} + (p-1)(d+\ell +\delta_\varepsilon -1) -k_0 = 2+\{k_{\varepsilon '}-2\} + (p-1)(\ell + \delta_{\varepsilon'} -1) - (2-k_0).
+    \\
+    &
+    \textrm{or equivalently, }(p-1)(d+\delta_\varepsilon - \delta_{\varepsilon'}) = 2k_0 -2 -\{k_\varepsilon-2\}+\{k_{\varepsilon'}-2\}.
+    \end{align*}
+    But this is exactly Lemma~\ref{L:d-2k}.
+\end{proof}
+
+\begin{lemma}
+    \label{L:three_elementary_identities_part2}
+    We have the identity
+    $$k_{\max}^{(\varepsilon)} (d+\ell) -k_0 = \tilde  k_{\min}^{(\varepsilon')}(\ell) -p (2-k_0)-(p-1).$$
+\end{lemma}
+
+\begin{proof}
+    \uses{L:case-by-case_check_theta, L:d-2k, L:extremal_ks_part1, L:extremal_ks_part3}
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, the identity is equivalent to
+    \begin{align*}
+    2 +\{k_{\varepsilon} -2\} + &(p-1) \big(\tfrac{p+1}2 (d+\ell) +\beta_{[d+\ell]}^{(\varepsilon)}-1\big) - k_0\\ & =
+    2p +p\{k_{\varepsilon'} -2\} + (p-1) \big(\tfrac{p+1}2 ( \ell-1+2\delta_{\varepsilon'})- \beta_{[\ell-1]}^{(\varepsilon')}\big)   -p(2-k_0).
+    \end{align*}
+    Rearranging and using Lemma~\ref{L:d-2k}, this is equivalent to
+    $$  (p-1)(\beta_{[d+\ell]}^{(\varepsilon)}+ \beta_{[\ell-1]}^{(\varepsilon')} )=
+    \tfrac{p-1}2\{k_\varepsilon-2\} +\tfrac{p-1}2\{k_{\varepsilon'} - 2\} + \tfrac{p^2-1}2(  \delta_\varepsilon+\delta_{\varepsilon'}) -(p-1)\tfrac{p-3}2.
+    $$
+    Dividing this by $p-1$, this follows from Lemma~\ref{L:case-by-case_check_theta} below.
+\end{proof}
+
+\begin{lemma}
+    \label{L:three_elementary_identities_part3}
+    We have the identity
+    $$\tilde k_{\min}^{(\varepsilon)} (d+\ell) -pk_0 - (p-1) =   k_{\max}^{(\varepsilon')}(\ell) - (2-k_0).$$
+\end{lemma}
+
+\begin{proof}
+    \uses{L:case-by-case_check_theta, L:d-2k, L:extremal_ks_part1, L:extremal_ks_part3}
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, the identity is equivalent to
+    \begin{align*}
+    2p +p\{k_{\varepsilon} -2\} + &(p-1) \big(\tfrac{p+1}2 (d+\ell-1+2\delta_{\varepsilon}) -\beta_{[d+\ell-1]}^{(\varepsilon)}\big) - pk_0
+    \\ & =
+    2 +\{k_{\varepsilon'} -2\} + (p-1) \big(\tfrac{p+1}2 \ell +\beta_{[\ell]}^{(\varepsilon')}-1\big)   -(2-k_0).
+    \end{align*}
+    Rearranging and using Lemma~\ref{L:d-2k}, this is further equivalent to
+    $$(p-1)(\beta_{[d+\ell-1]}^{(\varepsilon)}+ \beta_{[\ell]}^{(\varepsilon')})=
+    \tfrac{p-1}2\{k_\varepsilon-2\} +\tfrac{p-1}2\{k_{\varepsilon'} - 2\} + \tfrac{p^2-1}2(\delta_{\varepsilon'} + \delta_\varepsilon) -(p-1)\tfrac{p-3}2.
+    $$
+    Dividing by $p-1$, this will follow from Lemma~\ref{L:case-by-case_check_theta} below.
+\end{proof}
+
+\begin{lemma}
+    \label{L:case-by-case_check_theta}
+    We have the following two identities for every $\ell$
+    \begin{eqnarray*}
+    \beta_{[d+\ell]}^{(\varepsilon)} - \beta_{[\ell]}^{(\varepsilon')} &=&  \tfrac 12\big(\{k _\varepsilon -2\} - \{k_{\varepsilon '}-2\}\big)+\tfrac{p+1}2( \delta_\varepsilon-\delta_{\varepsilon'})  \quad\textrm{and}
+    \\
+    \beta_{[d+\ell-1]}^{(\varepsilon)}+\beta_{[\ell]}^{(\varepsilon')}
+    &=&
+    \tfrac12\big(\{k_\varepsilon-2\} +\{k_{\varepsilon'}  - 2\}\big) + \tfrac{p+1}2(\delta_{\varepsilon'} + \delta_\varepsilon)-\tfrac{p-3}2.
+    \end{eqnarray*}
+\end{lemma}
+
+\begin{proof}
+    \uses{L:case-by-case_check_AL}
+    This follows from a case-by-case study as in Lemma~\ref{L:case-by-case_check_AL}. In fact, we get exactly the \emph{same} tables as in Lemma~\ref{L:case-by-case_check_AL} with $\varepsilon'$ in places of $\varepsilon''$ everywhere. We leave the details to the readers.
+\end{proof}
+
+\begin{lemma}
+    \label{Diglemma}
+    For $p\geq3$ and $m,N \in \mathbb{N}$,  we have
+    	\[
+    	{\operatorname{Dig}}\big((p+1)N \big) \leq {\operatorname{Dig}}(N)+ {\operatorname{Dig}}(N+m)+(p-2)m
+    	\]
+\end{lemma}
+
+\begin{proof}
+    Denote by $a$ and $b$ the number of times we carry over digits to the next one when computing the sums $N+pN$ and $N+m$ respectively. It follows that
+    \[
+    {\operatorname{Dig}}\big((p+1)N \big)={\operatorname{Dig}}(N)+{\operatorname{Dig}}(pN)-(p-1)a=2{\operatorname{Dig}}(N)-(p-1)a
+    \]
+    and
+    \[
+    {\operatorname{Dig}}(N+m)={\operatorname{Dig}}(N)+{\operatorname{Dig}}(m)-(p-1)b.
+    \]
+    Let $d_m$ be the number of digits of $m$, namely $\lfloor\frac{\ln m}{\ln p}\rfloor+1$, if in the $p$-based expression of $m$ the leading term is not $p-1$; otherwise, we define $d_m$ to be one plus the number of digits of $m$. (Here and later, $\ln(-)$ denotes the natural real logarithmic.) It is not difficult to check that if $b-d_m \geq 1$, then the there must be at least $b-d_m$ consecutive $(p-1)$'s in $N$, and moreover they will force carrying over digits at least $b-d_m$ times. So $a \geq b-d_m$.
+    Now, combining with the inequalities above, we deduce that
+    $$
+    {\operatorname{Dig}}((p+1)N) - {\operatorname{Dig}}(N) -{\operatorname{Dig}}(N+m) \leq (p-1)(b-a)-{\operatorname{Dig}}(m) \leq  (p-1)d_m -{\operatorname{Dig}}(m).
+    $$
+    It is not difficult to verify that $(p-1)d_m \leq {\operatorname{Dig}}(m) + (p-2)m$. The lemma is proved.
+\end{proof}
+
+\begin{proposition}
+    \label{P:gouvea_k-1_p_plus_1_conjecture}
+    Fix a relevant character $\varepsilon$ of $\Delta^2$, and let $k_0 \equiv k_\varepsilon \bmod{(p-1)}$ be a weight. Then the first $d_{k_0}^{\mathrm{ur}}(\varepsilon_1)$ slopes of ${\operatorname{NP}}(G^{(\varepsilon)}(w_{k_0}, -))$ are all less than or equal to $\big\lfloor\frac{k_0-1-\min\{a+1,p-2-a\}}{p+1}\big\rfloor$. More precisely, they are all less than or equal to
+    \begin{equation}
+    \label{E:gouvea_maximal_slope}
+    \frac{p-1}2(d_{k_0}^{\mathrm{ur}}(\varepsilon_1)-1)-\delta_\varepsilon + \beta_{[d_{k_0}^{\mathrm{ur}}(\varepsilon_1)-1]}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    \uses{D:dimension_of_Sunr, Diglemma, E:diga_plus_digb, E:error, E:gouvea_maximal_slope, E:increment_of_ghost_series_valuation_1, E:main-est, E:second-line, E:sum_of_consecutive_valuations, E:vp_difference_k-1_p_plus_1_conjecture, L:extremal_ks_part1, L:extremal_ks_part3, N:kbullet, R:delta, R:meaning_of_kmidminmax}
+    In this proof, we shall suppress $\varepsilon$ and $\varepsilon_1$ from the notation for simplicity.
+    We first check that $\eqref{E:gouvea_maximal_slope}$ is less than or equal to $\frac{k_0-1-\min\{a+1,p-2-a\}}{p+1}$.
+    Write $k_0 = 2+\{a+2s\} + (p-1)k_{0\bullet}$ as in Notation~\ref{N:kbullet}. Using Proposition \ref{D:dimension_of_Sunr} and Remark \ref{R:delta}, we may separate the argument in the following two cases.
+    \begin{itemize}
+    \item If $k_{0\bullet} - (p+1) \lfloor \frac{k_{0\bullet}-t_1}{p+1}\rfloor  \geq t_2$, then
+    \begin{align*}
+    \eqref{E:gouvea_maximal_slope}
+    \nonumber
+    =\ & (p-1)\Big\lfloor \frac{k_{0\bullet}-t_1}{p+1}\Big\rfloor -\delta + t_2-1   \leq (p-1)\frac{(k_{0\bullet}-t_2)}{p+1} -\delta +t_2 -1 \\
+     =\ & \frac{k_0-1}{p+1} + \frac{2t_2-\{ a+2 s\} -1}{p+1}-\delta-1 \\
+    \nonumber
+    =\ & \begin{cases}
+    	\frac{k_0-1}{p+1}- \frac{p-2-a}{p+1} & \textrm{if } a+s_\varepsilon < p-1
+    	\\
+    	\frac{k_0-1}{p+1}- \frac{a+1}{p+1} & \textrm{if } a+s_\varepsilon \geq p-1.
+    \end{cases}
+    \end{align*}
+    \item If $k_{0\bullet} - (p+1) \lfloor \frac{k_{0\bullet}-t_1}{p+1}\rfloor  < t_2$, then
+    \begin{align*}
+    \eqref{E:gouvea_maximal_slope}
+    \nonumber
+    =\ & (p-1)\Big\lfloor \frac{k_{0\bullet}-t_1}{p+1}\Big\rfloor -\delta + t_1   \leq (p-1)\frac{(k_{0\bullet}-t_1)}{p+1} - \delta + t_1 \\
+    =\ &\frac{k_0-1}{p+1} + \frac{2t_1-\{ a+2 s\} -1}{p+1}-\delta \\
+    \nonumber
+    =\ & \begin{cases}
+    	\frac{k_0-1}{p+1}- \frac{a+1}{p+1}  & \textrm{if } a+s_\varepsilon < p-1
+    	\\
+    	\frac{k_0-1}{p+1}- \frac{p-2-a}{p+1}& \textrm{if } a+s_\varepsilon \geq p-1.
+    \end{cases}
+    \end{align*}
+    \end{itemize}
+    The claim follows immediately.
+    Now, we prove that the first $d_{k_0}^{\mathrm{ur}}$ slopes of ${\operatorname{NP}}(G(w_{k_0}, -))$ are all less than or equal to \eqref{E:gouvea_maximal_slope}. It suffices to show that for $i = 1, \dots, d_{k_0}^{\mathrm{ur}}$,
+    $$
+    v_p(g_{d_{k_0}^{\mathrm{ur}}}(w_{k_0})) - v_p(g_{d_{k_0}^{\mathrm{ur}}-i}(w_{k_0})) \leq i \cdot \eqref{E:gouvea_maximal_slope}.
+    $$
+    Recall from \eqref{E:increment_of_ghost_series_valuation_1} that for
+    $n = d_{k_0}^{\mathrm{ur}}-1,\dots,1, 0$ (so $k_{0\bullet} > k_{{\max}\bullet}(n)$ by Remark \ref{R:meaning_of_kmidminmax}),
+    \begin{eqnarray}
+    \label{E:vp_difference_k-1_p_plus_1_conjecture}
+    \nonumber
+     &v_p(g_{n+1}(w_{k_0})) - v_p(g_n(w_{k_0})) = \hspace{-15pt}\displaystyle\sum_{
+    k_{{\mathrm{mid}}\bullet}(n) < k_\bullet \leq k_{{\max}\bullet}(n)}
+    \hspace{-20pt}\big( v_p(k_{0\bullet} - k_\bullet)+1 \big)\ \,-  \hspace{-25pt} \displaystyle\sum_{
+    k_{{\min}\bullet}(n) \leq k_\bullet \leq k_{{{\mathrm{mid}}}\bullet}(n)}
+    \hspace{-20pt}\big( v_p(k_{0\bullet}-k_\bullet)+1 \big)
+    \\
+    &\qquad\qquad \quad
+    \stackrel{\eqref{E:sum_of_consecutive_valuations}}= \dfrac{p(k_{{\max}\bullet}(n) - k_{{\mathrm{mid}}\bullet}(n)) - {\operatorname{Dig}}(k_{0\bullet}-k_{{\mathrm{mid}}\bullet}(n)-1)
+    + {\operatorname{Dig}}(k_{0\bullet} - k_{{\max}\bullet}(n)-1)
+    }{p-1}
+    \\
+    \nonumber
+    & \qquad\qquad\qquad\quad -\ \dfrac{p(k_{{{\mathrm{mid}}}\bullet}(n) - k_{{\min}\bullet}(n)+1) - {\operatorname{Dig}}(k_{0\bullet} - k_{{\min}\bullet}(n)) + {\operatorname{Dig}}( k_{0\bullet}- k_{{\mathrm{mid}}\bullet}(n)-1)
+    }{p-1}.
+    \end{eqnarray}
+    Using basic properties of $p$-based numbers and Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, one can deduce that
+    \begin{equation*}
+    pk_{{\min}\bullet}(n)+ {\operatorname{Dig}}(k_{0\bullet} - k_{{\min}\bullet}(n)) = \tilde k_{{\min}\bullet}(n)+ {\operatorname{Dig}}(pk_{0\bullet} - \tilde k_{{\min}\bullet}(n)).
+    \end{equation*}
+    From this, we see that \eqref{E:vp_difference_k-1_p_plus_1_conjecture} is equal to
+    \begin{align*}
+    &\frac{\tilde k_{{\min}\bullet}(n) +pk_{{\max}\bullet}(n)- 2pk_{{{\mathrm{mid}}}\bullet}(n)-p}{p-1} + \frac{{\operatorname{Dig}}(k_{0\bullet}- k_{{\max}\bullet}(n)-1) + {\operatorname{Dig}}(pk_{0\bullet}  - \tilde k_{{\min}\bullet}(n))}{p-1}
+    \\
+    & \quad - \frac{2{\operatorname{Dig}}(k_{0\bullet}- k_{{{\mathrm{mid}}}\bullet}(n)-1)}{p-1}.
+    \end{align*}
+    Plugging in the formulae of Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3} and setting
+    \[
+    A_n = k_{0\bullet}- k_{{\max}\bullet}(n)-1, \quad B_n = pk_{0\bullet}  - \tilde k_{{\min}\bullet}(n), \quad C_n = k_{0\bullet}- k_{{{\mathrm{mid}}}\bullet}(n)-1,
+    \]
+    we deduce that \eqref{E:vp_difference_k-1_p_plus_1_conjecture} is equal to
+    $$
+    \frac{(p-1)n-1}2 - \delta_\varepsilon +\frac{p\beta_{[n]} - \beta_{[n-1]}}{p-1}
+    + \frac{{\operatorname{Dig}}A_n+{\operatorname{Dig}}B_n-2{\operatorname{Dig}}C_n}{p-1}.$$
+    Therefore, we have
+    \begin{eqnarray}
+    \label{E:error}
+    &v_p(g_{d_{k_0}^{\mathrm{ur}}}(w_{k_0})) - v_p(g_{d_{k_0}^{\mathrm{ur}}-i}(w_{k_0})) -  i \cdot \big( \frac{p-1}2(d_{k_0}^{\mathrm{ur}}-1)-\delta_\varepsilon + \beta_{[d_{k_0}^{\mathrm{ur}}-1]}\big) \\
+    \nonumber &
+    = -\frac{i(i-1)}{4}(p-1)-\frac{i}{2}+
+    \begin{cases}
+    \frac{i}{2} (\beta_{[d_{k_0}^{\mathrm{ur}}]}-\beta_{[d_{k_0}^{\mathrm{ur}}-1]}) & \textrm{if $i$ is even}\\
+    \frac{i-1}{2} (\beta_{[d_{k_0}^{\mathrm{ur}}]}-\beta_{[d_{k_0}^{\mathrm{ur}}-1]})+ \frac{\beta_{[d_{k_0}^{\mathrm{ur}}-1]}-\beta_{[d_{k_0}^{\mathrm{ur}}]}}{p-1} & \textrm{if $i$ is odd}
+    \end{cases}\\
+    \nonumber
+    & + \displaystyle \sum_{1 \leq j \leq i} \left( \frac{{\operatorname{Dig}}\big(A_{d_{k_0}^{\mathrm{ur}}- j}\big) +{\operatorname{Dig}}\big(B_{d_{k_0}^{\mathrm{ur}}- j}\big) - 2 {\operatorname{Dig}}\big(C_{d_{k_0}^{\mathrm{ur}}- j}\big)}{p-1}\right).
+    \end{eqnarray}
+    Note that $\beta_{[d_{k_0}^{\mathrm{ur}}]}-\beta_{[d_{k_0}^{\mathrm{ur}}-1]} \in \{ \pm( t_2-t_1-\frac{p+1}{2})\} = \{\pm \frac{p-3-2a}{2}\}$; so it is at most $\frac{p-5}{2}$. Since $p\geq5$, it is straightforward to see that the second line of \eqref{E:error} is less than or equal to
+    \begin{eqnarray}
+    \label{E:second-line}
+    \begin{cases}
+    -\frac{2}{p-1} & \textrm{if $i=1$}\\
+    -i^2+\tfrac12 i & \textrm{if $i>1$}.
+    \end{cases}
+    \end{eqnarray}
+    Moreover, since \eqref{E:error} is an integer, it reduces to show
+    \begin{equation}
+    \label{E:main-est}
+    \displaystyle \sum_{1 \leq j \leq i} \left( \frac{{\operatorname{Dig}}\big(A_{d_{k_0}^{\mathrm{ur}}- j}\big) +{\operatorname{Dig}}\big(B_{d_{k_0}^{\mathrm{ur}}- j}\big) - 2 {\operatorname{Dig}}\big(C_{d_{k_0}^{\mathrm{ur}}- j}\big)}{p-1}\right) + \eqref{E:second-line}<1.
+    \end{equation}
+    From Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, we have the relation
+    \[
+    B_n = (p+1) C_n - A_{n+1}-1, \qquad n\geq0.
+    \]
+    For $j=1,2,...,d^{\mathrm{ur}}_{k_0}$, we may compute $A_{d_{k_0}^{\mathrm{ur}}- j},B_{d_{k_0}^{\mathrm{ur}}- j},C_{d_{k_0}^{\mathrm{ur}}- j}$ in terms of $A_{d_{k_0}^{\mathrm{ur}}- 1},A_{d_{k_0}^{\mathrm{ur}}- 2}$, and $C= C_{d_{k_0}^{\mathrm{ur}}- 1}:$
+    \begin{equation*}
+    \label{E:A_n_and_C_n}
+    A_{d_{k_0}^{\mathrm{ur}}- j} =
+    \begin{cases}
+    A_{d_{k_0}^{\mathrm{ur}}-1}+ \frac{p+1}{2} (j-1) & \textrm{ if } j \textrm{ is odd}
+    \\
+    A_{d_{k_0}^{\mathrm{ur}}-2} +\frac{p+1}{2}(j-2) & \textrm{ if } j \textrm{ is even}
+    \end{cases}
+    \textrm {    and  }C_{d_{k_0}^{\mathrm{ur}}- j} = C+ (j-1).
+    \end{equation*}
+    Hence
+    \begin{equation*}
+     B_{d_{k_0}^{\mathrm{ur}}- j} =
+    \begin{cases}
+    (p+1)(C+\frac{j-1}{2})+p- A_{d_{k_0}^{\mathrm{ur}}-2} &  \textrm{ if } j \textrm{ is odd}
+    \\
+    (p+1)(C+\frac{j-2}{2})+p- A_{d_{k_0}^{\mathrm{ur}}-1} & \textrm{ if } j \textrm{ is even}.
+    \end{cases}
+    \end{equation*}
+    Note that $k_{\max\bullet}(n)$ is an increasing function in $n$ by Remark \ref{R:meaning_of_kmidminmax}.  Thus $A_{d_{k_0}^{\mathrm{ur}}-1}\leq A_{d_{k_0}^{\mathrm{ur}}-2}=\tfrac 12(p+1)<p$. Then using the inequalities ${\operatorname{Dig}}(A+B)\leq{\operatorname{Dig}}(A) + {\operatorname{Dig}}(B)  $ and ${\operatorname{Dig}}((p+1)D)\leq 2{\operatorname{Dig}}(D) \leq 2D$, we conclude that
+    \begin{equation*}
+    \nonumber
+    {\operatorname{Dig}}\big(A_{d_{k_0}^{\mathrm{ur}}- j}\big) \leq
+    \begin{cases}
+    A_{d_{k_0}^{\mathrm{ur}}-1}+ (j-1) &  \textrm{ if } j \textrm{ is odd}
+    \\
+    A_{d_{k_0}^{\mathrm{ur}}-2}+ (j-2) & \textrm{ if } j \textrm{ is even},
+    \end{cases}
+    \end{equation*}
+    and
+    \begin{equation*}
+    \label{Eq1}
+    {\operatorname{Dig}}\big(B_{d_{k_0}^{\mathrm{ur}}- j}\big) \leq
+    \begin{cases}
+    {\operatorname{Dig}}\big((p+1)(C+\frac{j-1}{2})\big)+p- A_{d_{k_0}^{\mathrm{ur}}-2}&  \textrm{ if } j \textrm{ is odd}
+    \\
+    {\operatorname{Dig}}\big((p+1)(C+\frac{j-2}{2})\big)+p- A_{d_{k_0}^{\mathrm{ur}}-1}& \textrm{ if } j  \textrm{ is even}.
+    \end{cases}
+    \end{equation*}
+    Summing up these inequalities for $j=1,\dots, i$, we get
+    \begin{align}
+    \label{E:diga_plus_digb}
+    \displaystyle \sum_{1 \leq j \leq i}{\big( {\operatorname{Dig}}A_{d_{k_0}^{\mathrm{ur}}- j} +{\operatorname{Dig}}B_{d_{k_0}^{\mathrm{ur}}-j}}\big) \leq &\ pi + 2\lfloor\tfrac{i-1}{2}\rfloor\lfloor\tfrac{i+1}{2}\rfloor+ 2\displaystyle \sum_{0 \leq j \leq \lfloor\frac{i-1}{2}\rfloor}{{\operatorname{Dig}}\big((p+1)(C+j)\big)}\\
+    \nonumber
+    &- \delta(i)\big(2\lfloor\tfrac{i-1}{2}\rfloor+{\operatorname{Dig}}\big((p+1)(C+\lfloor\tfrac{i-1}{2}\rfloor)\big)\big),
+    \end{align}
+    where $\delta(i)\in\{0,1\}$ is determined by $\delta(i)\equiv i\mod 2$.
+    Applying Lemma~\ref{Diglemma} to $N=C,C+1,\dots,C +\lfloor\frac{i-1}{2}\rfloor$ and $m=\lfloor\frac{i}{2}\rfloor$ or $\lfloor\frac{i+1}{2}\rfloor$, and adding them up, we deduce
+    that
+    \begin{align*}
+    &2 \sum_{0 \leq j \leq \lfloor\frac{i-1}{2}\rfloor}{{\operatorname{Dig}}\big((p+1)(C+j)\big)}-\delta(i){\operatorname{Dig}}\big((p+1)(C+\lfloor\tfrac{i-1}{2}\rfloor)\big) \\
+    \leq\ &
+    2\displaystyle \sum_{0 \leq j \leq i-1}{{\operatorname{Dig}}\big((C+j)\big)}+(p-2)\lfloor\tfrac{i+1}{2}\rfloor\lfloor\tfrac{i}{2}\rfloor.
+    \end{align*}
+    Note that $\lfloor\frac{i+1}{2}\rfloor-\delta(i)=\lfloor\frac{i}{2}\rfloor$. Combining with \eqref{E:diga_plus_digb}, we deduce that
+    \begin{align*}
+    \displaystyle \sum_{1 \leq j \leq i}
+    \frac{{\operatorname{Dig}}A_{d_{k_0}^{\mathrm{ur}}- j} +{\operatorname{Dig}}B_{d_{k_0}^{\mathrm{ur}}- j} - 2 {\operatorname{Dig}}C_{d_{k_0}^{\mathrm{ur}}- j}}{p-1}&\leq \frac{pi +2\lfloor\frac{i-1}{2}\rfloor\lfloor\frac{i}{2}\rfloor+ 2(p-2)\lfloor\frac{i+1}{2}\rfloor\lfloor\frac{i}{2}\rfloor}{p-1} \\
+    \nonumber
+    &=2\lfloor\tfrac{i+1}{2}\rfloor\lfloor\tfrac{i}{2}\rfloor+i+\tfrac{\delta(i)}{p-1}.
+    \end{align*}
+    Put
+    \[
+    S(i):=2\lfloor\tfrac{i+1}{2}\rfloor\lfloor\tfrac{i}{2}\rfloor+i+\tfrac{\delta(i)}{p-1}+ \eqref{E:second-line}.
+    \]
+    A short computation shows that
+    $S(1)=1-\frac{1}{p-1}, S(2)=1$, and for $i\geq3$,
+    \[
+    S(i)\leq \frac{i^2}{2}+i+\eqref{E:second-line}=\frac{-i^2+3i}{2}\leq0.
+    \]
+    By \eqref{E:main-est}, we conclude the desired result except for $i=2$. Moreover, if \eqref{E:main-est} fails for $i=2$, we must have
+    \[
+    {\operatorname{Dig}}\big((p+1)C+(p-A_{d_{k_0}^{\mathrm{ur}}-2})\big)={\operatorname{Dig}}\big((p+1)C\big)+p- A_{d_{k_0}^{\mathrm{ur}}-2}
+    \]
+    and
+    \[
+    {\operatorname{Dig}}((p+1)C)={\operatorname{Dig}}(C)+{\operatorname{Dig}}(C+1)+(p-2).
+    \]
+    From the second equality, we deduce that ${\operatorname{Dig}}(C+1)<{\operatorname{Dig}}(C)$, yielding $p|(C+1)$. However, this contradicts the first equality since $p-A_{d_{k_0}^{\mathrm{ur}}-2}=\tfrac12(p-1)>1$.
+\end{proof}
