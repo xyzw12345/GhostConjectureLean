@@ -1,0 +1,1099 @@
+\section{more difficult results on ghost series}
+\begin{notation}
+    \label{N:relevant_suppressed}
+    \emph{We fix  $\varepsilon = \omega^{-s_\varepsilon} \otimes \omega^{a+s_\varepsilon}$ a relevant character of $\Delta^2$ in this section. We will suppress $\varepsilon$ from all superscripts when no confusion arises.}
+\end{notation}
+
+\begin{notation}
+    \label{N:ghost_series_suppressed}
+    \emph{Let $G(w,t) = G^{(\varepsilon)}(w,t) = \sum_{n\geq 0} g_n(w) t^n \in {\mathbb{Z}}_p[w]\llbracket t\rrbracket$ denote the corresponding ghost series.}
+\end{notation}
+
+\begin{notation}
+    \label{N:Delta_kell}
+    \uses{E:ghost_duality_alternative, L:failure_of_convexity_of_Delta_prime, P:ghost_compatible_with_theta_AL_and_p-stabilization_part4}
+    For integer $k \geq 2$ and $k \equiv k_\varepsilon \bmod{(p-1)}$, we set
+    \begin{equation}
+    \label{E:definition_of_Delta_prime}
+    \Delta'_{k, \ell} : = v_p \big(g_{\frac 12 d_{k}^{\mathrm{Iw}}+\ell, \hat k}(w_k) \big) -\tfrac{k-2}2 \ell, \quad \textrm{for }\ell = -\tfrac 12 d_{k}^{\mathrm{new}}, -\tfrac 12 d_{k}^{\mathrm{new}}+1, \dots, \tfrac 12d_{k}^{{\mathrm{new}}}.
+    \end{equation}
+    Then the ghost duality statement in Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part4} is equivalent to the following
+    equality
+    \begin{equation}
+    \label{E:ghost_duality_alternative}
+    \Delta'_{k,\ell} = \Delta'_{{k}, -\ell} \quad\textrm{ for all }\ell = -\tfrac 12 d_{k}^{\mathrm{new}}, \dots, \tfrac 12d_{k}^{{\mathrm{new}}}.
+    \end{equation}
+    If we connect the points $(\ell, \Delta'_{k,\ell})$ with line segments on the plane to get the graph $\underline \Delta'_k$ of a function, the function is in general not convex (although for ``majority" $k$ it is; see Lemma~\ref{L:failure_of_convexity_of_Delta_prime}). Consider the convex hull $\underline \Delta_k = \underline \Delta^{(\varepsilon)}_k$ of such graph and let $(\ell, \Delta_{k, \ell}) = (\ell, \Delta^{(\varepsilon)}_{k, \ell})$ denote the corresponding points on this convex hull. In particular, the ghost duality \eqref{E:ghost_duality_alternative} implies that $\Delta_{k,\ell} = \Delta_{k, -\ell}$.
+\end{notation}
+
+\begin{lemma}
+    \label{L:estimate_Delta_kell}
+    For $k =k_\varepsilon + (p-1)k_{\bullet}$ and $\ell = 1,\dots, \frac 12 d_{k}^{\mathrm{new}}$, we have
+    $$
+    \Delta'_{k, \ell} - \Delta'_{k, \ell-1}\;\geq\; \frac {\min\{a+2, p-1-a\}}2+ \frac {p-1}2 (\ell-1) \;\geq\;  \frac 32 + \frac {p-1}2(\ell-1).
+    $$
+\end{lemma}
+
+\begin{proof}
+    \uses{E:Delta_prime-Delta_prime, E:Delta_prime-Delta_prime2, E:ghost_duality_alternative, E:increment_of_ghost_series_valuation_1, E:sum_of_consecutive_valuations, L:extremal_ks_part1, L:extremal_ks_part3}
+    By ghost duality \eqref{E:ghost_duality_alternative}, it is equivalent to consider $\Delta'_{k,-\ell} -\Delta'_{k, -\ell+1} $.
+    We use the formula \eqref{E:increment_of_ghost_series_valuation_1} for $n = \frac 12 d_{k}^{\mathrm{Iw}}- \ell = k_{\bullet}+1-\delta_\varepsilon -\ell$, (and write $k_{*\bullet}$ for $k_{* \bullet}(n)$ with $* = \min, \max, {\mathrm{mid}}$)
+    \begin{small}
+    \begin{align}
+    \nonumber
+    &\Delta'_{k,-\ell} - \Delta'_{k,-\ell+1}  =
+    \frac{k-2}2-  \hspace{-20pt}
+    \sum_{\substack{k'_\bullet \neq k_\bullet \\
+    k_{{\mathrm{mid}}\bullet} < k'_\bullet  \leq k_{{\max}\bullet}}}
+    \hspace{-20pt}\big( v_p(k'_\bullet - k_{\bullet})+1 \big)\ +  \hspace{-20pt} \sum_{
+    k_{{\min}\bullet} \leq k'_\bullet \leq k _{{{\mathrm{mid}}}\bullet}}
+    \hspace{-20pt}\big( v_p(k'_\bullet - k_{\bullet})+1 \big).
+    \\
+    \nonumber
+    \stackrel{\eqref{E:sum_of_consecutive_valuations}}=\ & \frac{k-2}2 - \big( k_{{\max}\bullet}-k_{{\mathrm{mid}}\bullet }-1\big) + \big( k_{{\mathrm{mid}}\bullet} -k_{{\min}\bullet} +1 \big)-\frac{k_\bullet-k_{{{\mathrm{mid}}}\bullet}-1- {\operatorname{Dig}}(k_\bullet-k_{{{\mathrm{mid}}}\bullet}-1)}{p-1}
+    \\
+    \nonumber
+    &- \frac{k_{{\max}\bullet}-k_\bullet - {\operatorname{Dig}}(k_{{\max}\bullet}-k_\bullet)}{p-1}+\frac{k_{{{\mathrm{mid}}}\bullet} - k_{{\min}\bullet} +1-{\operatorname{Dig}}(k_\bullet - k_{{\min}\bullet})+ {\operatorname{Dig}}(k_\bullet-k_{{{\mathrm{mid}}}\bullet}-1)}{p-1}
+    \\
+    \label{E:Delta_prime-Delta_prime}
+    =\ & \frac{k-2}2+ \frac {p(2k_{{\mathrm{mid}}\bullet}- k_{{\max}\bullet}- k_{{\min}\bullet}+2)}{p-1}+ \frac{{\operatorname{Dig}}(k_{{\max}\bullet} - k_{\bullet})- {\operatorname{Dig}}(k_{\bullet} - k_{{\min}\bullet})+2{\operatorname{Dig}}(\ell-1)}{p-1}.
+    \end{align}\end{small}
+    Here ${\operatorname{Dig}}(m)$ is the sum of all digits in the $p$-based expression of $m$, and we made use of formula \eqref{E:sum_of_consecutive_valuations} for sums of valuations of continuous integers, and also noted that $k_\bullet - k_{{\mathrm{mid}}\bullet} = \ell$.
+    One can play the digital expansion game to deduce that
+    \begin{equation}
+    \label{E:digital_expansion_game}
+    pk_{{\min}\bullet}+ {\operatorname{Dig}}(k_{\bullet} - k_{{\min}\bullet}) = \tilde k_{{\min}\bullet}+ {\operatorname{Dig}}(pk_{\bullet} - \tilde k_{{\min}\bullet}).
+    \end{equation}
+    So \eqref{E:Delta_prime-Delta_prime} is equal to \begin{equation}
+    \label{E:Delta_prime-Delta_prime2}
+    \frac{k-2}2+ \frac {2pk_{{\mathrm{mid}}\bullet}-p k_{{\max}\bullet}- \tilde k_{{\min}\bullet}+2p}{p-1}+\frac{{\operatorname{Dig}}(k_{{\max}\bullet} - k_{\bullet})- {\operatorname{Dig}}(pk_{\bullet} - \tilde  k_{{\min}\bullet})+2{\operatorname{Dig}}(\ell-1)}{p-1}.
+    \end{equation}
+    By Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3},
+    \begin{align*}
+    &k_{{\mathrm{mid}}\bullet} =k_{\bullet} -\ell, \quad k_{{\max}\bullet} =\tfrac {p+1}2 (k_{\bullet}+1-\delta_\varepsilon -\ell) + \beta_{[n]}-1,
+    \\
+    & \textrm{and} \quad \tilde k_{{\min}\bullet}  =  \tfrac{p+1}2 (k_{\bullet}-\ell+\delta_\varepsilon) - \beta_{[n-1]}+1.
+    \end{align*}
+    Then the sum of the first two terms in \eqref{E:Delta_prime-Delta_prime2} is equal to
+    \begin{small}
+    \begin{align*}
+    &\frac{k-2}2 +
+    \frac{2 p\big( k_\bullet -\ell\big)  -p \big(\tfrac{p+1}2(k_\bullet+1 - \delta_\varepsilon -\ell) + \beta_{[n]}-1\big)
+    - \big(\tfrac{p+1}2(k_\bullet - \ell+ \delta_\varepsilon) - \beta_{[n-1]}+1 \big)+2p}{p-1}
+    \\
+    &= \frac{p-1}2 (\ell-1)+ \frac{k_\varepsilon - 2}2+1+\frac{p+1}2 \delta_\varepsilon -\beta_{[n]}+ \frac{\beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2}{p-1}.
+    \end{align*}\end{small}We can list the values of $\frac{k_\varepsilon - 2}2+1+\frac{p+1}2 \delta_\varepsilon -\beta_{[n]}$ and $\beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2$ in the following table.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    & &$\frac{k_\varepsilon - 2}2+1+\frac{p+1}2 \delta_\varepsilon -\beta_{[n]}$ & $\beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2$
+    \\
+    \hline
+    $a+s_\varepsilon < p-1$ & $n$ even & $\frac 12(a+2)$ & $a+2$
+    \\
+    \cline{2-4}
+    & $n$ odd & $\frac 12(p-1-a)$ & $p-1-a$
+    \\
+    \hline
+    $a+s_\varepsilon \geq p-1$ & $n$ even & $\frac 12(p-1-a)$ & $p-1-a$
+    \\
+    \cline{2-4} & $n$ odd & $\frac 12(a+2)$ & $a+2$
+    \\
+    \hline
+    \end{tabular}
+    \end{center}
+    We set $\theta: = \beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2$, which is equal to either $a+2$ or $p-1-a$; in particular, $3\leq \theta \leq p-2$. Then the sum of the first two terms in \eqref{E:Delta_prime-Delta_prime2} is equal to
+    $$
+    \frac{p-1}2(\ell-1) + \frac 12\cdot  \theta + \frac{\theta}{p-1}.
+    $$
+    On the other hand,
+    for the digital sum in the last term of \eqref{E:Delta_prime-Delta_prime2}, if we set
+    \begin{equation}
+    \label{E:eta}
+    \eta: = \frac{p-1}2k_\bullet -\frac{p+1}2\delta_\varepsilon + \beta_{[n]}-1,
+    \end{equation}
+    then we can write in a uniform fashion that
+    \begin{equation}
+    \label{E:kmax_-_k}
+    k_{{\max}\bullet}-k_\bullet = \eta - \frac{p+1}2 (\ell-1) , \quad pk_\bullet -\tilde k_{{\min}\bullet} =\eta+\theta +\frac{p+1}2(\ell-1).
+    \end{equation}
+    To sum up, we deduce from \eqref{E:Delta_prime-Delta_prime2} and the discussion above that $\Delta'_{k, \ell} - \Delta'_{k, \ell-1}$ is equal to
+    \begin{equation}
+    \label{E:Delta_prime-Delta_prime3}
+    \frac {(p-1) (\ell-1) + \theta}2+ \frac{\theta + {\operatorname{Dig}}\big(\eta -\frac{p+1}2(\ell-1)\big) + 2{\operatorname{Dig}}(\ell-1) - {\operatorname{Dig}}\big(\eta +\theta+\frac{p+1}2(\ell-1)\big)}{p-1}.
+    \end{equation}
+    But it is clear that
+    \begin{align}
+    \nonumber
+    &\theta + {\operatorname{Dig}}\big(\eta -\tfrac{p+1}2(\ell-1)\big) + 2{\operatorname{Dig}}(\ell-1)
+    \\
+    \nonumber
+    =\ &{\operatorname{Dig}}\big(\eta -\tfrac{p+1}2(\ell-1)\big) + {\operatorname{Dig}}(\ell-1) + {\operatorname{Dig}}(p\ell-p+\theta)
+    \\
+    \label{E:inequality_in_difference_of_delta} \geq\ & {\operatorname{Dig}}\big(\eta +\theta+\tfrac{p+1}2(\ell-1)\big).
+    \end{align}
+    It follows that
+    \[
+    \Delta'_{k, \ell} - \Delta'_{k, \ell-1} \geq \tfrac 12\big((p-1) (\ell-1) + \theta \big) \geq \tfrac{p-1}2(\ell-1) + \tfrac 32. \qedhere
+    \]
+\end{proof}
+
+\begin{corollary}
+    \label{C:finer_inequality_for_Delta}
+    \uses{L:estimate_Delta_kell}
+    Let $k = k_\varepsilon + (p-1)k_\bullet$ and $\ell =1, \dots, \frac 12 d_k^{\mathrm{new}}$ be as in Lemma~\ref{L:estimate_Delta_kell}. Let $k' = k_\varepsilon + (p-1) k'_\bullet$
+    be any weight such that
+    \begin{equation}
+    \label{E:dk_prime_boundaries_belongs_to_NS_range}
+    d_{k'}^{\mathrm{ur}}, \textrm{ or }d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\textrm{  belongs to }\big(\tfrac 12d_k^{\mathrm{Iw}}-\ell, \tfrac 12 d_k^{\mathrm{Iw}}+\ell\big)
+    ,
+    \end{equation}
+    or $\frac 12d_{k'}^{\mathrm{Iw}}\in \big[\tfrac 12d_k^{\mathrm{Iw}}-\ell, \tfrac 12 d_k^{\mathrm{Iw}}+\ell\big]$,
+    then we have
+    \begin{equation}
+    \label{E:Delta_kl_difference_strong}
+    \Delta'_{k, \ell} - \Delta'_{k,\ell-1} -v_p(w_k - w_{k'}) \geq \frac 12 + \frac {p-1}2(\ell-1) -\Big \lfloor \frac{\ln((p+1) \ell)}{\ln p}\Big\rfloor  \geq \frac 12 (2\ell-1),
+    \end{equation}
+    except when $\ell = 1$, the last inequality fails but $\Delta'_{k, 1} - \Delta'_{k,0} - v_p(w_{k} - w_{k'}) \geq \frac 12$ still holds.
+    When $p \geq 7$ and $\ell \geq 2$, we have
+    $\Delta'_{k, \ell} - \Delta'_{k,\ell-1}-v_p(w_{k}-w_{k'}) \geq \frac 12(2\ell+1)$.
+\end{corollary}
+
+\begin{proof}
+    \uses{E:Delta_kl_difference_strong, E:Delta_prime-Delta_prime3, E:condition_on_k_prime, E:dk_prime_boundaries_belongs_to_NS_range, E:eta, E:kmax_-_k, L:elementary_Digits_lemma, L:estimate_Delta_kell, L:extremal_ks_part2, P:proof_of_ghost_compatible_with_AL, R:meaning_of_kmidminmax}
+    The second inequality in \eqref{E:Delta_kl_difference_strong} is obvious (when $\ell >1$); we will prove the first inequality. (Similarly, the last statement also follows from the first inequality.)
+    We first treat the easy case: $\frac 12d_{k'}^{\mathrm{Iw}}\in \big[\frac 12d_k^{\mathrm{Iw}}-\ell, \ \frac 12d_k^{\mathrm{Iw}}+\ell\big]$.
+    Since $\frac 12 d_{k}^{\mathrm{Iw}}- \frac 12 d_{k'}^{\mathrm{Iw}}= k_\bullet - k'_\bullet$, we deduce that $|k'_\bullet - k_\bullet|\leq \ell$. In particular, $v_p(w_{k_\bullet}-w_{k'_\bullet}) \leq 1+ \big\lfloor \ln \ell / \ln p\big\rfloor$. So the first inequality of \eqref{E:Delta_kl_difference_strong} follows from Lemma~\ref{L:estimate_Delta_kell} immediately.
+    We now assume \eqref{E:dk_prime_boundaries_belongs_to_NS_range} holds.  First note that, by Remark~\ref{R:meaning_of_kmidminmax}, the condition \eqref{E:dk_prime_boundaries_belongs_to_NS_range} is equivalent to
+    \begin{equation}
+    \label{E:k_prime_so_that_dk_primeunr_in_Steinberg}
+    k'_\bullet \in \big[k_{{\min}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}- \ell), k_{{\min}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}+ \ell-1) \big) \cup \big(k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}- \ell), k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}+ \ell-1) \big],
+    \end{equation}
+    Using the equality (2) in \S\,\ref{P:proof_of_ghost_compatible_with_AL}:
+    \begin{equation}
+    \label{E:near_Steinberg_duality}
+    k_{{\max}\bullet}(d_{k}^{\mathrm{Iw}}- \ell') - k_\bullet= pk_\bullet - \tilde k_{{\min}\bullet}(\ell' -1 ), \quad \textrm{for }\ell'  = \tfrac 12 d_{k}^{\mathrm{Iw}}- \ell+1 \textrm{ or } \tfrac 12 d_{k}^{\mathrm{Iw}}+\ell,
+    \end{equation}
+    we see that for every $k'_\bullet \in \big[k_{{\min}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}- \ell), k_{{\min}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}+ \ell-1) \big)$, there exists $k''_\bullet \in \big(k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}- \ell), k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}+ \ell-1) \big]$ such that
+    $
+    k''_\bullet -k_\bullet = p(k_\bullet  -k'_\bullet).
+    $
+    So to prove the lemma, one may assume that
+    \begin{equation}
+    \label{E:condition_on_k_prime}
+    k'_\bullet \in \big(k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}- \ell), k_{{\max}\bullet}(\tfrac 12 d_{k}^{\mathrm{Iw}}+ \ell-1) \big].
+    \end{equation}
+    Now we import the notation from the proof of Lemma~\ref{L:estimate_Delta_kell}: $n: = \frac 12d_k^{\mathrm{Iw}}-\ell$, $\theta := \beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2$, and $\eta$ as defined in \eqref{E:eta}. Then condition \eqref{E:condition_on_k_prime} is equivalent to
+    $$
+    k'_\bullet \in \big(k_{\mathrm{max}\bullet}(n), \ k_{\mathrm{max}\bullet}(n+ 2\ell-1)\big].
+    $$
+    So by \eqref{E:kmax_-_k}, we deduce that
+    \begin{eqnarray*}
+    k'_\bullet - k_\bullet & > & \eta-\tfrac{p+1}2(\ell-1), \quad \textrm{ and }
+    \\
+    k'_\bullet - k_\bullet & \leq & \eta-\tfrac{p+1}2(\ell-1) + \big( k_{\mathrm{max}\bullet}(n+2\ell-1) - k_{\mathrm{max}\bullet}(n)\big)
+    \\
+     &=& \eta -\tfrac{p+1}2(\ell-1) + (p+1)(\ell-1) + \theta = \eta+\theta + \tfrac{p+1}2(\ell-1),
+    \end{eqnarray*}
+    where the first equality uses the formula for $k_{\mathrm{max}\bullet}(n)$ in Lemma-Notation~\ref{L:extremal_ks_part2}.
+    Now we argue as in Lemma~\ref{L:estimate_Delta_kell} till \eqref{E:Delta_prime-Delta_prime3} to get
+    \begin{small}
+    \begin{equation}
+    \label{E:Delta_kl_-_Deltakl-1_prime}
+    \Delta'_{k, \ell}- \Delta'_{k, \ell-1} =
+    \frac {(p-1) (\ell-1) + \theta}2+ \frac{\theta + {\operatorname{Dig}}\big(\eta -\frac{p+1}2(\ell-1)\big) + 2{\operatorname{Dig}}(\ell-1) - {\operatorname{Dig}}\big(\eta +\theta+\frac{p+1}2(\ell-1)\big)}{p-1}.
+    \end{equation}\end{small}Then we simply note that
+    \begin{align*}
+    &\tfrac{1}{p-1}\Big(\theta + {\operatorname{Dig}}\big(\eta -\tfrac{p+1}2(\ell-1)\big) + 2{\operatorname{Dig}}(\ell-1)\Big)
+    \\\geq \ &\tfrac{1}{p-1}\Big({\operatorname{Dig}}\big(\eta -\tfrac{p+1}2(\ell-1)\big) + {\operatorname{Dig}}((p+1)(\ell-1)+\theta)\Big)
+    \\ \geq\ & \tfrac{1}{p-1}{\operatorname{Dig}}\big(\eta +\theta+\tfrac{p+1}2(\ell-1)\big) + v_p(k'_\bullet - k_\bullet) - \lfloor \ln((p+1)(\ell-1)+\theta)/\ln p\rfloor.
+    \end{align*}
+    Here the last inequality uses the following elementary fact (proved in Lemma~\ref{L:elementary_Digits_lemma} below): for two positive integers $A$ and $B$, we have
+    $$
+    \frac{{\operatorname{Dig}}(A) + {\operatorname{Dig}}(B) -{\operatorname{Dig}}(A+B)}{p-1} +\Big\lfloor \frac{\ln B}{\ln p}\Big\rfloor \geq \max_{A<x\leq A+B}\big\{v_p(x)\big\}.
+    $$
+    From this, we deduce that
+    \begin{align*}
+    \Delta'_{k, \ell} - \Delta'_{k,\ell-1} \geq\tfrac {(p-1) (\ell-1) + \theta}2 +v_p(k'_\bullet - k_\bullet)  - \big\lfloor \ln((p+1)(\ell-1)+\theta) / \ln p\big\rfloor.
+    \end{align*}
+    The corollary follows when $\ell >1$ because $\theta \in [3,p-2]$.
+    In the special case of $\ell=1$, the above inequality becomes
+    \begin{align*}
+    \Delta'_{k,1} - \Delta'_{k,0}\geq \frac \theta 2+v_p(k'_\bullet - k_\bullet)
+    \end{align*}
+    as $\theta<p$. So we deduce that
+    \[
+    \Delta'_{k,1}-\Delta'_{k,0}-v_p(w_{k} - w_{k'})\geq \frac \theta 2 - 1 \geq \frac 12. \qedhere
+    \]
+\end{proof}
+
+\begin{lemma}
+    \label{L:elementary_Digits_lemma}
+    For two positive integers $A$ and $B$, we have
+    	\[
+    	\frac{{\operatorname{Dig}}(A)+{\operatorname{Dig}}(B)-{\operatorname{Dig}}(A+B)}{p-1}+\Big\lfloor \frac{\ln B}{\ln p}\Big\rfloor\geq \max_{A<x\leq A+B}\{ v_p(x) \}.
+    	\]
+\end{lemma}
+
+\begin{proof}
+    Let $n=\lfloor \frac{\ln B}{\ln p}\rfloor$. First note that
+    \[
+    	\frac{{\operatorname{Dig}}(A)+{\operatorname{Dig}}(B)-{\operatorname{Dig}}(A+B)}{p-1}=v_p((A+B)!)-v_p(A!)-v_p(B!)=v_p\Big(\frac{\prod_{j=1}^B (A+j)}{B!} \Big).
+    	\]
+    If $\max_{A<x\leq A+B}\{ v_p(x) \}\leq n$, then we are done. Otherwise, suppose
+    \[
+    n<v_p(A+i)=\max_{A<x\leq A+B}\{ v_p(x)\}
+    \]
+    for some $i\in [1, B]$. Note that this implies that $v_p(A+i\pm j)=v_p(j)$ for $j\in[1, B]$. It follows that
+    \[
+    v_p\Big(\frac{\prod_{j=1}^B (A+j)}{B!} \Big)=v_p((i-1)!)+v_p((B-i)!)+v_p(A+i)-v_p(B!).
+    \]
+    For every $\ell\geq1$, it is clear that $\lfloor \frac{i-1}{p^\ell}\rfloor+\lfloor \frac{B-i}{p^\ell}\rfloor-\lfloor \frac{B}{p^\ell}\rfloor\geq-1$. We therefore conclude that
+    \[
+    v_p\Big(\frac{\prod_{j=1}^B (A+j)}{B!} \Big)\geq v_p(A+i)-n,
+    \]
+    yielding the desired result.
+\end{proof}
+
+\begin{lemma}
+    \label{L:upper_bound_of_difference_of_Delta_kell}
+    \uses{L:estimate_Delta_kell}
+    Fix $k =k_\varepsilon + (p-1)k_{\bullet}$ and $\ell \in \{1,2,\dots, \frac 12 d_{k}^{\mathrm{new}}\}$, and define $\eta$ and $\theta$ as in the proof of Lemma~\ref{L:estimate_Delta_kell}.  Let $\beta$ denote the maximal $p$-adic valuations of integers in $\big[\eta-\frac{p+1}2(\ell-1),\  \eta+\theta+ \frac{p+1}2(\ell-1)\big]$. Then we have
+    $$
+    \Delta'_{k, \ell} - \Delta'_{k, \ell-1}\leq
+    \tfrac {p-1}2\cdot \ell+ \tfrac 32+ \beta + \lfloor \ln \ell / \ln p\rfloor
+    $$
+\end{lemma}
+
+\begin{proof}
+    \uses{E:Delta_prime-Delta_prime3}
+    We first point out that, when $\ell > 1$, $\beta$ is automatically greater than or equal to $\lfloor \ln \ell / \ln p\rfloor + 1$.
+    By \eqref{E:Delta_prime-Delta_prime3} and the estimate $\theta \leq p-2$, it remains to show that
+    \begin{small}
+    $$
+    \frac{ {\operatorname{Dig}}\big(\eta -\frac{p+1}2(\ell-1)\big) + {\operatorname{Dig}}(\ell-1)+{\operatorname{Dig}}(p(\ell-1) + \theta) - {\operatorname{Dig}}\big(\eta +\theta+\frac{p+1}2(\ell-1)\big)}{p-1}
+    \leq
+    \beta +2+\Big \lfloor\frac{ \ln \ell}{ \ln p}\Big\rfloor .
+    $$\end{small}The left hand side exactly counts the number of times we carry over digits to the next one when computing the sum of numbers $\eta- \frac {p+1}2(\ell-1)$, $(\ell-1)$, and $p(\ell-1)+\theta$. This is clear.
+\end{proof}
+
+\begin{lemma}
+    \label{L:failure_of_convexity_of_Delta_prime}
+    \uses{L:estimate_Delta_kell}
+    Fix $k =k_\varepsilon + (p-1)k_{\bullet}$ and $\ell \in \{1,\dots, \frac 12 d_{k}^{\mathrm{new}}-1\}$.
+    Let $\theta_\ell \in \{a+2, p-1-a\}$ be the $\theta$ as in the proof of Lemma~\ref{L:estimate_Delta_kell} for $\ell$.
+    Then we have
+    \begin{equation}
+    \label{E:failure_of_convexity_of_Delta_prime}
+    \Delta'_{k, \ell+1} -2 \Delta'_{k, \ell}+\Delta'_{k, \ell-1}\geq p-1-\theta_\ell-2v_p(\ell) \geq 1-2v_p(\ell).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    \uses{E:Delta_prime-Delta_prime3, E:failure_of_convexity_of_Delta_prime, L:estimate_Delta_kell}
+    Write $\theta_\ell$ and $\eta_\ell$ (resp. $\theta_{\ell+1}$ and $\eta_{\ell+1}$) as in the proof of Lemma~\ref{L:estimate_Delta_kell} for $\ell$ (resp. $\ell+1$).
+    By \eqref{E:Delta_prime-Delta_prime3}, we deduce that
+    \begin{align*}
+    &\Delta'_{k, \ell+1}-2\Delta'_{k,\ell}+\Delta'_{k,\ell-1} = \frac{p-1}2 +\frac{\theta_{\ell+1} - \theta_{\ell}}2 +\frac{{\operatorname{Dig}}\big(\eta_{\ell+1}-\frac{p+1}2\ell\big) - {\operatorname{Dig}}\big(\eta_{\ell}- \frac{p+1}2(\ell-1)\big)}{p-1}
+    \\ &+ \frac{2\big( {\operatorname{Dig}}(\ell)-{\operatorname{Dig}}(\ell-1)\big)}{p-1} + \frac{\theta_{\ell+1} - \theta_{\ell}+{\operatorname{Dig}}\big(\eta_{\ell}+\theta_{\ell}+\frac{p+1}2(\ell-1)\big) - {\operatorname{Dig}}\big(\eta_{\ell+1}+\theta_{\ell+1}+ \frac{p+1}2\ell\big)}{p-1}.
+    \end{align*}
+    Write $n = \frac 12d_k^{\mathrm{Iw}}-\ell$ as in the proof of Lemma~\ref{L:estimate_Delta_kell}. We note that $\theta_\ell + \theta_{\ell+1} = p+1$ by their definitions and, for the fourth term, we have
+    $$
+    \frac2{p-1}\big({\operatorname{Dig}}(\ell) - {\operatorname{Dig}}(\ell-1)\big) =\frac2{p-1}-2v_p(\ell).
+    $$
+    For the third term, we note that
+    $$
+    \big(\eta_{\ell}- \tfrac{p+1}2(\ell-1)\big)- \big(\eta_{\ell+1}-\tfrac{p+1}2\ell\big)  = \tfrac{p+1}2 +\eta_{\ell} -\eta_{\ell+1} = \tfrac{p+1}2 + \beta_{[n]}-\beta_{[n+1]} = \theta_{\ell+1}.
+    $$
+    Similarly, for the fifth term, we have
+    $$
+    \big(\eta_{\ell+1}+\theta_{\ell+1}+ \tfrac{p+1}2\ell\big) - \big(\eta_{\ell}+\theta_{\ell}+\tfrac{p+1}2(\ell-1)\big) = \tfrac{p+1}2 + \beta_{[n+1]}- \beta_{[n]}+ \theta_{\ell+1}-\theta_{\ell} =\theta_{\ell+1}.
+    $$
+    So the sum of the third term and the fifth term above is greater than or equal to
+    $$
+    \frac 1{p-1}\Big( -\theta_{\ell+1} + \big(\theta_{\ell+1} - \theta_{\ell} \big) - \theta_{\ell+1}\Big) =- \frac1{p-1} \big(\theta_{\ell+1} + \theta_{\ell}\big) =- \frac 1{p-1} \cdot (p+1).
+    $$
+    Combining all inequalities above gives
+    \begin{align*}
+    \Delta'_{k, \ell+1}-2\Delta'_{k,\ell} + \Delta'_{k, \ell-1} \geq\ & \frac{p-1}2 + \frac{p+1-2\theta_\ell}2 +\Big(\frac2{p-1}-2v_p(\ell)\Big) - \frac{p+1}{p-1}
+    \\
+    =\ & p-1-\theta_\ell  -2 v_p(\ell)
+    \end{align*}
+    The inequality \eqref{E:failure_of_convexity_of_Delta_prime} follows from combining the above inequalities.
+\end{proof}
+
+\begin{notation}
+    \label{N:linear_shift_down}
+    For two points $P = (m, a), Q = (n,b) \in {\mathbb{R}}^2$, we write $\overline{PQ}$ for the line segment connecting them.
+    In the rest of this paper, we will frequently use the following concept. Suppose that we have a list of points $$P_i = (i,A_i) \quad\textrm{with} \quad A_i \in {\mathbb{R}}, \textrm{ for } i = m,m+1, \dots, n$$ (or some subset of this list). We may \emph{shift them down relative to a linear function} $y = ax+b$ (for some $a,b \in {\mathbb{R}}$), by transforming them into $$Q_i  = (i, A_i - ai-b) \textrm{\quad for \quad}i = m,m+1, \dots, n$$ (or some subset of this list).
+    This way, for every $i\neq j$, the slope of $\overline {Q_iQ_j}$ is precisely the slope of $\overline{P_iP_j}$ minus $a$. In particular,
+    \begin{enumerate}
+    \item
+    if the convex hull of all $P_i$'s is the straight line $\overline{P_mP_n}$, then the convex hull of all $Q_i$'s is the straight line $\overline{Q_mQ_n}$;
+    \item for a fixed $i_0$, the point $P_{i_0}$ is a vertex of the convex hull of the $P_i$'s if and only if the point $Q_{i_0}$ is a vertex of the convex hull of the $Q_i$'s; and
+    \item if $i \in [m,n]$, the distance from $P_i$ to the point on $\overline{P_mP_n}$ with $x$-coordinate $i$, is the same as the distance from $Q_i$ to the point on $\overline{Q_mQ_n}$ with $x$-coordinate $i$.
+    \end{enumerate}
+    We shall freely use these elementary facts without make reference for the rest of this paper.
+\end{notation}
+
+\begin{lemma}
+    \label{L:Delta_-_Delta_prime_bound}
+    Assume $p\geq 7$. For $k =k_\varepsilon  + (p-1)k_{\bullet}$ and $\ell = 1,\dots, \frac 12 d_{k}^{\mathrm{new}}$, we have
+    \begin{equation}
+    \label{E:Delta_-_Delta_prime_bound}\Delta'_{k, \ell} -
+    \Delta_{k, \ell} \leq  3 \big( \ln \ell / \ln p \big)^2.
+    \end{equation}
+    Moreover, if we only assume $p\geq 5$, the following statment holds: when $\ell < 2p$ but $\ell \neq p$, $\Delta'_{k, \ell} = \Delta_{k, \ell}$; and when $\ell =p$, $\Delta'_{k, \ell}-\Delta_{k, \ell} \leq 1$.
+\end{lemma}
+
+\begin{proof}
+    \uses{E:Delta_-_Delta_prime_bound, E:Delta_segment_inequality, E:failure_of_convexity_of_Delta_prime, E:main, E:plus-minus, N:linear_shift_down}
+    If $(\ell, \Delta'_{k,\ell})$ lies on $\underline \Delta_k$, the lemma holds trivially. Now we assume that $(\ell,\Delta'_{k,\ell})$ does not lie on $\underline \Delta_k$. Assume that $\ell_-$ is the largest integer smaller than $\ell$ such that $P_-: =(\ell_-, \Delta'_{k,\ell_-})$ lies on $\underline \Delta_k$, and  $\ell_+$ is the smallest integer larger than $\ell$ such that $P_+: =(\ell_+, \Delta'_{k,\ell_+})$ lies on $\underline \Delta_k$.  Let $\lambda$ denote the slope of the segment $\overline{P_-P_+}$. Then
+    \begin{equation}
+    \label{E:Delta_segment_inequality}
+    \Delta'_{k, \ell_+}-\Delta'_{k, \ell_+-1}<  \lambda< \Delta'_{k, \ell_-+1}-\Delta'_{k, \ell_-} .
+    \end{equation}
+    By \eqref{E:failure_of_convexity_of_Delta_prime}, for every $\ell' \in [\ell_-+1, \ell_+-1]$, $ \Delta'_{k, \ell'+1} -  \Delta'_{\ell'} \geq  \Delta'_{k, \ell'}- \Delta'_{k, \ell'-1} + 1$ whenever $v_p(\ell')=0$. It is clear from \eqref{E:Delta_segment_inequality} that there must be some $\ell' \in [\ell_-+1, \ell_+-1]$ whose valuation is strictly positive. Let $\ell_0$ denote the $\ell' \in [\ell_-+1, \ell_+-1]$ with maximal valuation. Write $v_p(\ell_0)=m_0$.
+    We first note that the maximality of $v_p(\ell_0)$ implies that $v_p(\ell_0+i)=v_p(i)$ for $1\leq i\leq \ell_+-\ell_0-1$ and $v_p(\ell_0-i)=v_p(i)$ for $1\leq i\leq \ell_0-\ell_--1$. Then taking the sum of the first inequality of \eqref{E:failure_of_convexity_of_Delta_prime} over $\ell_-+1,\ell_-+2, \dots, \ell_+-1$ (and also noting that two consecutive $\theta_{\ell}$'s have sum equal to $p+1$), we deduce that
+    \begin{align*}
+    &(\Delta'_{k, \ell_+}-\Delta'_{k, \ell_+-1})  -  (\Delta'_{k, \ell_-+1}-\Delta'_{k, \ell_-})
+    \\
+    \geq \ & \frac{p-3}2( \ell_+-\ell_--1) - \frac{p-5}2 -2\Big( \sum_{i=1}^{\ell_0-\ell_--1}v_p(i) + m_0 + \sum_{i=1}^{\ell_+-\ell_0-1}v_p(i)\Big)
+    \\
+    \geq \ & \frac{p-3}2\big( \ell_+-\ell_--1\big) - \frac{p-5}2 -\frac{2}{p-1}\big((\ell_0-\ell_--1) + (\ell_+-\ell_0-1)\big) -2m_0
+    \\
+    \geq\ & \frac{p-4}{2}(\ell_+-\ell_--2)+1-2m_0.
+    \end{align*}
+    Here the last inequality uses that $\frac{2}{p-1}\leq \frac 12$ because $p \geq 5$.
+    Combining with \eqref{E:Delta_segment_inequality}, we obtain
+    \begin{equation}
+    \label{E:plus-minus}
+    m_0 \geq
+    \frac{p-4}{4}(\ell_+-\ell_--2) + 1.
+    \end{equation}
+    This in particular shows that either $m_0 \geq 2$ (in which case $\ell \geq \ell_- \geq p^{m_0} - 4m_0\geq 2p$) or $m_0=1$ which must be the case when $\ell_+-1=\ell_-+1 = \ell_0 = \ell$.
+    We claim that $\Delta'_{k, \ell_0} - \Delta_{k, \ell_0} \leq m_0^2$. The case $\ell=\ell_0$ and the last statement of the lemma follow directly from this inequality. First note that, as explained in Notation~\ref{N:linear_shift_down}\,(3), we may shift all points under consideration by a linear function; this will not affect our discussion (but gives a better visualization). Through such shifting, we may suppose $\Delta'_{k, \ell_0+1}=\Delta'_{k, \ell_0-1}$. Then we can iterate (the second inequality of) \eqref{E:failure_of_convexity_of_Delta_prime} to deduce that, for $1\leq n \leq \ell_+-\ell_0$
+    \[
+    \Delta'_{k, \ell_0+ n} - \Delta'_{k, \ell_0+n-1}  \geq -m_0 +n - \tfrac{1}2- 2v_p((n-1)!)\geq -m_0+\tfrac n2.
+    \]
+    Symmetrically, for $1\leq n \leq \ell_0-\ell_-$, we have
+    $$
+    \Delta'_{k, \ell_0+1-n} - \Delta'_{k, \ell_0-n} \leq m_0-\tfrac n2.
+    $$
+    Then we can use these to deduce that
+    \[
+    \max\{\Delta'_{k, \ell_0} - \Delta'_{k, \ell_-}, \Delta'_{k, \ell_0} - \Delta'_{k, \ell_+}  \}
+    \leq \max_{n_0\geq 1}\Big( \sum_{n=1}^{n_0} \big(m_0-\tfrac n2\big)\Big) \leq  m_0^2.
+    \]
+    This yields $\Delta'_{k, \ell_0} - \Delta_{k, \ell_0} \leq m_0^2$.
+    Now we assume $\ell \neq \ell_0$; in particular, $m_0 \geq 2$. Without loss of generality we may assume that $\ell_-<\ell \leq \ell_0$. Once again, we shift all points by a linear function with slope $\lambda$ so that we may assume that $\lambda = 0$ and $\overline{P_-P_+}$ is horizontal. Iterating
+    \eqref{E:failure_of_convexity_of_Delta_prime}, for $1\leq n\leq \ell_0-\ell_--1$, we obtain
+    \begin{align*}
+    \Delta'_{k, \ell_-+ n+1} - \Delta'_{k, \ell_-+n}  &\geq n- 2\sum_{i=\ell_-+1}^{\ell_-+n}v_p(i)\geq n- 2\sum_{i=\ell_-+1}^{\ell_0-1}v_p(i)=n- 2v_p((\ell_0-\ell_--1)!)
+    \end{align*}
+    Using \eqref{E:plus-minus}, we get $$n- 2v_p((\ell_0-\ell_--1)!)\geq n - 2\cdot  \frac{4}{(p-1)(p-4)}(m_0-1) \geq  n-2(m_0-1).$$ We thus deduce that
+    \[
+    \Delta'_{k, \ell_0} - \Delta'_{k, \ell}\geq \sum_{n=\ell-\ell_-}^{\ell_0-\ell_--1}(n-2m_0+2)> - 2m_0^2 + m_0.
+    \]
+    Since $\lambda=0$, this implies that
+    \begin{equation}
+    \label{E:main}
+    \Delta'_{k, \ell} - \Delta_{k, \ell}<3m_0^2-m_0.
+    \end{equation}
+    By \eqref{E:plus-minus} and the assumption $p\geq 7$, we get
+    \[
+    \ell_0-\ell\leq \ell_+-\ell_--2<\frac 43 m_0<2m_0.
+    \]
+    As $\ell \geq \ell_0-2m_0\geq p^{m_0}-2m_0$,
+    \begin{align*}
+    3\left(m_0^2 - (\frac{\ln (p^{m_0}-2m_0)}{\ln p})^2\right)=&3(m_0+\frac{\ln(p^{m_0}-2m_0)}{\ln p})(m_0-\frac{\ln(p^{m_0}-2m_0)}{\ln p})\\
+    \leq& 6m_0(m_0-\frac{\ln(p^{m_0}-2m_0)}{\ln p})=6m_0^2\cdot(-\frac{\ln(1-\frac{2m_0}{p^{m_0}})}{m_0\ln p})\\
+    \leq&6m_0^2\cdot\frac{2\cdot \frac{2m_0}{p^{m_0}}}{m_0\ln p}=\frac{24m_0^2}{p^{m_0}\ln p}\leq m_0
+    \end{align*}
+    holds when $m_0 \geq 2$ and $p \geq 7$ (here we use the inequality $-\ln(1-x)\leq 2x$ when $x\in (0,\frac 12)$), the inequality \eqref{E:Delta_-_Delta_prime_bound} follows from this and \eqref{E:main}.
+\end{proof}
+
+\begin{corollary}
+    \label{C:Delta_-_Delta_prime}
+    \uses{C:finer_inequality_for_Delta}
+    Let $k=k_\varepsilon + (p-1)k_\bullet $ and $\ell = 1, \dots, \frac 12d_k^{\mathrm{new}}$ be as in Corollary~\ref{C:finer_inequality_for_Delta}. Let $k' = k_\varepsilon + (p-1)k'_\bullet$ be any weight such that
+    $$
+    d_{k'}^{\mathrm{ur}}, \textrm{ or } d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\textrm{ belongs to } \big(\tfrac 12d_k^{\mathrm{Iw}}-\ell, \tfrac 12 d_k^{\mathrm{Iw}}+\ell\big),
+    $$
+    or $\tfrac 12 d_{k'}^{\mathrm{Iw}}$ belongs to $\big[\tfrac 12d_k^{\mathrm{Iw}}-\ell, \tfrac 12 d_k^{\mathrm{Iw}}+\ell\big]$
+    then we have
+    \begin{equation}
+    \label{E:Delta_-_Delta_prime_strong}
+    \Delta_{k, \ell} - \Delta'_{k,\ell-1} -v_p(w_{k} - w_{k'}) \geq \frac 12 (2\ell-1).
+    \end{equation}
+    Moreover, when $p \geq 7$ and $\ell \geq 2$, We have $\Delta_{k, \ell}-\Delta'_{k, \ell-1} -v_p(w_{k} - w_{k'}) \geq \frac 12 (4\ell-1).$
+\end{corollary}
+
+\begin{proof}
+    \uses{C:finer_inequality_for_Delta, E:Delta_-_Delta_prime_special, E:Delta_-_Delta_prime_strong, L:Delta_-_Delta_prime_bound}
+    The general case follows from applying the first statement repeatedly. For the first statement, if $\ell < 2p$ but $\ell \neq p$, $\Delta_{k, \ell} = \Delta'_{k, \ell}$ by Lemma~\ref{L:Delta_-_Delta_prime_bound}; so \eqref{E:Delta_-_Delta_prime_strong} and the last statement are proved in Corollary~\ref{C:finer_inequality_for_Delta}.
+    If $\ell \geq 2p$ or $\ell =p$, \eqref{E:Delta_-_Delta_prime_strong} also follows from Corollary~\ref{C:finer_inequality_for_Delta} and Lemma~\ref{L:Delta_-_Delta_prime_bound} by noting that
+    \begin{equation}
+    \label{E:Delta_-_Delta_prime_special}
+    \frac 12+
+    \frac{p-1}2(\ell-1) -\Big \lfloor \frac{\ln((p+1) \ell)}{\ln p}\Big\rfloor  \geq \frac 12(2\ell-1) +3 \Big( \frac{\ln \ell }{\ln p}\Big)^2
+    \end{equation}
+    holds when $\ell \geq 2p$ or $\ell = p$ if we replace the last term by $1$ (citing the special case in Lemma~\ref{L:Delta_-_Delta_prime_bound} instead). When $p \geq 7$, \eqref{E:Delta_-_Delta_prime_special} holds with $2\ell-1$ replaced by $4 \ell -1$.
+\end{proof}
+
+\begin{corollary}
+    \label{C:Delta_-_Delta_prime_multi}
+    Assume $p \geq 7$. Take integers $\ell, \ell', \ell'' \in \{0,1, \dots, \frac 12d_k^{\mathrm{new}}\}$ with $\ell \leq \ell'\leq  \ell''$ and $\ell''\geq 1$.
+    Let $k' = k_\varepsilon + (p-1)k'_{\bullet}$ be a weight such that
+    $$
+    d_{k'}^{\mathrm{ur}}\textrm{ or } d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\textrm{ belongs to } \big[\tfrac 12d_k^{\mathrm{Iw}}-\ell', \tfrac 12 d_k^{\mathrm{Iw}}+\ell'\big],
+    $$
+    then we have
+    \begin{equation}
+    \label{E:Delta_l_prime_prime_-Delta_l}
+    \Delta_{k, \ell''}- \Delta'_{k, \ell} - (\ell''-\ell') \cdot  v_p(w_k - w_{k'}) \geq (\ell'-\ell) \cdot \Big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}+1\Big\rfloor + \frac 12\big( \ell''^2 - \ell^2\big).
+    \end{equation}
+    Moreover, if there exists $k'$ such that $v_p(w_{k'}-w_k) \geq \big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}+2\big\rfloor $, then there at most two such $k'$ satisfying $v_p(w_{k'}-w_k) \geq \big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}+2\big\rfloor $ and
+    $$
+    d_{k'}^{\mathrm{ur}}\textrm{ or } d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\textrm{ belongs to } \big(\tfrac 12d_k^{\mathrm{Iw}}-\ell'', \tfrac 12 d_k^{\mathrm{Iw}}+\ell''\big).
+    $$
+    Suppose that there are two such $k'$'s, up to swapping $k'_1$ and $k'_2$, we have $d_{k'_1}^{\mathrm{ur}}, d_{k'_2}^{\mathrm{Iw}}-d_{k'_2}^{\mathrm{ur}}\in \big[\frac 12d_k^{\mathrm{Iw}}-\ell', \frac 12d_k^{\mathrm{Iw}}+\ell'\big]$; and in $\{d_{k'_1}^{\mathrm{ur}},\, d_{k'_2}^{\mathrm{Iw}}-d_{k'_2}^{\mathrm{ur}}\}$, one element is $ \geq \frac 12 d_k^{\mathrm{Iw}}$ and one element is $ \leq \frac 12 d_k^{\mathrm{Iw}}$.
+\end{corollary}
+
+\begin{proof}
+    \uses{C:Delta_-_Delta_prime, C:finer_inequality_for_Delta, E:Delta_l_prime_prime_-Delta_l, P:proof_of_ghost_compatible_with_AL}
+    We first prove the moreover part. By the proof of Corollary~\ref{C:finer_inequality_for_Delta}, the condition $d_{k'}^{\mathrm{ur}}\in (\frac 12d_k^{\mathrm{Iw}}- \ell'', \frac 12d_k^{\mathrm{Iw}}+\ell'')$ implies that
+    $$
+    k'_\bullet - k_\bullet \in \Big( \eta-\frac{p+1}2(\ell''-1), \ \eta+\theta + \frac{p+1}2 (\ell''-1)\Big].
+    $$
+    So if one such $k'$ satisfies $v_p(w_{k'}-w_k) \geq \big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}+2\big\rfloor $, there is only such $k'$.  On the other hand, if $d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\in (\frac 12d_k^{\mathrm{Iw}}- \ell'', \frac 12d_k^{\mathrm{Iw}}+\ell'')$, then there exists $k''$ such that
+    $$
+    k''_\bullet - k_\bullet = p(k_\bullet - k'_\bullet) \quad \textrm{and} \quad d_{k''}^{\mathrm{ur}}\in \big(\tfrac 12d_k^{\mathrm{Iw}}- \ell'', \tfrac 12d_k^{\mathrm{Iw}}+\ell''\big).
+    $$
+    Moreover, for such $k''$, $d_{k'}^{\mathrm{Iw}}-d_{k'}^{\mathrm{ur}}\in (\frac 12d_k^{\mathrm{Iw}}- \ell'', \frac 12d_k^{\mathrm{Iw}})$ if and only if $d_{k''}^{\mathrm{ur}}\in (\frac 12d_k^{\mathrm{Iw}}, \frac 12d_k^{\mathrm{Iw}}+ \ell'')$, by \S~\ref{P:proof_of_ghost_compatible_with_AL}(2). From this, one easily deduce the moreover part of the corollary.
+    Now, we move to the general case.
+    If $\ell'' = 1$, \eqref{E:Delta_l_prime_prime_-Delta_l} follows from Corollary~\ref{C:Delta_-_Delta_prime}.
+    If $\ell'' \geq 2$, we apply the stronger statement in  Corollary~\ref{C:Delta_-_Delta_prime} iteratively to deduce that
+    \begin{align*}
+    \Delta_{k, \ell''}-\Delta'_{k,\ell} - (\ell''-\ell')\cdot v_p(w_k-w_{k'}) \geq\ & (\ell''^2-\ell^2) + (\ell'-\ell)
+    \\
+    \geq\ & \frac 12\big( \ell''^2 - \ell^2\big)+ (\ell'-\ell) \cdot \Big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}+1\Big\rfloor.
+    \end{align*}
+    The last inequality follows from $\frac{\ell''+\ell}2 \geq \big\lfloor \frac{\ln((p+1)\ell'')}{\ln p}\big\rfloor$.
+\end{proof}
+
+\begin{definition}
+    \label{D:near_steinberg}
+    \uses{N:Delta_kell}
+    Fix a relevant character $\varepsilon$ of $\Delta^2$ and fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$. For each $k=k_\varepsilon + (p-1)k_\bullet$, we let $L_{w_\star,k}$ denote the largest number (if it exists) in $\{1, \dots, \frac 12 d_{k}^{\mathrm{new}}\}$ such that
+    \begin{equation}
+    \label{E:maximal_L}
+    v_p(w_\star - w_k) \geq  \Delta_{k,L_{w_\star, k}} - \Delta_{k, L_{w_\star, k}-1}.
+    \end{equation}
+    When such $L_{w_\star, k}$ exists (in which case $(L_{w_\star, k}, \Delta_{k, L_{w_\star, k}})$ must be a vertex of $\underline \Delta_k$ of Notation~\ref{N:Delta_kell}), we call the open interval ${\mathrm{nS}}_{w_\star, k}: =\big (\frac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star,k}, \frac 12 d_{k}^{\mathrm{Iw}}+ L_{w_\star,k}\big)$ the \emph{near-Steinberg range} for  the pair $(w_\star, k)$; we write $\overline {\mathrm{nS}}_{w_\star, k}: = \big[\frac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star,k}, \frac 12 d_{k}^{\mathrm{Iw}}+ L_{w_\star,k}\big]$ for the corresponding closed interval.
+    When no such $L_{w_\star, k}$ exists, ${\mathrm{nS}}_{w_\star, k} = \overline {\mathrm{nS}}_{w_\star, k} = \emptyset$.
+    For a positive integer $n$, we say $(\varepsilon, w_\star, n)$ or simply $(w_\star, n)$ is \emph{near-Steinberg} if $n$ belongs to the near-Steinberg range ${\mathrm{nS}}_{w_\star, k}$ for some $k$. This is equivalent to the existence of some $k \equiv  k_\varepsilon \bmod{(p-1)}$ such that $n \in (d_{k}^{\mathrm{ur}}, d_{k}^{\mathrm{Iw}}- d_{k}^{\mathrm{ur}})$ and
+    $$
+    v_p(w_\star - w_k) \geq  \Delta_{k, |n-\frac 12 d_k^{{\mathrm{Iw}}}|+1} - \Delta_{k, |n-\frac 12 d_k^{{\mathrm{Iw}}}|}.
+    $$
+\end{definition}
+
+\begin{lemma}
+    \label{L:alternative_characterization_of_Lmax}
+    \uses{E:maximal_L}
+    The condition~\eqref{E:maximal_L} implies that the lower convex hull of points
+    \begin{equation}
+    \label{E:convexity_condition_for_near-Steinberg}
+    \big(n, \ v_p(g_{n, \hat k}(w_k)) + m_n(k) \cdot v_p(w_\star - w_k)\big) \quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}
+    \end{equation}
+    is a straight line with slope $\frac{k-2}2$.
+\end{lemma}
+
+\begin{proof}
+    \uses{E:convexity_condition_for_near-Steinberg, E:list_of_points_Delta_prime_-_Delta_shifted, E:maximal_L, N:linear_shift_down}
+    Writing $n = \frac 12 d_k^{\mathrm{Iw}}+ \ell$, the points \eqref{E:convexity_condition_for_near-Steinberg} maybe rewritten as
+    $$
+    \big( \tfrac 12 d_k^{\mathrm{Iw}}+ \ell, \ \Delta'_{k, \ell} + \ell \cdot \tfrac{k-2}2 + (\tfrac 12d_k^{\mathrm{new}}- |\ell|) \cdot v_p(w_\star-w_k) \big) \quad \textrm{with} \quad \ell \in \big[  - L_{w_\star, k}, L_{w_\star, k}].
+    $$
+    Shifting these points down relative to the linear function (in the sense of Notation~\ref{N:linear_shift_down}) $$y =\tfrac {k-2}2 (x-\tfrac 12d_k^{\mathrm{Iw}})+ \Delta_{k, L_{w_\star, k}} + (\tfrac 12d_k^{\mathrm{new}}- L_{w_\star, k})\cdot v_p(w_\star-w_k),$$ these points become
+    \begin{equation}
+    \label{E:list_of_points_Delta_prime_-_Delta_shifted}
+    \big( \tfrac 12 d_k^{\mathrm{Iw}}+ \ell, \ \Delta'_{k, \ell} -\Delta_{k, L_{w_\star, k}} + (L_{w_\star,k} - |\ell|) \cdot v_p(w_\star-w_k) \big) \quad \textrm{with} \quad \ell \in \big[  - L_{w_\star, k}, L_{w_\star, k}].
+    \end{equation}
+    Now, the condition \eqref{E:maximal_L} $v_p(w_\star -w_k) \geq \Delta_{k, L_{w_\star,k}} - \Delta_{k, L_{w_\star,k}-1}$ implies (and in fact equivalent to!) that
+    $$
+    (L_{w_\star,k} - |\ell|) \cdot v_p(w_\star -w_k) \geq \Delta_{k, L_{w_\star, k}}-\Delta'_{k,\ell} \quad \textrm{for} \quad \ell \in [-L_{w_\star, k}, L_{w_\star, k}]
+    $$
+    and the equality holds when $\ell = \pm L_{w_\star, k}$. So the convex hull of points \eqref{E:list_of_points_Delta_prime_-_Delta_shifted} is a straight line of slope zero; so the convex hull of points \eqref{E:convexity_condition_for_near-Steinberg} is $\frac{k-2}2$. The lemma is proved.
+\end{proof}
+
+\begin{proposition}
+    \label{P:shifting_points_wstar_to_wk_part1}
+    Let $ {\mathrm{nS}}_{w_\star, k} = \big(\tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\, \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{ w_\star, k} \big)$ be a  near-Steinberg range.  For any integer $k' = k_\varepsilon + (p-1)k'_\bullet \neq k $ with
+    $v_p(w_{k'}-w_k) \geq  \Delta_{k, L_{ w_\star, k}} - \Delta_{k, L_{ w_\star, k}-1}$,  we have the following exclusions
+    $$ \tfrac 12 d_{k'}^{\mathrm{Iw}}\, \notin \overline{\mathrm{nS}}_{w_\star, k} \quad \textrm{and} \quad
+    d_{k'}^{\mathrm{ur}},\, d_{k'}^{\mathrm{Iw}}- d_{k'}^{\mathrm{ur}}\notin {\mathrm{nS}}_{w_\star, k}.
+    $$
+\end{proposition}
+
+\begin{proof}
+    \uses{C:Delta_-_Delta_prime}
+    Write $L = L_{w_\star, k}$ for simplicity. Suppose that an integer $k' = k_\varepsilon + (p-1)k'_\bullet \neq k$ satisfies either $\frac 12d_{k'}^{\mathrm{Iw}}\in [\frac 12 d_k^{\mathrm{Iw}}- L, \, \frac 12 d_k^{\mathrm{Iw}}+L]$, or $d_{k'}^{\mathrm{ur}}$ or $d_{k'}^{\mathrm{Iw}}-d_{k'}^{\mathrm{ur}}$ belongs to $(\frac 12 d_k^{\mathrm{Iw}}- L, \, \frac 12 d_k^{\mathrm{Iw}}+L)$. Then Corollary~\ref{C:Delta_-_Delta_prime} implies that
+    $$
+    \Delta_{k, L}-\Delta'_{k, L-1} - v_p(w_{k'}-w_k) \geq \tfrac 12(2L-1)  >0.
+    $$
+    In particular, $v_p(w_{k'}-w_k) < \Delta_{k,L} - \Delta_{k, L-1}$, which proves the exclusions.
+\end{proof}
+
+\begin{proposition}
+    \label{P:shifting_points_wstar_to_wk_part2}
+    Let $ {\mathrm{nS}}_{w_\star, k} = \big(\tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\, \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{ w_\star, k} \big)$ be a  near-Steinberg range.
+    For any integer $k' = k_\varepsilon + (p-1)k'_\bullet \neq k $ such that
+    $v_p(w_{k'}-w_k) \geq  \Delta_{k, L_{ w_\star, k}} - \Delta_{k, L_{ w_\star, k}-1}$, the ghost multiplicity $m_n(k')$ is linear in $n$ when $n \in \overline {\mathrm{nS}}_{w_\star, k}$.
+\end{proposition}
+
+\begin{proof}
+    \uses{D:ghost_series, P:shifting_points_wstar_to_wk_part1}
+    This follows from Proposition~\ref{P:shifting_points_wstar_to_wk_part1} and the ghost zero multiplicity pattern in Definition~\ref{D:ghost_series}. (In fact, we just need $\frac 12 d_{k'}^{\mathrm{Iw}}\notin {\mathrm{nS}}_{w_\star, k}$ instead of $\frac 12 d_{k'}^{\mathrm{Iw}}\notin \overline{\mathrm{nS}}_{w_\star, k}$; the stronger exclusion is needed for later application.)
+\end{proof}
+
+\begin{proposition}
+    \label{P:shifting_points_wstar_to_wk_part3}
+    Let $ {\mathrm{nS}}_{w_\star, k} = \big(\tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\, \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{ w_\star, k} \big)$ be a  near-Steinberg range.
+    The following two lists of points
+    $$
+    P_n = \big(n, v_p(g_{n,\hat k}(w_\star))\big), \quad Q_n = \big(n, v_p(g_{n,\hat k}(w_k))\big)  \quad \textrm{ with }n \in \overline{\mathrm{nS}}_{w_\star,k}
+    $$
+    are shifts of each other relative to a linear function with some slope in
+    \begin{equation}
+    \label{E:possible_shift_slopes}
+    {\mathbb{Z}}+ {\mathbb{Z}}\cdot\alpha, \text{~for~} \alpha:= \max \{ v_p(w_\star - w_{k'})| w_{k'} \text{~is a zero of~} g_n(w) \text{~for some~} n\in {\mathrm{nS}}_{w_\star,k} \} .
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    \uses{P:shifting_points_wstar_to_wk_part2, P:shifting_points_wstar_to_wk_part4}
+    This is a special case of Proposition~\ref{P:shifting_points_wstar_to_wk_part4} when $[n_-, n_+] = \overline{\mathrm{nS}}_{w_\star,k}$, ${\mathbf{k}}= \{k\}$, and all $A_n =0$. The condition in Proposition~\ref{P:shifting_points_wstar_to_wk_part4} is guaranteed by Proposition~\ref{P:shifting_points_wstar_to_wk_part2} by noting $v_p(w_\star-w_k) \geq  \Delta_{k, L_{ w_\star, k}} - \Delta_{k, L_{ w_\star, k}-1}$.
+\end{proof}
+
+\begin{proposition}
+    \label{P:shifting_points_wstar_to_wk_part4}
+    \uses{N:gnhatk}
+    Let ${\mathbf{k}}:=\{k, k_1, \dots, k_r\}$ with $k_i \equiv k_\varepsilon \bmod p-1$ be a set of integers including $k$.
+    Suppose that there is an interval $[n_-,n_+]$ such that, for any $k' = k_\varepsilon + (p-1)k'_\bullet \notin {\mathbf{k}}$ with $v_p(w_{k'}-w_k) \geq v_p(w_\star - w_k)$, the ghost multiplicity $m_n(k')$ is linear in $n$ when $n \in [n_-,n_+]$.
+    Then for any set of constants $A_n$ with $n \in [n_-,n_+]$, the two lists of points
+    $$
+    P_n = \big(n, A_n+v_p(g_{n,\hat {{\mathbf{k}}}}(w_\star))\big), \quad Q_n = \big(n, A_n+v_p(g_{n,\hat {{\mathbf{k}}}}(w_k))\big)  \quad \textrm{ with }n \in [ n_-,n_+]
+    $$
+    are shifts of each other by a linear function with some slope in
+    \begin{equation}
+    \label{E:possible_shift_slopes_general_case}
+    {\mathbb{Z}}+ {\mathbb{Z}}\cdot\beta, \text{~for~} \beta:= \max \{ v_p(w_\star - w_{k'})| w_{k'} \text{~is a zero of~} g_{n,\hat{{\mathbf{k}}}}(w) \text{~for some~} n\in {\mathrm{nS}}_{w_\star,k} \}.
+    \end{equation}
+    (See Notation~\ref{N:gnhatk} for the definition of $g_{n,\hat {{\mathbf{k}}}}(w)$.)
+\end{proposition}
+
+\begin{proof}
+    \uses{E:gn_wstar_-_gn_wk, E:possible_shift_slopes}
+    We compare each $v_p(g_{n,\hat {{\mathbf{k}}}}(w_\star))$ with $v_p(g_{n,\hat {{\mathbf{k}}}}(w_k))$ by
+    \begin{equation}
+    \label{E:gn_wstar_-_gn_wk}
+    v_p(g_{n,\hat {{\mathbf{k}}}}(w_\star))  - v_p(g_{n,\hat {{\mathbf{k}}}}(w_k))\ =\hspace{-5pt} \sum_{\substack{k'= k_\varepsilon+(p-1)k'_\bullet \\ k'  \notin {\mathbf{k}}}}\hspace{-5pt} m_n(k')\cdot \big( v_p(w_\star - w_{k'}) - v_p(w_k-w_{k'}  ) \big).
+    \end{equation}
+    We consider each term associated to $k' = k_\varepsilon + (p-1)k'_\bullet$, separating into two cases.
+    \begin{itemize}
+    \item
+    If $v_p(w_{k'} - w_k)  <v_p(w_\star - w_k)$ then  $v_p(w_\star - w_{k'} ) = v_p(w_k - w_{k'})$; thus the corresponding term in \eqref{E:gn_wstar_-_gn_wk} has zero contribution to the sum.
+    \item
+    If $v_p(w_{k'} - w_k)  \geq v_p(w_\star - w_k)$, the hypothesis of the proposition implies that $m_n(k')$ is a linear function in $n$, so the contribution to the sum of this term is linear in $n$.  Moreover, we note that $v_p(w_\star - w_{k'}) - v_p(w_k-w_{k'} \in {\mathbb{Z}}+{\mathbb{Z}}\cdot \beta$ by the definition of the number $\beta$, and hence  the slope of this linear term belongs to \eqref{E:possible_shift_slopes}.
+    \end{itemize}
+    Summing up, the right hand side of \eqref{E:gn_wstar_-_gn_wk} is a linear function in $n$, so the two lists of points are shifts of each other as claimed.
+\end{proof}
+
+\begin{corollary}
+    \label{C:near-Steinberg_gt_straightline_part1}
+    \uses{P:shifting_points_wstar_to_wk_part2}
+    Let $ {\mathrm{nS}}_{w_\star, k} = \big(\tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\, \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{ w_\star, k} \big)$ be a  near-Steinberg range.
+    Assume that $w_\star$ is not a zero of $g_n(w)$ for any (or equivalently by Proposition~\ref{P:shifting_points_wstar_to_wk_part2},  some) $n \in {\mathrm{nS}}_{w_\star, k}$. Then the lower convex hull of points
+    $$
+    (n, \ v_p(g_n(w_\star))) \quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}
+    $$
+    is a straight line. Moreover, the slope of this straight line belongs to
+    \begin{equation}
+    \label{E:possible_slopes}
+    \tfrac a2+{\mathbb{Z}}+ {\mathbb{Z}}\cdot \gamma, \text{~for~} \gamma:= \max\{ v_p(w_\star - w_{k'})| w_{k'} \text{~is a zero of~} g_n(w) \text{~for some~} n\in {\mathrm{nS}}_{w_\star,k}  \} .
+    \end{equation}
+\end{corollary}
+
+\begin{proof}
+    \uses{E:possible_slopes, L:alternative_characterization_of_Lmax, P:shifting_points_wstar_to_wk_part3}
+    We can write $v_p(g_n(w_\star)) = v_p(g_{n,\hat k}(w_\star)) + m_n(k) v_p(w_\star -w_k)$ for each $n\in  \overline {\mathrm{nS}}_{w_\star, k} $.
+    Applying Proposition~\ref{P:shifting_points_wstar_to_wk_part3}, we are reduced to prove that the lower convex hull of
+    $$
+    \big(n, \ v_p(g_{n, \hat k}(w_k)) + m_n(k) \cdot v_p(w_\star - w_k)\big) \quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}
+    $$
+    is a straight line with slopes in \eqref{E:possible_slopes}. But this is precisely Lemma~\ref{L:alternative_characterization_of_Lmax} by noting $\frac{k-2}2 \equiv \frac{k_\varepsilon-2}2 \equiv \frac{a+2s_\varepsilon }2 \equiv \frac a2 \bmod {\mathbb{Z}}$.
+\end{proof}
+
+\begin{corollary}
+    \label{C:near-Steinberg_gt_straightline_part2}
+    \uses{P:shifting_points_wstar_to_wk_part2}
+    Let $ {\mathrm{nS}}_{w_\star, k} = \big(\tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\, \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{ w_\star, k} \big)$ be a  near-Steinberg range.
+    Assume that $w_\star = w_{k_1}$ is a zero of $g_n(w)$ for any (or equivalently by Proposition~\ref{P:shifting_points_wstar_to_wk_part2}, some) $n \in {\mathrm{nS}}_{w_\star, k}$. Then  the lower convex hull of points
+    $$
+    (n, \ v_p(g_{n,\hat k_1}(w_{k_1}))) \quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}
+    $$
+    is a straight line of slope in $\frac a2 +{\mathbb{Z}}$.
+\end{corollary}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part1, E:ghost_duality_alternative, L:alternative_characterization_of_Lmax, P:shifting_points_wstar_to_wk_part2, P:shifting_points_wstar_to_wk_part4}
+    If $k_1=k$, then $\overline {\mathrm{nS}}_{w_k, k} = [d_k^{\mathrm{ur}}, d_k^{\mathrm{Iw}}-d_k^{\mathrm{ur}}]$ and this is the ghost duality \eqref{E:ghost_duality_alternative}. When $k_1 \neq k$, this follows from an argument similar to the proof of Corollary~\ref{C:near-Steinberg_gt_straightline_part1}: for ${\mathbf{k}}= \{k, k_1\}$, write $$v_p(g_{n,\hat k_1}(w_{k_1}))= v_p(g_{n,\hat {\mathbf{k}}}(w_{k_1})) + m_n(k)v_p(w_k-w_{k_1}).$$ Applying Proposition~\ref{P:shifting_points_wstar_to_wk_part4} to the case $w_\star = w_{k_1}$, $[n_-,n_+] = \overline {\mathrm{nS}}_{w_{k_1},k}$ and ${\mathbf{k}}$, we reduce to proving that the lower convex hull of points
+    $$
+    \big(n, \ v_p(g_{n,\hat {\mathbf{k}}}(w_{k})) + m_n(k) v_p(w_{k_1}-w_k) \big)\quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}
+    $$
+    is a straight line with slope in  $\frac a2 + {\mathbb{Z}}$. But this list of points is the same as
+    $$
+    \big(n, \ v_p(g_{n,\hat k}(w_{k})) + m_n(k)v_p(w_{k_1}-w_k)-m_n(k_1)v_p(w_{k_1}-w_k)  \big)\quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_\star, k}.
+    $$
+    Proposition~\ref{P:shifting_points_wstar_to_wk_part2} says that $m_n(k_1)$ is linear in $n \in \overline {\mathrm{nS}}_{w_\star, k}$. So the list above is a linear shift of the list in Lemma~\ref{L:alternative_characterization_of_Lmax} (with $w_\star = w_{k_1}$), and thus its convex hull is a straight line with slope in  $\frac{k-2}2 + {\mathbb{Z}}= \frac a2 + {\mathbb{Z}}$.
+\end{proof}
+
+\begin{theorem}
+    \label{T:near_Steinberg_non-vertex_part1}
+    Fix a relevant character $\varepsilon$.
+    Fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$.
+    The set of near-Steinberg ranges ${\mathrm{nS}}_{w_\star, k}$ for all $k$ is nested, i.e.\ for any two such open intervals, either they are disjoint or one is contained in another.
+    A near-Steinberg range ${\mathrm{nS}}_{w_\star, k}$ is called \emph{maximal} if it is not contained in other near-Steinberg ranges.
+\end{theorem}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part2, D:near_steinberg, E:Delta_k1_gt_Delta_k2, L:comparison_of_two_near-Steinberg_ranges_with_a_nonempty_intersection}
+    [Proof of Theorem~\ref{T:near_Steinberg_non-vertex_part1}]
+    We need to show that, under the setup and notations of Lemma~\ref{L:comparison_of_two_near-Steinberg_ranges_with_a_nonempty_intersection}, ${\mathrm{nS}}_{w_\star, k_2}$ cannot contain a boundary point $\frac 12 d_{k_1}^{\mathrm{Iw}}- L_{w_\star, k_1}$ or $\frac 12 d_{k_1}^{\mathrm{Iw}}+ L_{w_\star, k_1}$ of the bigger near-Steinberg range ${\mathrm{nS}}_{w_\star, k_1}$. Suppose otherwise. By \eqref{E:Delta_k1_gt_Delta_k2}, we see that $v_p(w_\star - w_{k_1}) > v_p(w_{\star} - w_{k_2})$. It follows that $v_p(w_{k_1} - w_{k_2}) = v_p(w_\star - w_{k_2})$. So ${\mathrm{nS}}_{w_\star, k_2}$ is a near-Steinberg range for $w_{k_1}$ too, i.e. ${\mathrm{nS}}_{w_{k_1}, k_2} = {\mathrm{nS}}_{w_\star, k_2}$.  Now apply Corollary~\ref{C:near-Steinberg_gt_straightline_part2} to ${\mathrm{nS}}_{w_{k_1}, k_2}$, we deduce that
+    the convex hull of points $$(n, \ v_p(g_{n,\hat k_1}(w_{k_1}))) \quad \textrm{for} \quad n \in \overline {\mathrm{nS}}_{w_{k_1}, k_2}
+    $$
+    is a straight line and $w_{k_1}$ is a zero of $g_n(w)$ when $n \in  {\mathrm{nS}}_{w_{k_1}, k_2}$. After a linear shift, this means that the convex hull of points $(n,\Delta'_{k_1, n})$ for $n \in \overline {\mathrm{nS}}_{w_{k_1}, k_2}$ is a straight line. In particular, $\underline \Delta_{k_1}$ (with $x$-coordinate shifted to the right by $\frac 12d_{k_1}^{\mathrm{Iw}}$) does not have a vertex in ${\mathrm{nS}}_{w_{k_1}, k_2} = {\mathrm{nS}}_{w_\star, k_2}$.
+    But by the definition of near-Steinberg range (especially the definition of the integer $L_{w_\ast,k}$ in Definition~\ref{D:near_steinberg}), $(\pm L_{w_\star, k_1}, \Delta'_{k_1, \pm L_{w_\star, k_1}})$ are vertices of $\underline \Delta_{k_1}$.
+    So $\frac 12d_{k_1}^{\mathrm{Iw}}\pm L_{w_\star, k_1}$ cannot be contained in  ${\mathrm{nS}}_{w_\star, k_2} = {\mathrm{nS}}_{w_{k_1}, k_2}$, contradicting our assumption. Theorem~\ref{T:near_Steinberg_non-vertex_part1} is proved.
+\end{proof}
+
+\begin{theorem}
+    \label{T:near_Steinberg_non-vertex_part2}
+    Fix a relevant character $\varepsilon$.
+    Fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$.
+    The $x$-coordinates of the vertices of the Newton polygon ${\operatorname{NP}}(G(w_\star, -))$ are exactly those integers which do not lie in any ${\mathrm{nS}}_{w_\star, k}$. Equivalently, for an integer $n \geq 1$, the pair $(n, w_\star)$ is near-Steinberg if and only if the point $(n, v_p(g_n(w_\star)))$ is not a vertex of ${\operatorname{NP}}(G(w_\star, -))$.
+\end{theorem}
+
+\begin{proof}
+    \uses{P:near-Steinberg-nonvertex-ab_part2, P:near-Steinberg-nonvertex-cd_part2}
+    [Proof of Theorem~\ref{T:near_Steinberg_non-vertex_part2}]
+    Statements (b), (c), and (d) from Propositions~\ref{P:near-Steinberg-nonvertex-ab_part2} and \ref{P:near-Steinberg-nonvertex-cd_part2} imply that for any three consecutive points $P_1$, $P_2$ and $P_3$ in the set
+    \[
+    \Omega:= \{(n,v_p(g_n(w_\star)))| ~n \text{~does not belong to any near-Steinberg range~} {\mathrm{nS}}_{w_\star,k} \},
+    \]
+    then $P_2$ lies (strictly) below the line segment connecting $P_1$ and $P_3$. It follows that the union of the line segments connecting consecutive points in $\Omega$ is (lower) convex. Combining with statement (a) from Proposition~\ref{P:near-Steinberg-nonvertex-ab_part2}, we obtain the theorem.
+\end{proof}
+
+\begin{theorem}
+    \label{T:near_Steinberg_non-vertex_part3}
+    \uses{E:possible_slopes}
+    Fix a relevant character $\varepsilon$.
+    Fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$.
+    Over the maximal near-Steinberg ranges, the slope of ${\operatorname{NP}}(G(w_\star, -))$ belongs to \eqref{E:possible_slopes}.
+\end{theorem}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part1, T:near_Steinberg_non-vertex_part2}
+    [Proof of Theorem~\ref{T:near_Steinberg_non-vertex_part3}]
+    By Theorem~\ref{T:near_Steinberg_non-vertex_part2}, over a maximal near-Steinberg range $\overline{\mathrm{nS}}_{w_\star, k}$, the slopes are given by the slopes of the segment connecting
+    $$
+    \big( \tfrac 12d_{k}^{\mathrm{Iw}}- L_{w_\star, k},\ v_p(g_{\frac 12d_{k}^{\mathrm{Iw}}- L_{w_\star, k}}(w_\star)) \big) \quad \textrm{and} \quad \big( \tfrac 12d_{k}^{\mathrm{Iw}}+ L_{w_\star, k},\ v_p( g_{\frac 12d_{k}^{\mathrm{Iw}}+ L_{w_\star, k}}(w_\star)) \big).
+    $$
+    The claim then follows from Corollary~\ref{C:near-Steinberg_gt_straightline_part1}.
+\end{proof}
+
+\begin{lemma}
+    \label{L:comparison_of_two_near-Steinberg_ranges_with_a_nonempty_intersection}
+    Suppose that two positive integers $k_i = k_\varepsilon + (p-1)k_{i\bullet}$ for $i=1,2$ satisfy the condition that the closures of the near-Steinberg ranges $\overline {\mathrm{nS}}_{w_\star, k_i}=[\frac 12 d_{k_i}^{\mathrm{Iw}}-L_{w_\star,k_i},\frac 12 d_{k_i}^{\mathrm{Iw}}+L_{w_\star,k_i}]$ for $i=1,2$ have non-trivial intersection. Without loss of generality, we assume that $L_{w_\star, k_1} \geq L_{w_\star, k_2}$. Then we have $L_{w_\star, k_1}  \geq p^{\lceil\frac 12 + \frac{p-1}2(L_{w_\star, k_2}-1) \rceil} - L_{w_\star, k_2} > L_{w_\star, k_2}$ and
+    	\begin{equation}
+    	\label{E:Delta_k1_gt_Delta_k2}
+    	\Delta_{k_1, L_{w_\star, k_1}}
+    	- \Delta_{k_1, L_{w_\star, k_1}-1}>v_p(w_\star - w_{k_2}).
+    	\end{equation}
+\end{lemma}
+
+\begin{proof}
+    \uses{E:Delta_k1_gt_Delta_k2, E:k1-k2, E:maximal_L, E:vp_k1-k2, E:vp_wbullet_-_wki, L:estimate_Delta_kell, R:meaning_of_kmidminmax}
+    We can find $n\in {\mathbb{N}}$ which is contained in both $\overline {\mathrm{nS}}_{w_\star, k_i}$'s for $i=1,2$. By Remark~\ref{R:meaning_of_kmidminmax}, we have
+    	$$
+    	k_{{\mathrm{mid}}\bullet}(n) \in \big[k_{i\bullet} -L_{w_\star, k_i}, k_{i\bullet} +L_{w_\star, k_i}\big] \quad \textrm{for} \quad i = 1,2.
+    	$$
+    	It follows that
+    	\begin{equation}
+    	\label{E:k1-k2}
+    	|k_{1\bullet} - k_{2\bullet}| \leq |k_{1\bullet}-k_{{\mathrm{mid}}\bullet}(n)| + |k_{2\bullet}-k_{{\mathrm{mid}}\bullet}(n)|\leq L_{w_\star, k_1} + L_{w_\star, k_2}.
+    	\end{equation}
+    	On the other hand, condition~\eqref{E:maximal_L} and Lemma~\ref{L:estimate_Delta_kell} imply that
+    	\begin{align}
+    	\label{E:vp_wbullet_-_wki}
+    	v_p(w_\star - w_{k_i}) &\geq \Delta_{k_i, L_{w_\star, k_i}} - \Delta_{k_i, L_{w_\star, k_i}-1} =\Delta'_{k_i, L_{w_\star, k_i}} - \Delta_{k_i, L_{w_\star, k_i}-1} \\ &\geq \Delta'_{k_i, L_{w_\star, k_i}} - \Delta'_{k_i, L_{w_\star, k_i}-1} \geq \tfrac 32+ \tfrac {p-1}2 (L_{w_\star, k_i} - 1) .\nonumber
+    	\end{align}
+    	It then follows that
+    	\begin{equation}
+    	\label{E:vp_k1-k2}
+    	v_p(k_{1\bullet} - k_{2\bullet}) \geq \tfrac 12+\tfrac{p-1}2\min\big\{L_{w_\star, k_1} - 1, L_{w_\star, k_2} - 1\big\} = \tfrac 12+\tfrac{p-1}2( L_{w_\star, k_2} - 1).
+    	\end{equation}
+    	Combining \eqref{E:k1-k2} and \eqref{E:vp_k1-k2}, we see that $L_{w_\star, k_1} $ is much bigger than $L_{w_\star, k_2}$:
+    	$$
+    	L_{w_\star, k_1}  \geq p^{\lceil\frac 12 + \frac{p-1}2(L_{w_\star, k_2}-1) \rceil} - L_{w_\star, k_2} > L_{w_\star, k_2} .
+    	$$
+    	This is the first inequality we need to prove. Now we prove (\ref{E:Delta_k1_gt_Delta_k2}). Indeed, otherwise, we may deduce from (\ref{E:vp_wbullet_-_wki}) that
+    	\[
+    	v_p(w_\star - w_{k_i}) \geq \Delta_{k_1, L_{w_\star, k_1}}
+    	- \Delta_{k_1, L_{w_\star, k_1}-1} \geq \tfrac 32 + \tfrac{p-1}2(L_{w_\star, k_1}-1).
+    	\]
+    	It would then follow that
+    	$$
+    	v_p(k_{1\bullet}-k_{2\bullet}) \geq \tfrac 12 + \tfrac{p-1}2(L_{w_\star, k_1}-1) \quad \textrm{but}\quad |k_{1\bullet} - k_{2\bullet}| < 2L_{w_\star, k_1}.
+    	$$
+    	This is impossible. So \eqref{E:Delta_k1_gt_Delta_k2} holds.
+\end{proof}
+
+\begin{notation}
+    \label{N:L_plus_and_L-}
+    We write $n = \frac 12 d_{k_-}^{\mathrm{Iw}}+ L_- = \frac 12 d_{k_+}^{\mathrm{Iw}}- L_+$ for $L_\pm= L_{w_\star, k_\pm}$. If $n$ is not the left (resp. right) boundary of a maximal near-Steinberg range, this is understood as $L_+ = \frac 12$ (resp. $L_- = \frac 12$) and $\frac 12d_{k_+}^{\mathrm{Iw}}= \frac 12 d_k^{\mathrm{Iw}}+\frac 12$ (resp. $\frac 12d_{k_-}^{\mathrm{Iw}}= \frac 12 d_k^{\mathrm{Iw}}-\frac 12$); and we shall not refer to the meaning of $k_+$ (resp. $k_-$) in later discussion. Moreover, in this case, we shall understand $\Delta_{k_+, L_+} - \Delta_{k_+, L_+-1} = 1$ (resp. $\Delta_{k_-, L_-} - \Delta_{k_-, L_--1} = 1$).
+\end{notation}
+
+\begin{lemma}
+    \label{L:a_technical_lemma_in_the_proof_of_statements_c_d_part1}
+    \uses{N:L_plus_and_L-}
+    Under the above notations ~\ref{N:L_plus_and_L-}, assume $L_+\geq 2$. Then there is at most one integer $k_1$ such that
+    \begin{itemize}
+    \item $k_1 \equiv k_\varepsilon \bmod p-1$,
+    \item either $n = d_{k_1}^{\mathrm{ur}}$ or $n = d_{k_1}^{\mathrm{Iw}}- d_{k_1}^{\mathrm{ur}}$, or equivalently $k_{1} \in \big( k_{\max}(n-1), k_{\max}(n)\big] \cup \big[ k_{\min}(n-1), k_{\min}(n)\big)$,
+    and
+    \item $v_p(w_{k_1} - w_{k_+}) \geq v_p(w_\star - w_{k_+})$ (and hence $v_p(w_{k_1} - w_{k_+}) \geq \Delta_{k_\pm, L_\pm}-\Delta_{k_\pm,L_\pm -1}$).
+    \end{itemize}
+\end{lemma}
+
+\begin{proof}
+    \uses{L:estimate_Delta_kell, L:extremal_ks_part1, L:extremal_ks_part3}
+    [Proof of Lemma~\ref{L:a_technical_lemma_in_the_proof_of_statements_c_d_part1}]
+    To see the uniqueness of $k_1$, we first note that there is at most one such $k_1$ in each of the range $\big( k_{\max}(n-1), k_{\max}(n)\big]$ and $ \big[ k_{\min}(n-1), k_{\min}(n)\big)$ because those are intervals of length $< p^2$. (We warn the reader again of our unusual definition of $k_{\min}$ in Lemma-Notation~\ref{L:extremal_ks_part3}.) Suppose that there are two $k_1$ and $k'_1$ in the two intervals above, respectively. Then
+    \begin{equation}
+    \label{E:vp_of_k1-k_plus}
+    v_p(k_{1\bullet}-k_{+\bullet}) \geq v_p(w_\star - w_{k_+})-1 \geq \Delta_{k_+, L_+}-\Delta_{k_+, L_+-1}-1 \geq \tfrac 12+ \tfrac {p-1}2(L_+-1),
+    \end{equation}
+    where the last inequality is from Lemma~\ref{L:estimate_Delta_kell}, and the same inequality holds for $v_p(k'_{1\bullet}-k_{+\bullet})$.
+    On the other hand, using the formulae for $k_{{\mathrm{mid}}\bullet}$ and $k_{\max\bullet}$ from Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3} and that $n = \frac12 d_{k_+}^{\mathrm{Iw}}-L_+$, we have that
+    \[
+    k_{+\bullet}=n+L_++\delta_\varepsilon-1, \qquad k_{1\bullet}= (p+1)\tfrac {n}2 +  \beta_{[n]}-1-s
+    \]
+    for some $s \in \{0, \dots, p-\theta\}$,  where $\theta = \beta_{[n-1]}-\beta_{[n]}+\frac{p+1}2$ as given in the proof of Lemma~\ref{L:estimate_Delta_kell}.
+    It follows that
+    \begin{equation}
+    \label{E:k1-k_plus_-s}
+    k_{1\bullet} - k_{+\bullet} - \big(\tfrac{p-1}2k_{+\bullet} - \tfrac{p+1}2 (L_++\delta_\varepsilon)-1\big)  = \tfrac{p+1}2 + \beta_{[n]}-s.
+    \end{equation}
+    Similarly, using the formulae for $k_{{\mathrm{mid}}\bullet}$ and $k_{\min\bullet}$  from Lemma-Notations~\ref{L:extremal_ks_part1}--\ref{L:extremal_ks_part3}, we can write $pk_\bullet'=(p+1)(\frac n2+\delta_{\varepsilon })-\beta_{[n]}-s'$, for some $s'\in \{\theta,\dots, p \}$ and
+    get
+    $$
+    pk_{+\bullet} -pk'_{1\bullet} -  \big(\tfrac{p-1}2k_{+\bullet} + \tfrac{p+1}2( L_+-\delta_\varepsilon)-1\big) =\tfrac{p+1}2+\beta_{[n]}+s'-p.
+    $$
+    So we deduce that
+    $$
+    v_p\big( (pk_{+\bullet}-pk'_{1\bullet}) - (k_{1\bullet} - k_{+\bullet})\big)  \geq \tfrac 12 + \tfrac {p-1}2(L_+-1), \quad \textrm{and}
+    $$
+    $$
+    \big|(pk_{+\bullet}-pk'_{1\bullet}) - (k_{1\bullet} - k_{+\bullet})\big| = (p+1)L_+ + s+s'-p.
+    $$
+    This is not possible unless $L_+  =1$.
+\end{proof}
+
+\begin{lemma}
+    \label{L:a_technical_lemma_in_the_proof_of_statements_c_d_part2}
+    \uses{L:a_technical_lemma_in_the_proof_of_statements_c_d_part1, N:L_plus_and_L-}
+    Under the above notations ~\ref{N:L_plus_and_L-}, assume $L_+=1$. Then either Lemma~\ref{L:a_technical_lemma_in_the_proof_of_statements_c_d_part1} holds, or there exist two integers $k_1$ and $k_1'$ such that
+    \begin{itemize}
+    \item $k_1 \equiv k_1'\equiv k_\varepsilon \bmod p-1$,
+    \item $n = d_{k_1}^{\mathrm{ur}}$ and $n = d_{k'_1}^{\mathrm{Iw}}- d_{k'_1}^{\mathrm{ur}}$, or equivalently $k_{1} \in \big( k_{\max}(n-1), k_{\max}(n)\big] $ and $k_1'\in \big[ k_{\min}(n-1), k_{\min}(n)\big)$,
+    and
+    \item $v_p(w_{k_1} - w_{k_+}) =2\geq v_p(w_\star - w_{k_+})$ and $v_p(w_{k'_1} - w_{k_+}) \geq v_p(w_\star - w_{k_+})$.
+    \end{itemize}
+    When the latter case happens, we say that we are in `special' case.
+\end{lemma}
+
+\begin{proof}
+    [Proof of Lemma~\ref{L:a_technical_lemma_in_the_proof_of_statements_c_d_part2}]
+    Now we assume $L_+=1$. Notice that $|s+s'-p|\leq p-\theta$. Thus $v_p\big( (pk_{+\bullet}-pk'_{1\bullet}) - (k_{1\bullet} - k_{+\bullet})\big) \leq 1$. This forces $v_p(k_{1\bullet}-k_{+\bullet})= 1$,  and hence $v_p(w_{k_1}-w_{k_+})=2$.
+\end{proof}
+
+\begin{proposition}
+    \label{P:near-Steinberg-nonvertex-ab_part2}
+    Fix a relevant character $\varepsilon$ and fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$. For each integer $n\ge 1$, we have:
+    \begin{itemize}
+    \item[(a)] If $n$ belongs to some near-Steinberg range ${\mathrm{nS}}_{w_\star, k}$, then $(n, v_p(g_n(w_\star)))$ is not a vertex of ${\operatorname{NP}}(G(w_\star, -))$.
+    \item[(b)] If $n$ is not contained in any closure of the near-Steinberg range $\overline{\mathrm{nS}}_{w_\star, k}$, then
+    \[
+    v_p(g_{n-1}(w_\star)) + v_p(g_{n+1}(w_\star)) > 2v_p(g_n(w_\star)).
+    \]
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part1, E:e2in4.20, E:increment_of_ghost_series_valuation_2, E:non-nS_gt_vertex_1, E:valuation, E:vp_wbullet_-_wk_lt_Delta_-Delta_explained, L:Delta_-_Delta_prime_bound, L:extremal_ks_part1, L:three_elementary_identities_part2}
+    [Proof of Proposition~\ref{P:near-Steinberg-nonvertex-ab_part2}]
+    Statement (a) is proved in Corollary~\ref{C:near-Steinberg_gt_straightline_part1}.
+    We now prove (b). By assumption, $n$ does not belong to the near-Steinberg range ${\mathrm{nS}}_{w_\star,k}$ for any $k\equiv k_\varepsilon \bmod p-1$. In particular we can take $k=k_{{\mathrm{mid}}}(n)$ defined in Lemma-Notation~\ref{L:extremal_ks_part1}. The non-near-Steinberg condition says that
+    $$v_p(w_\star - w_k) < \Delta_{k, 1} - \Delta_{k, 0} \stackrel{\textrm{Lemma~\ref{L:Delta_-_Delta_prime_bound}}}= \Delta'_{k,1}-\Delta'_{k,0}.
+    $$
+    By ghost duality and \eqref{E:increment_of_ghost_series_valuation_2}, we deduce that
+    \begin{equation}
+    \label{E:vp_wbullet_-_wk_lt_Delta_-Delta_explained}
+    2v_p(w_\star - w_k) < \Delta'_{k, 1} + \Delta'_{k, -1} - 2\Delta'_{k, 0} =\hspace{-30pt}\sum_{
+    k_{{\max}\bullet}(n-1) < k'_\bullet \leq k_{{\max}\bullet}(n)}
+    \hspace{-30pt} v_p(w_k - w_{k'})
+    +\hspace{-30pt}
+    \sum_{
+    k_{{\min}\bullet}(n-1) \leq k'_\bullet < k_{{\min}\bullet}(n)}
+    \hspace{-30pt}v_p(w_k - w_{k'}).
+    \end{equation}
+    We need to show that
+    $v_p(g_{n-1}(w_\star)) + v_p(g_{n+1}(w_\star)) > 2v_p(g_n(w_\star))$. By a formula similar to \eqref{E:increment_of_ghost_series_valuation_2}, it is equivalent to show that
+    \begin{equation}
+    \label{E:non-nS_gt_vertex_1}
+    \sum_{
+    k_{{\max}\bullet}(n-1) < k'_\bullet \leq k_{{\max}\bullet}(n)}
+    \hspace{-30pt} v_p(w_\star - w_{k'})
+    +\hspace{-30pt}
+    \sum_{
+    k_{{\min}\bullet}(n-1) \leq k'_\bullet < k_{{\min}\bullet}(n)}
+    \hspace{-30pt}v_p(w_\star - w_{k'})
+    >
+    2 v_p(w_\star - w_{k}).
+    \end{equation}
+    Note that $k_{{\max}\bullet}(n) - k_{{\max}\bullet}(n-1)\in \{a+2,p-1-a\}$. So there are at least $3$ terms on the left hand side of \eqref{E:non-nS_gt_vertex_1}. Thus, if $v_p(w_\star - w_k)\leq 1$, the inequality \eqref{E:non-nS_gt_vertex_1} holds trivially.
+    Now we assume that $v_p(w_\star - w_k) >1$.
+    If $v_p(w_\star - w_{k'}) \geq  v_p(w_k-w_{k'})$ for every $k'$ appearing in \eqref{E:non-nS_gt_vertex_1}, then \eqref{E:non-nS_gt_vertex_1} would follow from \eqref{E:vp_wbullet_-_wk_lt_Delta_-Delta_explained}. Now we assume that this is not the case, and let $k'$ be in the sum \eqref{E:non-nS_gt_vertex_1} with maximal $v_p(w_k-w_{k'})$ satisfying $v_p(w_k-w_{k'})>v_p(w_\star - w_{k'}) \geq  1$. Note that by Lemma~\ref{L:three_elementary_identities_part2}:
+    \begin{equation}
+    \label{E:e2in4.20}
+    k_{{\max}\bullet}(n) - k_\bullet = pk_\bullet - \tilde k_{{\min}\bullet}(n -1)  \quad \textrm{and} \quad k_{{\max}\bullet}(n-1) - k_\bullet = pk_\bullet - \tilde k_{{\min}\bullet}(n),
+    \end{equation}
+    the existence of $k''_\bullet \in [k_{{\min}\bullet}(n-1) , k_{{\min}\bullet}(n))$ implies that there is a $k'_\bullet\in (k_{{\max}\bullet}(n-1), k_{{\max}\bullet}(n)]$ such that
+    \begin{equation}
+    \label{E:valuation}
+    v_p(k'_\bullet - k_\bullet) = v_p(k_\bullet - k''_\bullet) +1.
+    \end{equation}
+    By the maximality of $v_p(w_k-w_{k'})$, we deduce that $k'_\bullet$ must live in $(k_{{\max}\bullet}(n-1), k_{{\max}\bullet}(n)]$. Moreover, since $v_p(w_k-w_{k'})>1$, using \eqref{E:e2in4.20} again, we further deduce that there exists $k''_\bullet \in [k_{{\min}\bullet}(n-1) , k_{{\min}\bullet}(n))$ satisfying \eqref{E:valuation}. In particular, we have
+    $$
+    v_p(w_\star - w_{k''}) \geq \min\{v_p(w_\star - w_{k}), v_p(w_k - w_{k''}) \} > v_p(w_\star - w_k)-1.
+    $$
+    In conclusion, using that the first sum in \eqref{E:non-nS_gt_vertex_1} has at least $3$ terms, we deduce that
+    \begin{align*}
+    \textrm{l.h.s. of \eqref{E:non-nS_gt_vertex_1}}\ &\geq \ v_p(w_\star - w_{k'}) + 1 + v_p(w_\star - w_{k''}) \\
+     &> \
+    v_p(w_\star - w_{k})+1 + (v_p(w_\star - w_k)-1) = 2v_p(w_\star - w_{k}).
+    \end{align*}
+    This is exactly what we want.
+\end{proof}
+
+\begin{proposition}
+    \label{P:near-Steinberg-nonvertex-cd_part2}
+    Fix a relevant character $\varepsilon$ and fix $w_\star \in {\mathfrak{m}}_{{\mathbb{C}}_p}$. For each integer $n\ge 1$, we have:
+    \begin{itemize}
+    \item[(c)] If $n$
+    is the boundary point of  precisely one maximal $\overline {\mathrm{nS}}_{w_\star, k}$, then
+    \begin{align*}
+    \textrm{if } n = \tfrac 12 d_{k}^{\mathrm{Iw}}+ L_{w_\star, k}, \quad v_p(g_{n+1}(w_\star)) - v_p(g_n(w_\star)) >  \tfrac1{2L_{w_\star, k}}\big(v_p(g_n(w_\star)) - v_p(g_{n-2L_{w_\star, k}}(w_\star))\big);
+    \\
+    \textrm{if } n = \tfrac 12 d_{k}^{\mathrm{Iw}}- L_{w_\star, k}, \quad\tfrac1{2L_{w_\star, k}}\big(v_p(g_{n+2L_{w_\star, k}}(w_\star)) - v_p(g_{n}(w_\star))\big)> v_p(g_{n}(w_\star)) - v_p(g_{n-1}(w_\star)).
+    \end{align*}
+    \item[(d)] If $n$ is contained in the closure of two maximal near-Steinberg range, i.e. $n = \frac 12 d_{k_-}^{\mathrm{Iw}}+ L_{w_\star, k_-} = \frac 12 d_{k_+}^{\mathrm{Iw}}- L_{w_\star, k_+}$, then
+    $$
+    \frac{v_p(g_n(w_\star)) - v_p(g_{n-2L_{w_\star, k_-}}(w_\star))}{2L_{w_\star, k_-}} < \frac{v_p(g_{n+2L_{w_\star, k_+}}(w_\star))-v_p(g_n(w_\star)) }{2L_{w_\star, k_+}}.
+    $$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+    \uses{C:finer_inequality_for_Delta, E:Delta_k1_gt_Delta_k2, E:three_points_convex, E:vertex_three_points_after_shift, L:a_technical_lemma_in_the_proof_of_statements_c_d_part1, L:a_technical_lemma_in_the_proof_of_statements_c_d_part2, L:estimate_Delta_kell, N:L_plus_and_L-, P:ghost_compatible_with_theta_AL_and_p-stabilization_part4, P:gouvea_k-1_p_plus_1_conjecture, P:shifting_points_wstar_to_wk_part1, P:shifting_points_wstar_to_wk_part4}
+    [Proof of Proposition~\ref{P:near-Steinberg-nonvertex-cd_part2}]
+    We prove (c) and (d) using a uniform argument, with some abuse of notations ~\ref{N:L_plus_and_L-}.
+    For the rest of the discussion, we assume that $L_+ \geq L_-$, and the other case can be proved similarly. In this case, ${\mathrm{nS}}_{w_\star, k_+}$ is a genuine near-Steinberg range, and by  \eqref{E:Delta_k1_gt_Delta_k2} and Lemma~\ref{L:estimate_Delta_kell},
+    \[
+    \Delta_{k_+, L_+} - \Delta_{k_+, L_+-1} > \Delta_{k_-, L_-} - \Delta_{k_-, L_--1}.
+    \]
+    We need to show that the following three points
+    \begin{equation}
+    \label{E:three_points_convex}
+    \big( \tfrac 12d_{k_-}^{\mathrm{Iw}}- L_-, v_p(g_{n-2L_-}(w_\star))\big), \quad \big( n, v_p(g_{n}(w_\star))\big), \quad \big( \tfrac 12d_{k_+}^{\mathrm{Iw}}+ L_+, v_p(g_{n+2L_+}(w_\star))\big)
+    \end{equation}
+    are convex.
+    As suggested by Lemmas~\ref{L:a_technical_lemma_in_the_proof_of_statements_c_d_part1} and \ref{L:a_technical_lemma_in_the_proof_of_statements_c_d_part2}, we divide our discussion into two cases: $L_+\geq 2$ and $L_+=1$.
+    Assume $L_+\geq 2$ first.
+    Set ${\mathbf{k}}= \{k_+,k_1\}$ (and keep in mind that it is possible that $k_+=k_1$).
+    We would like to apply Proposition~\ref{P:shifting_points_wstar_to_wk_part4} to  $k = k_+$, the above ${\mathbf{k}}$, $w_\star$, and $[n_-, n_+] = [n-2L_-, n+2L_+]$. For this, we need to check that for each $k' = k_\varepsilon + (p-1)k'_\bullet \notin {\mathbf{k}}$ with $v_p(w_{k'}-w_{k_+}) \geq v_p(w_{k_+}-w_\star)$, the numbers $d_{k'}^{\mathrm{ur}}, d_{k'}^{{\mathrm{Iw}}}-d_{k'}^{{\mathrm{ur}}}, \frac 12d_{k'}^{\mathrm{Iw}}$ do not belong to $(n-2L_-, n+2L_+)$.
+    \begin{itemize}
+    \item
+    By Proposition~\ref{P:shifting_points_wstar_to_wk_part1}, they do not belong to $(n, n+2L_+)$ and $\frac 12d_{k'}^{\mathrm{Iw}}\neq n$.
+    \item
+    $d_{k'}^{\mathrm{ur}}, d_{k'}^{{\mathrm{Iw}}}-d_{k'}^{{\mathrm{ur}}}$ are not equal to $n$ by our choice of ${\mathbf{k}}$ above.
+    \item
+    When ${\mathrm{nS}}_{w_\star, L_-}$ is a genuine near-Steinberg range, $\Delta_{k_+, L_+} - \Delta_{k_+, L_+-1} > \Delta_{k_-, L_-} - \Delta_{k_-, L_--1}$ allows us to apply Proposition~\ref{P:shifting_points_wstar_to_wk_part1} to conclude that $d_{k'}^{\mathrm{ur}}, d_{k'}^{{\mathrm{Iw}}}-d_{k'}^{{\mathrm{ur}}}, \frac 12d_{k'}^{\mathrm{Iw}}$ do not belong to $(n-2L_-, n)$.
+    (When $L_- = \frac 12$, no more discussion is needed.)
+    \end{itemize}
+    To sum up, we can apply Proposition~\ref{P:shifting_points_wstar_to_wk_part4} to deduce that the three points in \eqref{E:three_points_convex} is a linear
+    shift of the following three points:
+    $$
+    \Big( j,\ v_p(g_{j, \hat{{\mathbf{k}}}}(w_{k_+})) + \sum_{k \in {\mathbf{k}}} m_j(k) v_p(w_\star-w_k)\Big)\quad \textrm{with} \quad j= n-2L_-,\,n,\, n+2L_+.
+    $$
+    These points are the same as
+    \begin{equation}
+    \label{E:vertex_three_points_after_shift}\Big( j,\ v_p(g_{j, \hat{ k_+}}(w_{k_+})) + m_j(k_+)v_p(w_\star-w_{k_+}) - m_j(k_1)\big(v_p(w_{k_+}-w_{k_1})- v_p(w_\star-w_{k_1})  \big)\Big).
+    \end{equation}
+    with $j = n-2L_-, n, n+2L_+$, where the last term appears only when $k_1$ exists and is not equal to $k_+$ (note that we flip the sign before the sum over ${\mathbf{k}}$ so that the summands are positive). we write $P_-$, $P$, $P_+$ for these three points, respectively.
+    We separate the discussion into the following three possibilities:
+    (i)
+    If $k_1=k_+$, that is, $d_{k_+}^{\mathrm{ur}}= n$, then $m_j(k_+) = 0$ for $j = n-2L_-, n, n+2L_+$.
+    Proposition~\ref{P:ghost_compatible_with_theta_AL_and_p-stabilization_part4} (applied to the slope of $\overline{PP_+}$) and Proposition~\ref{P:gouvea_k-1_p_plus_1_conjecture} (applied to the slope of $\overline{P_-P}$) together imply that
+    \[
+    \textrm{slope of }\overline{PP_+}  - \textrm{slope of }\overline{P_-P} \geq \frac {k_+-2}{2} -  \frac{k_+-1}{p+1}>0.
+    \]
+    This last inequality needs $k_+ \geq 3$; but this is okay because when $k_+ = 2 $ or $ 2\frac 12$ (by our convention made in Notation~\ref{N:L_plus_and_L-}), $d_{k_+}^{\mathrm{Iw}}$ is at most $1$ and we cannot be in the case of (c) and (d).
+    The points $P_-$, $P$, and $P_+$ are clearly convex. Thus (c) and (d) are proved in this case.
+    (ii) If there is no $k_1$, then obviously $d_{k_+}^{\mathrm{ur}}\neq n$. Using $\Delta_{k_+, L_+} - \Delta_{k_+, L_+-1} \geq \Delta_{k_-, L_-} - \Delta_{k_-, L_--1}$, we deduce that $d_{k_+}^{\mathrm{ur}}$ does not belong to $(n-2L_-, n)$. Thus $[n-2L_-, n]\subseteq [d_{k_+}^{\mathrm{ur}}, \tfrac 12 d_{k_+}^{\mathrm{Iw}})$; so $m_j(k_+)$ is linear in $j \in [n-2L_-,n]$. By the ghost duality, the slope of $\overline{P_-P}$ is given by
+    \begin{align*}
+    &\frac{k_+-2}2  -\frac{ \Delta'_{k_+, L_++2L_-} - \Delta'_{k_+, L_+}}{2L_-} + v_p(w_\star- w_{k_+})
+    \\
+    \leq\ & \frac{k_+-2}2 - \big(\Delta_{k_+, L_++1}- \Delta_{k_+, L_+}\big) + v_p(w_\star - w_{k_+}) < \frac{k_+-2}2,
+    \end{align*}
+    where the first inequality uses the fact that $(L_+, \Delta'_{k_+, L_+})$ is a vertex in $\underline \Delta_{k_+}$. On the other hand, the slope of $\overline{PP_+}$ is simply $\frac{k_+-2}2$. Then (c) and (d) hold in this case too.
+    (iii) If $k_1$ exists and $k_1 \neq k_+$, then by the uniqueness of $k_1$, we get $d_{k_+}^{\mathrm{ur}}\neq n$. As in (ii), we first have $[n-2L_-, n]\subseteq [d_{k_+}^{\mathrm{ur}}, \tfrac 12 d_{k_+}^{\mathrm{Iw}})$; so $m_j(k_+)$ is linear in $j \in [n-2L_-,n]$.
+    Regardless of whether  $n=d_{k_1}^{{\mathrm{ur}}}$ or $d_{k_1}^{\mathrm{Iw}}-d_{k_1}^{\mathrm{ur}}$,  by \eqref{E:vertex_three_points_after_shift},
+    \begin{align*}
+    &\textrm{slope of }\overline{PP_+}  - \textrm{slope of }\overline{P_-P}
+    \\
+    =\ & \frac{k_+-2}2 - \Big( \frac{k_+-2}2  -\frac{\Delta'_{k_+, L_++2L_-} - \Delta'_{k_+, L_+}}{2L_-} +v_p(w_\star-w_{k_+})\Big) - \big(v_p(w_{k_+}-w_{k_1})- v_p(w_\star-w_{k_1})  \big)
+    \\
+    \geq \ &\frac{\Delta'_{k_+, L_++2L_-} - \Delta'_{k_+, L_+}}{2L_-} - v_p(w_{k_+}-w_{k_1}),
+    \end{align*}
+    where the last inequality uses the fact that $$v_p(w_{k_1} - w_{k_+}) \geq  v_p(w_\star-w_{k_+})\quad \Rightarrow \quad v_p(w_\star - w_{k_1}) \geq  v_p(w_\star-w_{k_+}).$$
+    Applying Corollary~\ref{C:finer_inequality_for_Delta} to $k = k_+$, $k'=k_1$ $\ell = L_++1, \dots, L_++2L_-$, and noting that $d_{k_1}^{\mathrm{ur}}$ or $d_{k_1}^{\mathrm{Iw}}-d_{k_1}^{\mathrm{ur}}$ belong to $(\frac 12d_{k_+}^{\mathrm{Iw}}- \ell, \frac 12d_{k_+}^{\mathrm{Iw}}+\ell)$ for these $\ell$, we then have
+    $$
+    \Delta'_{k_+, \ell} - \Delta'_{k_+, \ell-1} \geq \tfrac 12(2\ell-1) + v_p(w_{k_{+}} - w_{k_1})>v_p(w_{k_{+}} - w_{k_1}).
+    $$
+    Summing this up over $\ell = L_++1, \dots, L_++2L_-$, we obtain
+    $$
+    \Delta'_{k_+, L_++2L_-} - \Delta'_{k_+, L_+} > 2L_- \cdot v_p(w_{k_{+}} - w_{k_1}).
+    $$
+    This proves (c) and (d) in the case $L_+\geq 2$.
+    Now we treat the case for $L_+=1$, and hence $L_-=\frac 12$. We can assume that we are in the `special case'. Replace the set ${\mathbf{k}}=\{k_+,k_1 \}$ by ${\mathbf{k}}=\{k_+,k_1,k_1' \}$, and a similar argument as above reduces the proof to show that the following three points:
+    \begin{equation}
+    \Big( j,\ v_p(g_{j, \hat{ k_+}}(w_{k_+})) + m_j(k_+)v_p(w_\star-w_{k_+}) - \sum _{k=k_1,k_1'}m_j(k)\big(v_p(w_{k_+}-w_{k})- v_p(w_\star-w_{k})  \big)\Big).
+    \end{equation}
+    with $j=n-1,n,n+2$, are convex. We denote these three points by $P_-,P,P_+$ as before. By a similar argument as in (iii), we have
+    \begin{align*}
+    &\textrm{slope of }\overline{PP_+}  - \textrm{slope of }\overline{P_-P}
+    \\
+    =\ & \frac{k_+-2}2 - \Big( \frac{k_+-2}2  -(\Delta'_{k_+, 2} - \Delta'_{k_+, 1}) +v_p(w_\star-w_{k_+})\Big) -
+    \sum_{k=k_1,k_1'} \big(v_p(w_{k_+}-w_{k})- v_p(w_\star-w_{k})  \big)
+    \\
+    \geq \ &(\Delta'_{k_+, 2} - \Delta'_{k_+, 1})- v_p(w_{k_+}-w_{k'_1})-\Big(\big(v_p(w_{k_+}-w_{k_1})- v_p(w_\star-w_{k_1})  \big)\Big).
+    \end{align*}
+    Recall $v_p(w_{k_1}-w_{k_+})=2$ and $v_p(w_\star-w_{k_1})\geq 1$, so we have
+    \[
+    \textrm{slope of }\overline{PP_+}  - \textrm{slope of }\overline{P_-P}\geq (\Delta'_{k_+, 2} - \Delta'_{k_+, 1}) - v_p(w_{k_+}-w_{k'_1})-1
+    \]
+    Since $d_{k_1'}^{\mathrm{Iw}}-d_{k_1'}^{\mathrm{ur}}=n\in (\frac 12 d_{k_+}^{\mathrm{Iw}}-2,\frac 12 d_{k_+}^{\mathrm{Iw}}+2)$, we can apply Corollary~\ref{C:finer_inequality_for_Delta} to $k=k_+$, $k'=k_1'$ and $l=2$, and get
+    \[
+    \Delta'_{k_+, 2} - \Delta'_{k_+, 1}- v_p(w_{k_+}-w_{k'_1})\geq \frac 32>1.
+    \]
+    This completes the proof of (c) and (d).
+\end{proof}
+
+\begin{corollary}
+    \label{C:integrality_of_slopes_of_G_part1}
+    Fix $\varepsilon$ a relevant character. Then for any $k \equiv k_\varepsilon  \bmod p-1$, the slopes of ${\operatorname{NP}}(G(w_k, - ))$ with multiplicity one are all integers.
+\end{corollary}
+
+\begin{proof}
+    Note that $v_p(g_n(w_k))$ is always an integer by definition. So a slope with multiplicity $1$ must be an integer.
+\end{proof}
+
+\begin{corollary}
+    \label{C:integrality_of_slopes_of_G_part2}
+    Fix $\varepsilon$ a relevant character. Then for any $k \equiv k_\varepsilon  \bmod p-1$, other slopes of ${\operatorname{NP}}(G(w_k, - ))$ always have even multiplicity and they belong to $\frac a2 +{\mathbb{Z}}$.
+\end{corollary}
+
+\begin{proof}
+    \uses{T:near_Steinberg_non-vertex_part3}
+    This follows from Theorem~\ref{T:near_Steinberg_non-vertex_part3}.
+\end{proof}
+
+\begin{proposition}
+    \label{P:vertices_of_Deltak_part1}
+    Fix $\varepsilon$ a relevant character and $k_0 \equiv k_\varepsilon \bmod p-1$.
+    For $\ell \in\{0, \dots, \frac12d_{k_0}^{\mathrm{new}}-1\}$, if $(\frac 12d_{k_0}^{\mathrm{Iw}}+ \ell, w_{k_0}, k_1)$ is near-Steinberg for some $k_1 > {k_0}$, then the point $(\ell, \Delta'_{{k_0},\ell})$ is not a vertex of $\underline \Delta_{k_0}$.
+\end{proposition}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part2}
+    This is proved in Corollary~\ref{C:near-Steinberg_gt_straightline_part2}.
+\end{proof}
+
+\begin{proposition}
+    \label{P:vertices_of_Deltak_part2}
+    Fix $\varepsilon$ a relevant character and $k_0 \equiv k_\varepsilon \bmod p-1$.
+    For $\ell \in\{0, \dots, \frac12d_{k_0}^{\mathrm{new}}-1\}$, if the point $(\ell, \Delta'_{{k_0},\ell})$ is not a vertex of $\underline \Delta_{k_0}$, then $(\frac 12d_{k_0}^{\mathrm{Iw}}+ \ell, w_{k_0}, k_1)$ is near-Steinberg for some  $k_1 > {k_0}$.
+\end{proposition}
+
+\begin{proof}
+    \uses{E:Delta_prime_convex_points, E:vertex_three_points_after_shift, P:shifting_points_wstar_to_wk_part4, T:near_Steinberg_non-vertex_part2}
+    We need to show that, for each integer $\ell$, if $\big(\frac 12d_{k_0}^{\mathrm{Iw}}+ \ell, w_{k_0}, k_1\big)$ is not  near-Steinberg for any $k_1 > {k_0}$, then $(\ell, \Delta'_{{k_0}, \ell})$ is a vertex. Let $2L_+$ (resp. $2L_-$) denote the largest size of near-Steinberg range ${\mathrm{nS}}_{w_k, k_+}$ (resp. ${\mathrm{nS}}_{w_k, k_-}$) such that $\frac 12d_{k_0}^{\mathrm{Iw}}+\ell = \frac 12d_{k_+}^{\mathrm{Iw}}-L_+$ (resp. $\frac 12d_k^{\mathrm{Iw}}+\ell = \frac 12d_{k_-}^{\mathrm{Iw}}+L_-$). If such near-Steinberg range does not exist, we put $L_+ = \frac 12$ (resp. $L_- = \frac 12$).
+    Then we need to show that
+    \begin{equation}
+    \label{E:Delta_prime_convex_points}
+    \frac{v_p(\Delta'_{k_0, \ell - 2L_-}) - v_p(\Delta'_{k_0, \ell})}{2L_-} \;<\; \frac{v_p(\Delta'_{k_0, \ell + 2L_+})-v_p(\Delta'_{k_0, \ell}) }{2L_+}.
+    \end{equation}
+    We shall indicate how to modify the proof of statements (b)(c)(d) in the proof of Theorem~\ref{T:near_Steinberg_non-vertex_part2}, to prove the corresponding situation in our case.
+    Indeed, when $L_+ = L_-=\frac 12$, we may prove \eqref{E:Delta_prime_convex_points} using the exactly same argument as in the proof of statement (a) in Theorem~\ref{T:near_Steinberg_non-vertex_part2} for $w_\star = w_{k_0}$ and $n = \frac 12d_{k_0}^{\mathrm{Iw}}+\ell$, except that $g_j(w_\star)$ is replaced by $\Delta'_{k_0, j - \frac 12 d_{k_0}^{\mathrm{Iw}}}$ for $\big|j -\big(\frac 12 d_{k_0}^{\mathrm{Iw}}+\ell\big)\big| \leq 1$ and the role of $w_\star$ is played by $w_{k_0}$.
+    Now, we assume that at least one of $L_+$ and $L_-$ is greater or equal to $1$. Without loss of generality, we assume that $L_+ \geq L_-$ and the other case can be treated similarly. Then we can argue in a same way as in the proof of statements (c) and (d) in Theorem~\ref{T:near_Steinberg_non-vertex_part2}, with $w_\star = w_{k_0}$, $n = \frac 12d_{k_0}^{\mathrm{Iw}}+ \ell$, and $g_j(w_\star)$ replaced by $g_{j, \hat k_0}(w_{k_0})$. After we apply Proposition~\ref{P:shifting_points_wstar_to_wk_part4}, the points $P_-$, $P$, $P_+$ in \eqref{E:vertex_three_points_after_shift} should become
+    \begin{equation}
+    \label{E:vertex_three_points_after_shift_Delta} \Big( j,\ v_p(g_{j, \hat{ k_+}}(w_{k_+})) + (m_j(k_+)- m_j(k_0))v_p(w_{k_0}-w_{k_+}) - m_j(k_1)\big(v_p(w_{k_+}-w_{k_1})- v_p(w_{k_0}-w_{k_1})  \big)\Big).
+    \end{equation}
+    But $m_j(k_0)$ is linear in $k_0$; so we may remove this term, and completely reduce to the proof of (c) and (d) therein.
+\end{proof}
+
+\begin{proposition}
+    \label{P:vertices_of_Deltak_part3}
+    Fix $\varepsilon$ a relevant character and $k_0 \equiv k_\varepsilon \bmod p-1$.
+    For $\ell \in\{0, \dots, \frac12d_{k_0}^{\mathrm{new}}-1\}$, if $(\frac 12d_{k_0}^{\mathrm{Iw}}- \ell, w_{k_0}, k_2)$ is near-Steinberg for some $k_2 < {k_0}$, then the point $(\ell, \Delta'_{{k_0},\ell})$ is not a vertex of $\underline \Delta_{k_0}$.
+\end{proposition}
+
+\begin{proof}
+    \uses{C:near-Steinberg_gt_straightline_part2}
+    This is proved in Corollary~\ref{C:near-Steinberg_gt_straightline_part2}.
+\end{proof}
+
+\begin{proposition}
+    \label{P:vertices_of_Deltak_part4}
+    Fix $\varepsilon$ a relevant character and $k_0 \equiv k_\varepsilon \bmod p-1$.
+    For $\ell \in\{0, \dots, \frac12d_{k_0}^{\mathrm{new}}-1\}$, if the point $(\ell, \Delta'_{{k_0},\ell})$ is not a vertex of $\underline \Delta_{k_0}$, then $(\frac 12d_{k_0}^{\mathrm{Iw}}- \ell, w_{k_0}, k_2)$ is near-Steinberg for some  $k_2 < {k_0}$.
+\end{proposition}
+
+\begin{proof}
+    \uses{P:vertices_of_Deltak_part2}
+    This follows by the same argument as in Proposition~\ref{P:vertices_of_Deltak_part2} after replacing the condition $k_1>k_0$ by $k_2<k_0$ (and reversing the roles of $L_+$ and $L_-$).
+\end{proof}
+
+\begin{corollary}
+    \label{C:slopes_of_Deltak}
+    Fix $\varepsilon$ a relevant character and $k_0 \equiv k_\varepsilon \bmod p-1$.
+    The slopes of $\underline \Delta_{k_0}$ with multiplicity one belong to ${\mathbb{Z}}$. Other slopes all have even multiplicity and the slopes belong to $\frac a2 + {\mathbb{Z}}$.
+\end{corollary}
+
+\begin{proof}
+    \uses{C:integrality_of_slopes_of_G_part1, C:integrality_of_slopes_of_G_part2}
+    This follows from Corollaries~\ref{C:integrality_of_slopes_of_G_part1} and \ref{C:integrality_of_slopes_of_G_part2}.
+\end{proof}
